@@ -1,0 +1,141 @@
+
+html{
+
+}
+
+/****************ID SELECTORS************************/
+#toolbar-top{
+  background-color: #32383D;
+}
+#side-nav{
+  background-color: #32383D;
+  overflow: hidden;
+}
+#side-nav-content .spacer{
+  background-color: #32383D;
+}
+#body-content{
+  background-color: #202529;
+  color: white;
+}
+
+#user-avatar{
+  text-align: center;
+  background-color: #32383D;
+  overflow: hidden;
+
+}
+#user-avatar img{
+  border-radius: 50%;
+  /*max-width: 50%;*/
+  width: 10vw;
+  height: 10vw;
+}
+#user-avatar h3 {
+  color: white;
+  margin: 0;
+}
+
+#login-modal{
+  /*text-align: center;*/
+  background-color: #ECF0F1;
+  /*color: white;*/
+  margin: 0 auto;
+  width: 25vw;
+}
+#login-modal md-input-container {
+  /*color: white;*/
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#login-modal md-input-container label {
+  /*color: white;*/
+}
+#login-modal md-input-container input {
+  /*color: white;*/
+}
+#login-modal md-dialog-content {
+  padding-top: 20px;
+}
+#login-modal input {
+  /*color: white;*/
+  width: 20vw;
+}
+#register{
+  background-color: inherit;
+}
+#register-card{
+  background-color: #ECF0F1;
+  width: 45vw;
+}
+
+#register-card .md-title-large{
+  color: #2980B9;
+  font-size: 5em;
+}
+
+#register-card #email,#password{
+  width: 20vw;
+}
+
+
+/*****************CLASS SELECTORS*********************/
+.list{
+  overflow:hidden;
+  background-color: #32383D;
+  color: white;
+}
+ .page-button{
+   margin-left: 0;
+   width: 100%;
+ }
+ .page-button a{
+   width: 100%;
+   text-decoration: none;
+   color: inherit;
+ }
+ .news-item{
+   color:black;
+ }
+
+
+
+
+.box3, .box2, .box1 {
+  display:flex;
+  box-sizing: border-box;
+  min-width:100%;
+}
+
+/*.body-content {
+  max-height:70%;
+  flex:1 1 70%;
+}*/
+
+.box2 {
+  height:20px;
+}
+
+.box3 {
+  height:30%;
+  max-height:30%;
+  flex:1 1 30%;
+}
+
+/*Animate . css*/
+.bounceInLeft{
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+}
+.bounceInRight{
+  -webkit-animation-name: bounceInRight;
+  animation-name: bounceInRight;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

@@ -1,0 +1,110 @@
+<html lang="en" >
+<head>
+  <title>CU eSports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="/css/animate.css" media="screen">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Firebase -->
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  </script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyBE84oEXHHsnVMjTebEjJvQXfvedaUfw2o", //Set our apiKey
+      authDomain: "esports-dev.firebaseapp.com",         //set the url
+      databaseURL: "https://esports-dev.firebaseio.com", //set the url?
+      storageBucket: "esports-dev.appspot.com",          //storage location
+    };
+    firebase.initializeApp(config);                      //Starts a connection with firebase
+  </script>
+
+    <base href="/">
+</head>
+<body ng-app="esports" ng-cloak layout="column">
+  <!-- **********************  HTML CONTENT *********************** -->
+  <md-toolbar id="toolbar-top" md-whiteframe="4" ng-controller="loginController as loginCtrl">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button md-primary" aria-label="Settings">
+        <md-icon class="md-icon-menu"></md-icon>
+      </md-button>
+      <span>eSports</span>
+      <span flex></span>
+      <span ng-click="showModal($event)" ng-if="!isUser"><md-button>Login</md-button></span>
+      <span ng-click="logout()" ng-if="isUser"><md-button>Logout</md-button></span>
+    </div>
+  </md-toolbar>
+  <div  flex layout="row">
+    <md-sidenav id="side-nav" flex="15" md-is-locked-open="true" class="md-whiteframe-z1" md-whiteframe="3" >
+      <md-content ng-controller="userController">
+        <div id="side-nav-content">
+          <!-- User Image -->
+          <div class="spacer">
+            <br>
+            <br>
+          </div>
+          <div id="user-avatar">
+            <img src="{{ current_user.avatar }}" alt="User Image" md-whiteframe="4" />
+            <h3>
+              {{ current_user.username }}
+            </h3>
+          </div>
+          <div class="spacer">
+            <br>
+            <br>
+          </div>
+          <div class="list" ng-controller="loginController">
+            <a ng-if="isUser" href="/profile"><md-button class="page-button">Profile</md-button></a>
+            <a href="/"><md-button class="page-button">Home</md-button></a>
+            <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a>
+            <a href="/events"><md-button class="page-button">Events</md-button></a>
+            <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
+          </div>
+        </div>
+      </md-content>
+    </md-sidenav>
+
+    <div id="body-content" layout="column" flex>
+      <div>
+        <ng-view></ng-view>
+      </div>
+    </div>
+  <!-- ********************** END HTML CONTENT *********************** -->
+  <!-- ANGULAR + ANGULARFIRE -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"  ></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
+  <!-- APP JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
