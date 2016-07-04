@@ -78,6 +78,28 @@ html{
   width: 20vw;
 }
 
+#user-profile{
+  background-color: inherit;
+}
+#user-profile #user-profile-card{
+  width: 40vw;
+  color: black;
+}
+
+#user-profile #user-profile-card #card-content{
+  text-align: center;
+  margin: 0 auto;
+}
+#user-profile #user-profile-card #user-avatar{
+  border-radius: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width: 5px;
+  max-width: 10vw;
+  max-height: 10vw;
+}
+
+
 
 /*****************CLASS SELECTORS*********************/
 .list{
