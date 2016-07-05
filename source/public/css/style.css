@@ -82,7 +82,7 @@ html{
   background-color: inherit;
 }
 #user-profile #user-profile-card{
-  width: 40vw;
+  /*width: 40vw;*/
   color: black;
 }
 
@@ -92,9 +92,6 @@ html{
 }
 #user-profile #user-profile-card #user-avatar{
   border-radius: 50%;
-  border-style: solid;
-  border-color: white;
-  border-width: 5px;
   max-width: 10vw;
   max-height: 10vw;
 }

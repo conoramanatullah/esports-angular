@@ -77,10 +77,12 @@
             <br>
           </div>
           <div class="list" ng-controller="loginController">
+
             <a ng-if="isUser" href="/profile"><md-button class="page-button">Profile</md-button></a>
             <a href="/"><md-button class="page-button">Home</md-button></a>
             <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a>
             <a href="/events"><md-button class="page-button">Events</md-button></a>
+
             <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
           </div>
         </div>
@@ -89,9 +91,28 @@
 
     <div id="body-content" layout="column" flex>
       <div>
+        <md-button ng-click="toggleRight()" ng-controller="mainController">Toggle Right</md-button>
         <ng-view></ng-view>
+
       </div>
     </div>
+
+    <!-- Right Sidenav -->
+
+    <div ng-controller = "mainController">
+      <md-sidenav md-component-id="right" class="md-sidenav-right md-whiteframe-4dp">
+        <md-toolbar class="md-accent" ng-controller="RightCtrl">
+          <h1 class="md-toolbar-tools">Notifications</h1>
+          <md-button ng-click="close()">Close</md-button>
+        </md-toolbar>
+        <md-content flex layout-padding>
+          No new notifications.
+        </md-content>
+      </md-sidenav>
+    </div>
+
+
+
   <!-- ********************** END HTML CONTENT *********************** -->
   <!-- ANGULAR + ANGULARFIRE -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>

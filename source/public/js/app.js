@@ -32,8 +32,16 @@
   })
 
   //  *******************Controllers!*********************
-  .controller('mainController', function($scope, $rootScope) {
+  .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout) {
+    $scope.toggleRight = function () {
+      $mdSidenav('right').toggle();
+    };
 
+  })
+  .controller('RightCtrl' , function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      $mdSidenav('right').toggle();
+    }
   })
 
   .controller('sideNavigationController', function($scope){
