@@ -1,24 +1,33 @@
 <!-- Home Template!  i love dis -->
 <div class="">
-  <div flex layout-padding class="animated bounceInLeft">
-    <md-card layout="column">
+  <div flex layout-padding class="animated slideInLeft">
+    <md-card layout="column" class="news-item">
       <md-card-content>
-        <iframe
+        <span><h1>Featured Games</h1></span>
+        <span>25 Players online!</span>
+
+        <div class="gamebox">
+          <img ng-src="img/lol_box.jpg" alt="" />
+          <div class="gamebox-footer">
+
+          </div>
+        </div>
+        <!-- <iframe
           src="http://player.twitch.tv/?channel=timthetatman"
           height="480"
           width="720"
           frameborder="0"
           scrolling="no"
           allowfullscreen="true">
-        </iframe>
+        </iframe> -->
         <!-- <img src="img/scar2.jpg" class="md-card-image " alt="image caption"> -->
       </md-card-content>
     </md-card>
     <md-card class="news-item" layout="column">
       <!-- <img src="img/scar2.jpg" class="md-card-image" alt="image caption"> -->
       <md-card-content>
-        <h2>Card headline</h2>
-        <p>Card content</p>
+        <h2>Featured Events</h2>
+        <span></span>
       </md-card-content>
     </md-card>
   </div>

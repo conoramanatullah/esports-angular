@@ -2,7 +2,12 @@
 html{
 
 }
-
+a:link {
+  color: inherit;
+}
+a:hover{
+  color: black;
+}
 /****************ID SELECTORS************************/
 #toolbar-top{
   background-color: #32383D;
@@ -99,6 +104,23 @@ html{
 
 
 /*****************CLASS SELECTORS*********************/
+.gamebox {
+  width: 10vw;
+  height: auto;
+}
+.gamebox img{
+  position: relative;
+  width: 10vw;
+}
+/*.gamebox-footer {
+  position: absolute;
+  background-color: grey;
+  width: inherit;
+  height: 3vw;
+  z-index: 100;
+  top: 0;
+
+}*/
 .list{
   overflow:hidden;
   background-color: #32383D;
@@ -142,15 +164,16 @@ html{
 }
 
 /*Animate . css*/
-.bounceInLeft{
-  -webkit-animation-name: bounceInLeft;
-  animation-name: bounceInLeft;
+
+.slideInLeft{
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
 }
-.bounceInRight{
-  -webkit-animation-name: bounceInRight;
-  animation-name: bounceInRight;
+.slideInRight{
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
   -webkit-animation-duration: .3s;
   animation-duration: .3s;
 }

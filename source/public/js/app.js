@@ -26,6 +26,13 @@
         templateUrl : 'templates/profile.html',
         controller  : profileController
       })
+      .when('/teams', {
+        templateUrl : 'templates/teams.html',
+
+      })
+      .when('/create-team', {
+        templateUrl : 'templates/create-team.html'
+      })
 
     // location provider makes our URLs pretty
     $locationProvider.html5Mode(true);
@@ -44,8 +51,10 @@
     }
   })
 
-  .controller('sideNavigationController', function($scope){
-
+  .controller('menuController', function($scope, $location){
+    $scope.redirect = function (location) {
+      $location.path(location);
+    };
   })
 
   .controller('loginController', function($scope, $mdDialog, FirebaseUrl, $location) {
