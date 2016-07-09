@@ -50,6 +50,22 @@
       $mdSidenav('right').toggle();
     }
   })
+  .controller('LeftCtrl' , function($scope, $timeout, $mdSidenav, $log){
+
+    $scope.close = function () {
+      $mdSidenav('left').toggle();
+    }
+  })
+  .controller('TwitchCtrl', function($scope){
+    var options = {
+        width: 480,
+        height: 360,
+        channel: "dansgaming",
+        //video: "{VIDEO_ID}"
+    };
+    var player = new Twitch.Player("twitch-stream", options);
+    player.setVolume(0.5);
+  })
 
   .controller('menuController', function($scope, $location){
     $scope.redirect = function (location) {

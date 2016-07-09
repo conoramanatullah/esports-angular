@@ -1,34 +1,54 @@
-<!-- Home Template!  i love dis -->
-<div class="">
-  <div flex layout-padding class="animated slideInLeft">
-    <md-card layout="column" class="news-item">
-      <md-card-content>
-        <span><h1>Featured Games</h1></span>
-        <span>25 Players online!</span>
+<md-content class="animated bounceInLeft" style="background-color: inherit">
+  <!-- First Column -->
+  <div layout="column">
+    <div layout="row">
+      <div flex="40">
+        <!-- TODO Make a function that rotates news items , add DB integration-->
+        <md-card id="news-large">
 
-        <div class="gamebox">
-          <img ng-src="img/lol_box.jpg" alt="" />
-          <div class="gamebox-footer">
+          <img ng-src="img/arena3.jpg" alt="arena" />
+          <md-card-content>
+            <h1>NiP win it all!</h1>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon>menu</md-icon>
+          </md-button>
+        </md-card-actions>
+        </md-card>
+        <div layout="row">
+          <md-card flex="25" class="news-small">
+            <img ng-src="img/arena2.jpg" alt="arena" />
 
-          </div>
+          </md-card>
+          <md-card flex="25" class="news-small">
+            <img ng-src="img/arena.jpg" alt="arena" />
+
+          </md-card>
+          <md-card flex="25" class="news-small">
+            <img ng-src="img/bg1.png" alt="arena" />
+
+          </md-card>
+          <md-card flex="25" class="news-small">
+            <img ng-src="img/bg2.png" alt="arena" />
+
+          </md-card>
         </div>
-        <!-- <iframe
-          src="http://player.twitch.tv/?channel=timthetatman"
-          height="480"
-          width="720"
-          frameborder="0"
-          scrolling="no"
-          allowfullscreen="true">
-        </iframe> -->
-        <!-- <img src="img/scar2.jpg" class="md-card-image " alt="image caption"> -->
-      </md-card-content>
-    </md-card>
-    <md-card class="news-item" layout="column">
-      <!-- <img src="img/scar2.jpg" class="md-card-image" alt="image caption"> -->
-      <md-card-content>
-        <h2>Featured Events</h2>
-        <span></span>
-      </md-card-content>
-    </md-card>
+      </div>
+      <div flex="30">
+        <md-card id="match-tracker">
+          <h3>Team 1 VS Team 2</h3>
+        </md-card>
+        <div id="" ng-controller="TwitchCtrl">
+          <div id="twitch-stream"></div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <!-- End First Column-->
+
+</md-content>

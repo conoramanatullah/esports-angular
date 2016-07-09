@@ -49,8 +49,8 @@
   <!-- **********************  HTML CONTENT *********************** -->
   <md-toolbar id="toolbar-top" md-whiteframe="4" ng-controller="loginController as loginCtrl">
     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button md-primary" aria-label="Settings">
-        <md-icon class="md-icon-menu"></md-icon>
+      <md-button class="md-icon-button" aria-label="Close Left Menu" ng-controller="LeftCtrl" ng-click="close()">
+        <md-icon>menu</md-icon>
       </md-button>
       <span>eSports</span>
       <span flex></span>
@@ -58,8 +58,8 @@
       <span ng-click="logout()" ng-if="isUser"><md-button>Logout</md-button></span>
     </div>
   </md-toolbar>
-  <div  flex layout="row">
-    <md-sidenav id="side-nav" flex="15" md-is-locked-open="true" class="md-whiteframe-z1" md-whiteframe="3" >
+  <div flex layout="row" ng-controller="LeftCtrl">
+    <md-sidenav md-component-id="left" id="side-nav" flex="15" class="md-whiteframe-z1" md-whiteframe="3" md-is-locked-open="$mdMedia('min-width: 1280px')">
       <md-content ng-controller="userController">
         <div id="side-nav-content">
           <!-- User Image -->
@@ -100,14 +100,16 @@
               </md-menu-content>
             </md-menu>
             <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
+            <md-button ng-click="toggleRight()" ng-controller="mainController">Notifications</md-button>
           </div>
         </div>
       </md-content>
     </md-sidenav>
 
+
+
     <div id="body-content" layout="column" flex>
       <div>
-        <md-button ng-click="toggleRight()" ng-controller="mainController">Toggle Right</md-button>
         <ng-view></ng-view>
       </div>
     </div>

@@ -20,6 +20,8 @@ a:hover{
   background-color: #32383D;
 }
 #body-content{
+  overflow: hidden;
+  height: 100vh;
   background-color: #202529;
   color: white;
 }
@@ -101,6 +103,22 @@ a:hover{
   max-height: 10vw;
 }
 
+#news-large {
+  /*height: 30vw;*/
+}
+#news-large img {
+  max-height: 25vw;
+}
+.news-small{
+  height: 5vw;
+}
+#match-tracker {
+  height: 15vw;
+}
+
+
+
+
 
 
 /*****************CLASS SELECTORS*********************/
@@ -134,10 +152,7 @@ a:hover{
    width: 100%;
    text-decoration: none;
    color: inherit;
- }
- .news-item{
-   color:black;
- }
+}
 
 
 
