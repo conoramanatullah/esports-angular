@@ -50,21 +50,30 @@
       $mdSidenav('right').toggle();
     }
   })
-  .controller('LeftCtrl' , function($scope, $timeout, $mdSidenav, $log){
+  .controller('LeftCtrl' , function($scope, $timeout, $mdSidenav, $log, $mdMedia){
+    $scope.screenIsLarge = $mdMedia('lg');
+    $scope.screenIsMedium = $mdMedia('md');
+    $scope.screenIsSmall = $mdMedia('sm');
+
+    console.log($scope.screenIsSmall);
+    console.log($scope.screenIsMedium);
+    console.log($scope.screenIsLarge);
 
     $scope.close = function () {
       $mdSidenav('left').toggle();
     }
   })
-  .controller('TwitchCtrl', function($scope){
+  .controller('TwitchCtrl', function($scope, $timeout){
     var options = {
         width: 480,
         height: 360,
         channel: "dansgaming",
         //video: "{VIDEO_ID}"
     };
-    var player = new Twitch.Player("twitch-stream", options);
-    player.setVolume(0.5);
+    $timeout(function(){
+      var player = new Twitch.Player("twitch-stream", options);
+      player.setVolume(0.5);
+    },1000);
   })
 
   .controller('menuController', function($scope, $location){

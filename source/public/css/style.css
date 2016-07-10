@@ -2,6 +2,9 @@
 html{
 
 }
+body {
+  overflow: hidden;
+}
 a:link {
   color: inherit;
 }
