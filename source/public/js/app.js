@@ -78,7 +78,7 @@
     };
   })
 
-  .controller('loginController', function($scope, $mdDialog, FirebaseUrl, $location) {
+  .controller('loginController', function($scope, $mdDialog, FirebaseUrl, $location, $window) {
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -100,6 +100,7 @@
       firebase.auth().signOut().then(function() {
         $location.path('/');
         console.log("Signed out.");
+
       }, function(error) {
         console.log(error);
       });
@@ -119,7 +120,7 @@
         } else {
         // No user is signed in.
         $scope.current_user.avatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
-        $scope.current_user.username = null;
+        $scope.current_user.displayName = null;
         }
       });
   })
@@ -239,10 +240,15 @@ function profileController($scope, $mdDialog, $window){
   // User watcher
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      var uid = user.uid;
+      var userInfo = firebase.database().ref('users/' + uid);
+
       // User is signed in.
       $scope.userAvatar = user.photoURL;
       $scope.displayName = user.displayName;
 
+
+      console.log(uid);
       $scope.updateAvatar = function(ev){
         $mdDialog.show({
           controller: AvatarController,
@@ -257,12 +263,18 @@ function profileController($scope, $mdDialog, $window){
           displayName: $scope.displayName
         }).then(function(){
           // TODO Update database stuff
-          $window.location.reload();
-        },function(error){
-          console.log(error);
-        })
-      };
+          console.log("updating database...")
+          firebase.database().ref('users/' + uid ).set({
+            username      :   $scope.displayName,
+            firstName     :   $scope.user.first,
+            lastName      :   $scope.user.last
+          }, function(){
+            console.log("Update successful!");
+          });
 
+          $window.location.reload();
+        });
+      };
 
     } else {
       // REDIRECT

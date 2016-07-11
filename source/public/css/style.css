@@ -3,13 +3,16 @@ html{
 
 }
 body {
-  overflow: hidden;
+  
 }
 a:link {
   color: inherit;
 }
-a:hover{
-  color: black;
+a .page-button {
+  color: #cfb87c;
+}
+a .page-button:hover{
+  color: white;
 }
 /****************ID SELECTORS************************/
 #toolbar-top{
@@ -106,7 +109,7 @@ a:hover{
 
 #user-profile #user-profile-card #card-content{
   /*text-align: center;*/
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 #user-profile #user-profile-card #user-avatar{
   border-radius: 50%;
@@ -125,6 +128,9 @@ a:hover{
 }
 #match-tracker {
   height: 15vw;
+}
+#right-panel {
+
 }
 
 #notification-button{

@@ -1,9 +1,9 @@
-<div id="user-profile" flex layout-padding>
-  <md-card id="user-profile-card" class="animated bounceInLeft" layout="column">
+<div id="user-profile" flex>
+  <md-card id="user-profile-card" class="" layout="column">
 
     <md-card-header>
       <md-card-header-text>
-        <span class="md-title">Your Profile</span>
+        <md-toolbar><span class="md-toolbar-tools">Your Profile</span></md-toolbar>
       </md-card-header-text>
     </md-card-header>
 
@@ -12,7 +12,9 @@
       <div id="user-avatar" md-whiteframe="4" >
         <img src="{{ userAvatar }}" alt="" ng-click="updateAvatar($event)"/>
       </div>
-      <h1> {{ displayName }} {{ user.last }}</h1>
+
+      <h1> {{ displayName }}</h1>
+
       <hr>
 
       <md-input-container>
