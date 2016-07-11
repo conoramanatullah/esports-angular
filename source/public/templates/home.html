@@ -37,13 +37,14 @@
             <img ng-src="img/bg2.png" alt="arena" />
 
           </md-card>
+          
         </div>
       </div>
       <div flex="30">
         <md-card id="match-tracker">
           <h3>Team 1 VS Team 2</h3>
         </md-card>
-        <div id="" ng-controller="TwitchCtrl">
+        <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs')">
           <div id="twitch-stream"></div>
         </div>
       </div>

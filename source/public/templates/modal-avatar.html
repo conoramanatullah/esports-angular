@@ -1,0 +1,20 @@
+<md-dialog id="avatar-modal" aria-label="avatar modal"  ng-cloak>
+
+  <md-toolbar>
+    <h1 class="md-toolbar-tools">Update Avatar</h1>
+  </md-toolbar>
+
+  <md-dialog-content layout-padding>
+    <br>
+    <br>
+    <md-input-container>
+      <label>Image URL</label>
+      <input type="url" ng-model="imageUrl">
+    </md-input-container>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <md-button ng-click="update()" ng-show="imageUrl">Save</md-button>
+  </md-dialog-actions>
+
+</md-dialog>

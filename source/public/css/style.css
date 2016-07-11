@@ -19,8 +19,16 @@ a:hover{
   background-color: #32383D;
   overflow: hidden;
 }
+#side-nav-content {
+
+  background-color: #32383D;
+
+  height: 90%;
+  overflow: hidden;
+}
 #side-nav-content .spacer{
   background-color: #32383D;
+  overflow: hidden;
 }
 #body-content{
   overflow: hidden;
@@ -97,7 +105,7 @@ a:hover{
 }
 
 #user-profile #user-profile-card #card-content{
-  text-align: center;
+  /*text-align: center;*/
   margin: 0 auto;
 }
 #user-profile #user-profile-card #user-avatar{
@@ -119,8 +127,15 @@ a:hover{
   height: 15vw;
 }
 
+#notification-button{
+  color: red;
+  position: absolute;
+  bottom: 0;
+}
 
-
+#avatar-modal input{
+  width: 20vw;
+}
 
 
 

@@ -212,7 +212,50 @@ function registerController($scope, $location) {
     // })
   };
 };
+function AvatarController($scope, $mdDialog) {
+  // When user clicks save and the input is not empty, update photoURL
 
-function profileController($scope){
+  // Get user ref
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      $scope.update = function(){
+        user.updateProfile({
+          photoURL: $scope.imageUrl
+        }).then(function() {
+          console.log('update success');
+          $mdDialog.hide();
+        }, function(error){
+          console.log(error);
+        });
+      };
+      // End Update
+
+    } else {
+      // No User, REDIRECT
+    }
+  });
+};
+function profileController($scope, $mdDialog){
+  // When user clicks on picture, prompt comes up with URL input,
+  // Once url is put in, user clicks save to set their profile picture
+
+  // User watcher
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      $scope.userAvatar = user.photoURL;
+      $scope.updateAvatar = function(ev){
+        $mdDialog.show({
+          controller: AvatarController,
+          templateUrl: 'templates/modal-avatar.html',
+          clickOutsideToClose: true
+        })
+      };
+
+
+    } else {
+      // REDIRECT
+    }
+  });
 
 };
