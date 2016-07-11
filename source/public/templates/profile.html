@@ -12,10 +12,14 @@
       <div id="user-avatar" md-whiteframe="4" >
         <img src="{{ userAvatar }}" alt="" ng-click="updateAvatar($event)"/>
       </div>
-      <h1>Conor</h1>
+      <h1> {{ displayName }} {{ user.last }}</h1>
       <hr>
 
-
+      <md-input-container>
+        <label>Username</label>
+        <input type="text" ng-model="displayName">
+      </md-input-container>
+      <br>
       <md-input-container>
         <label>First Name</label>
         <input type="text" ng-model="user.first">
@@ -33,7 +37,8 @@
     </md-card-content>
 
     <md-card-actions>
-    <md-card-actions>
+      <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+    </md-card-actions>
 
   </md-card>
 </div>

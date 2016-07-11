@@ -55,10 +55,6 @@
     $scope.screenIsMedium = $mdMedia('md');
     $scope.screenIsSmall = $mdMedia('sm');
 
-    console.log($scope.screenIsSmall);
-    console.log($scope.screenIsMedium);
-    console.log($scope.screenIsLarge);
-
     $scope.close = function () {
       $mdSidenav('left').toggle();
     }
@@ -119,7 +115,7 @@
         }else{
           $scope.current_user.avatar = user.photoURL;
         }
-        $scope.current_user.username = user.email;
+        $scope.current_user.displayName = user.displayName;
         } else {
         // No user is signed in.
         $scope.current_user.avatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
@@ -212,7 +208,7 @@ function registerController($scope, $location) {
     // })
   };
 };
-function AvatarController($scope, $mdDialog) {
+function AvatarController($scope, $mdDialog, $window) {
   // When user clicks save and the input is not empty, update photoURL
 
   // Get user ref
@@ -224,6 +220,7 @@ function AvatarController($scope, $mdDialog) {
         }).then(function() {
           console.log('update success');
           $mdDialog.hide();
+          $window.location.reload();
         }, function(error){
           console.log(error);
         });
@@ -235,7 +232,7 @@ function AvatarController($scope, $mdDialog) {
     }
   });
 };
-function profileController($scope, $mdDialog){
+function profileController($scope, $mdDialog, $window){
   // When user clicks on picture, prompt comes up with URL input,
   // Once url is put in, user clicks save to set their profile picture
 
@@ -244,11 +241,25 @@ function profileController($scope, $mdDialog){
     if (user) {
       // User is signed in.
       $scope.userAvatar = user.photoURL;
+      $scope.displayName = user.displayName;
+
       $scope.updateAvatar = function(ev){
         $mdDialog.show({
           controller: AvatarController,
           templateUrl: 'templates/modal-avatar.html',
           clickOutsideToClose: true
+        })
+      };
+
+      $scope.save = function(){
+        user.updateProfile({
+          // Update firebase profile elements
+          displayName: $scope.displayName
+        }).then(function(){
+          // TODO Update database stuff
+          $window.location.reload();
+        },function(error){
+          console.log(error);
         })
       };
 
