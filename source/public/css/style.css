@@ -1,9 +1,9 @@
 
 html{
-
+  overflow: hidden;
 }
 body {
-  
+
 }
 a:link {
   color: inherit;
@@ -101,6 +101,9 @@ a .page-button:hover{
 
 #user-profile{
   background-color: inherit;
+}
+#user-profile input{
+  width: 300px;
 }
 #user-profile #user-profile-card{
   /*width: 40vw;*/

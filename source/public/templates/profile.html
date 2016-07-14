@@ -24,17 +24,51 @@
       <br>
       <md-input-container>
         <label>First Name</label>
-        <input type="text" ng-model="user.first">
+        <input type="text" ng-model="first">
       </md-input-container>
       <md-input-container>
         <label>Last Name</label>
-        <input type="text" ng-model="user.last">
+        <input type="text" ng-model="last">
+      </md-input-container>
+      <!-- TODO Sex -->
+
+      <br>
+      <!-- TODO Are you a student at CU? -->
+
+      <!-- If not, what university? -->
+
+      <!-- TODO Year -->
+      <md-input-container>
+        <label>University</label>
+        <input type="text" ng-model="university">
       </md-input-container>
       <br>
       <md-input-container>
         <label>Major</label>
-        <input type="text" ng-model="user.major">
+        <input type="text" ng-model="major">
       </md-input-container>
+      <br>
+      <md-input-container>
+        <label>Year</label>
+        <md-select ng-model="year" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in options">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
+
+
+      <!-- LEAGUE OF LEGENDS SECTION -->
+
+
+      <!-- CS:GO SECTION -->
+
+
+      <!-- DOTA 2 Section -->
+
+
+      <!-- STARCRAFT SECTION -->
+
+
+      <!-- OVERWATCH SECTION -->
 
     </md-card-content>
 

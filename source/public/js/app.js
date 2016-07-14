@@ -240,15 +240,40 @@ function profileController($scope, $mdDialog, $window){
   // User watcher
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+
+
       var uid = user.uid;
-      var userInfo = firebase.database().ref('users/' + uid);
+      // var userInfo = firebase.database().ref('users/' + uid);
+      $scope.options = [
+        "Freshman",
+        "Sophomore",
+        "Junior",
+        "Senior"
+      ];
+
 
       // User is signed in.
       $scope.userAvatar = user.photoURL;
       $scope.displayName = user.displayName;
+      $scope.cu = false;
+      $scope.notCu = false;
 
 
-      console.log(uid);
+      // Pull data using a listener + uid
+      var userData;
+
+      firebase.database().ref('users/' + uid).on('value', function(data) {
+        console.log(data.val().firstName);
+        userData = data.val();
+        $scope.first = userData.firstName;
+        $scope.last = userData.lastName;
+        $scope.cuTrue = userData.isCu;
+        $scope.major = userData.major;
+        $scope.year  = userData.year;
+        $scope.university = userData.university;
+        // $scope.cuFalse = !userData.isCu;
+      });
+
       $scope.updateAvatar = function(ev){
         $mdDialog.show({
           controller: AvatarController,
@@ -258,16 +283,22 @@ function profileController($scope, $mdDialog, $window){
       };
 
       $scope.save = function(){
+        console.log($scope.cuTrue);
         user.updateProfile({
           // Update firebase profile elements
           displayName: $scope.displayName
         }).then(function(){
           // TODO Update database stuff
-          console.log("updating database...")
+          console.log("updating database...");
+
           firebase.database().ref('users/' + uid ).set({
             username      :   $scope.displayName,
-            firstName     :   $scope.user.first,
-            lastName      :   $scope.user.last
+            firstName     :   $scope.first,
+            lastName      :   $scope.last,
+            major         :   $scope.major,
+            year          :   $scope.year,
+            university    :   $scope.university,
+
           }, function(){
             console.log("Update successful!");
           });
