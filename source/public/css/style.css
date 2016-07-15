@@ -1,9 +1,9 @@
 
 html{
-  overflow: hidden;
+
 }
 body {
-
+  overflow: hidden;
 }
 a:link {
   color: inherit;
@@ -14,6 +14,11 @@ a .page-button {
 a .page-button:hover{
   color: white;
 }
+
+ng-view {
+  height: 1000%;
+}
+
 /****************ID SELECTORS************************/
 #toolbar-top{
   background-color: #32383D;
@@ -21,13 +26,14 @@ a .page-button:hover{
 #side-nav{
   background-color: #32383D;
   overflow: hidden;
+  height: 100%;
 }
 #side-nav-content {
 
   background-color: #32383D;
 
   height: 90%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 #side-nav-content .spacer{
   background-color: #32383D;
@@ -35,7 +41,7 @@ a .page-button:hover{
 }
 #body-content{
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   background-color: #202529;
   color: white;
 }
@@ -125,6 +131,7 @@ a .page-button:hover{
 }
 #news-large img {
   max-height: 25vw;
+  max-width: 30vw;
 }
 .news-small{
   height: 5vw;
@@ -146,6 +153,20 @@ a .page-button:hover{
   width: 20vw;
 }
 
+
+
+#home-page{
+  overflow: auto;
+}
+
+#sponsor-bar {
+  width: 100%;
+  height: 15vh;
+}
+.sponsor-logo{
+  max-width: 15vw;
+  max-height: 15vh;
+}
 
 
 /*****************CLASS SELECTORS*********************/
