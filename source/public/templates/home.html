@@ -2,68 +2,40 @@
   <!-- First Column -->
   <div layout="column">
     <div layout="row">
-      <div flex="70" layout="row">
+      <div flex="55" layout="column">
 
         <md-card id="news-large">
-
-          <img ng-src="img/arena3.jpg" alt="arena" />
-          <md-card-content>
-            <h1>NiP win it all!</h1>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-          </p>
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-icon-button" aria-label="Settings">
-              <md-icon>menu</md-icon>
-            </md-button>
-          </md-card-actions>
-        </md-card>
-
-        <md-card id="news-large">
-
           <img ng-src="img/arena2.jpg" alt="arena" />
-          <md-card-content>
-            <h1>NiP win it all!</h1>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-          </p>
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-icon-button" aria-label="Settings">
-            <md-icon>menu</md-icon>
-          </md-button>
-          </md-card-actions>
         </md-card>
+
+        <div layout="row" id="small-news-container">
+          <md-card class="news-small" flex="50">
+            <img ng-src="img/arena2.jpg" alt="arena" />
+          </md-card>
+          <md-card class="news-small" flex="50">
+            <img ng-src="img/arena2.jpg" alt="arena" />
+          </md-card>
+        </div>
+
+
 
       </div>
 
-      <div flex="30" id="right-panel">
+      <div flex="45" id="right-panel">
         <md-card id="match-tracker">
           <h3>Team 1 VS Team 2</h3>
         </md-card>
         <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs')">
-          <div id="twitch-stream"></div>
+          <!-- <div id="twitch-stream"></div> -->
+
+          <md-card id="twitch-stream-box">
+            <h3>Twitch Stream</h3>
+          </md-card>
         </div>
       </div>
+
     </div>
-    <div class="" layout="row">
-      <div class="" flex="100" layout="row">
-        <md-card id="sponsor-bar" layout="row" layout-padding>
-          <div flex="30" >
-            <img ng-src="img/oddshot.png" alt="" style="max-width: 15vw; max-height: 15vh;"/>
-          </div>
-          <div flex="40">
-            <img ng-src="img/steelseries.png" alt="" style="max-width: 20vw;"/>
-          </div>
-          <div flex="30">
-            <img ng-src="img/oddshot.png" alt="" style="max-width: 15vw; max-height: 15vh;"/>
-          </div>
-        </md-card>
-      </div>
-    </div>
+
     <!-- <div class="" layout="row">
       <div flex="70" layout="row">
 

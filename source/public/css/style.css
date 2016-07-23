@@ -128,16 +128,35 @@ ng-view {
 
 #news-large {
   /*height: 30vw;*/
+  margin: 20px;
+  height: 55vh;
 }
 #news-large img {
-  max-height: 25vw;
-  max-width: 30vw;
+  max-height: 40vh;
+  max-width: 100%;
+}
+#small-news-container{
+  margin: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 .news-small{
-  height: 5vw;
+  margin: 5px;
+  margin-left: 5px;
+  margin-top: 0;
+
+  height: 29vh;
+  width: inherit;
 }
 #match-tracker {
-  height: 15vw;
+  height: 50vh;
+  margin: 20px;
+  margin-left: 10px;
+}
+#twitch-stream-box {
+  margin: 20px;
+  margin-left: 10px;
+  height: 35vh;
 }
 #right-panel {
 
