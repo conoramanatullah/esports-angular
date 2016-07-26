@@ -72,9 +72,14 @@
           </div>
           <div id="user-avatar">
             <img src="{{ current_user.avatar }}" alt="User Image" md-whiteframe="4" />
+            <br>
+            <br>
+            <br>
             <h3>
               {{ current_user.displayName }}
             </h3>
+
+
           </div>
           <div class="spacer">
             <br>
@@ -85,8 +90,8 @@
             <a href="/"><md-button class="page-button">Home</md-button></a>
             <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a>
             <a href="/events"><md-button class="page-button">Events</md-button></a>
-            <a href="/events"><md-button class="page-button">Players</md-button></a>
-            <md-menu ng-controller="menuController">
+            <a ng-if="isUser" href="/players"><md-button class="page-button">Players</md-button></a>
+            <md-menu ng-if="isUser" ng-controller="menuController">
               <md-button  ng-click="$mdOpenMenu($event)" class="page-button" aria-label="Open sample menu" md-menu-origin>
                 Teams
               </md-button>
@@ -104,7 +109,8 @@
               </md-menu-content>
             </md-menu>
             <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
-            <md-button ng-click="toggleRight()" ng-controller="mainController" id="notification-button">Notifications</md-button>
+            <md-button ng-click="toggleRight()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
+
           </div>
         </div>
       </md-content>

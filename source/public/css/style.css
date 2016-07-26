@@ -1,6 +1,6 @@
 
 html{
-
+  overflow: hidden;
 }
 body {
   overflow: hidden;
@@ -163,9 +163,13 @@ ng-view {
 }
 
 #notification-button{
-  color: red;
+  display: inline;
   position: absolute;
   bottom: 0;
+}
+#notification-button i{
+  font-size: 3em;
+  vertical-align: middle;
 }
 
 #avatar-modal input{

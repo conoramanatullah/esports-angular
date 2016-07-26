@@ -18,6 +18,10 @@
         templateUrl : 'templates/events.html'
         // Needs Controller
       })
+      .when('/players', {
+        templateUrl : 'templates/players.html',
+        controller  : playersController
+      })
       .when('/register', {
         templateUrl : 'templates/register.html',
         controller: registerController
@@ -192,21 +196,6 @@ function registerController($scope, $location) {
 
     console.log("Success in creating user.")
 
-    //Get that created user's uid
-    // Add data to database
-    // firebase.database().ref('users/' + uid ).set({
-    //   firstName    : $scope.newuser.firstName,
-    //   lastName     : $scope.newuser.lastName,
-    //   email        : $scope.newuser.email,
-    //   year         : $scope.newuser.eduLevel,
-    //   major        : $scope.newuser.eduMajor,
-    //   password     : $scope.newuser.password,
-    //   league       : $scope.newuser.lolBox,
-    //   dota         : $scope.newuser.dotaBox,
-    //   rocket       : $scope.newuser.rocketBox,
-    //   comp         : $scope.newuser.userTypeComp,
-    //   scrim        : $scope.newuser.userTypeScrim
-    // })
   };
 };
 function AvatarController($scope, $mdDialog, $window) {
@@ -243,7 +232,7 @@ function profileController($scope, $mdDialog, $window){
 
 
       var uid = user.uid;
-      // var userInfo = firebase.database().ref('users/' + uid);
+
       $scope.options = [
         "Freshman",
         "Sophomore",
@@ -252,14 +241,11 @@ function profileController($scope, $mdDialog, $window){
       ];
 
 
-      // User is signed in.
       $scope.userAvatar = user.photoURL;
       $scope.displayName = user.displayName;
       $scope.cu = false;
       $scope.notCu = false;
 
-
-      // Pull data using a listener + uid
       var userData;
 
       firebase.database().ref('users/' + uid).on('value', function(data) {
@@ -271,7 +257,6 @@ function profileController($scope, $mdDialog, $window){
         $scope.major = userData.major;
         $scope.year  = userData.year;
         $scope.university = userData.university;
-        // $scope.cuFalse = !userData.isCu;
       });
 
       $scope.updateAvatar = function(ev){
@@ -285,13 +270,12 @@ function profileController($scope, $mdDialog, $window){
       $scope.save = function(){
         console.log($scope.cuTrue);
         user.updateProfile({
-          // Update firebase profile elements
           displayName: $scope.displayName
         }).then(function(){
-          // TODO Update database stuff
           console.log("updating database...");
 
           firebase.database().ref('users/' + uid ).set({
+            photoURL      :   user.photoURL,
             username      :   $scope.displayName,
             firstName     :   $scope.first,
             lastName      :   $scope.last,
@@ -311,5 +295,18 @@ function profileController($scope, $mdDialog, $window){
       // REDIRECT
     }
   });
+
+};
+
+function playersController($scope, $timeout){
+
+  firebase.database().ref('users/').on('value', function(data){
+    $scope.players = data.val();
+  });
+
+  $timeout(function(){
+    $scope.loaded = true;
+  }, 1000);
+
 
 };
