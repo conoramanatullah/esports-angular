@@ -1,4 +1,4 @@
-<div class="">
+<div id="player-content">
   <section flex layout-padding>
 
 
@@ -6,9 +6,25 @@
       <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
     </div>
 
+    <!-- LEAGUE OF LEGENDS PLAYERS -->
+    <div class="" ng-show="loaded">
+      <div class="game-logo">
+        <img src="img/league_logo.png" alt="" />
+      </div>
 
-    <div ng-repeat="(uid, user) in players">
-      {{ user.username }} , {{ user.university }} , {{ user.major }}
+      <div class="player-row" flex layout="row" layout-padding>
+        <span flex="20">Username</span><span flex="30">University</span><span flex="20">Major</span>
+      </div>
+
+      <div class="player-row" ng-repeat="(uid, user) in players" flex layout="row" layout-padding>
+        <span flex="20">{{ user.username }}</span>
+        <span flex="30">{{ user.university }}</span>
+        <span flex="30">{{ user.major }}</span>
+        <span flex="10">
+          <md-button  class="md-raised md-accent"><i class="material-icons" style="vertical-align: middle">add</i>Invite to Team</md-button>
+        </span>
+
+      </div>
     </div>
 
   </section>

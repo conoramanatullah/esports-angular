@@ -50,7 +50,15 @@ ng-view {
   text-align: center;
   background-color: #32383D;
   overflow: hidden;
+}
+#user-avatar i {
+  color: white;
+  font-size: 6em;
+  margin-left: 55px;
+  margin-top: 50px;
 
+  position: absolute;
+  z-index: 1000;
 }
 #user-avatar img{
   border-radius: 50%;
@@ -163,9 +171,10 @@ ng-view {
 }
 
 #notification-button{
-  display: inline;
-  position: absolute;
-  bottom: 0;
+  /*display: inline;*/
+  /*position: fixed;*/
+  /*bottom: 20;*/
+  width: 13vw;
 }
 #notification-button i{
   font-size: 3em;
@@ -193,6 +202,22 @@ ng-view {
 
 
 /*****************CLASS SELECTORS*********************/
+#player-content .game-logo{
+  text-align: center;
+}
+.player-row{
+  background-color: #32383D;
+  margin: 20px;
+}
+.player-row span{
+  width: 1000px;
+}
+.game-logo img{
+  max-width: 18vw;
+}
+
+
+
 .gamebox {
   width: 10vw;
   height: auto;
@@ -214,6 +239,7 @@ ng-view {
   overflow:hidden;
   background-color: #32383D;
   color: white;
+  text-align: center;
 }
  .page-button{
    margin-left: 0;

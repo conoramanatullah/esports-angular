@@ -109,8 +109,8 @@
               </md-menu-content>
             </md-menu>
             <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
+            <a href="/about"><md-button class="page-button">About</md-button></a>
             <md-button ng-click="toggleRight()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
-
           </div>
         </div>
       </md-content>
@@ -132,7 +132,7 @@
           <md-button ng-click="close()">Close</md-button>
         </md-toolbar>
         <md-content flex layout-padding>
-          No new notifications.
+          Register to get notifications!
         </md-content>
       </md-sidenav>
     </div>

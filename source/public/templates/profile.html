@@ -9,8 +9,9 @@
 
     <md-card-content id="card-content">
       <!-- User Image, Name -->
-      <div id="user-avatar" md-whiteframe="4" >
-        <img src="{{ userAvatar }}" alt="" ng-click="updateAvatar($event)"/>
+      <div id="user-avatar" md-whiteframe="4" ng-click="updateAvatar($event)">
+        <i class="material-icons">more_horiz</i>
+        <img src="{{ userAvatar }}" alt="" />
       </div>
 
       <h1> {{ displayName }}</h1>
