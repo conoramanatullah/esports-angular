@@ -210,10 +210,14 @@ ng-view {
 }
 
 #notification-button{
+
   display: inline;
-  /*position: fixed;*/
-  /*bottom: 20;*/
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
   margin: 0;
+  width: 100%;
 }
 #notification-button i{
   font-size: 3em;
