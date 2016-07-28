@@ -195,7 +195,24 @@ ng-view {
   height: 50vh;
   margin: 20px;
   margin-left: 10px;
+  text-align: center;
+  color: white;
 }
+#match-tracker img{
+  margin: 0;
+  display: inline;
+  max-width: 80px;
+  max-height: 80px;
+}
+#match-tracker #gold-bar {
+  width:100%;
+  height:10px;
+  background-color: #cfb87c;
+
+}
+
+
+
 #twitch-stream-box {
   margin: 20px;
   margin-left: 10px;

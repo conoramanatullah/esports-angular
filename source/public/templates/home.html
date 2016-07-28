@@ -26,9 +26,32 @@
       </div>
 
       <div flex="45" id="right-panel">
+
+
         <md-card id="match-tracker">
-          <h3>Team 1 VS Team 2</h3>
+          <div id="gold-bar"></div>
+          <div flex layout-padding>
+            <div layout="row">
+              <div flex="40">
+                <img src="img/tl_logo.png" alt="" />
+                <h3>Team Liquid</h3>
+              </div>
+              <div flex="20">
+                <h1>VS</h1>
+              </div>
+              <div flex="40">
+                <img src="img/nip_logo.png" alt=""/>
+                <h3>Ninjas in Pyjamas</h3>
+              </div>
+            </div>
+            <div layout="row">
+              <span flex="100"><h5>8:00pm MST</h5></span>
+            </div>
+          </div>
         </md-card>
+
+
+
         <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs')">
 
 
