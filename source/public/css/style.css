@@ -169,12 +169,25 @@ ng-view {
 #news-large img {
   -webkit-filter: grayscale(100%) brightness(40%) ;
   height: 100%;
-  max-width: 100%;
+  max-width: 100%
+;
 }
 #small-news-container{
   margin: 20px;
   margin-right: 10px;
   margin-top: 10px;
+}
+#small-news-container #wrap{
+  position: relative;
+  width: 100%;
+  color: white;
+}
+#small-news-container .image-text{
+  position: absolute;
+  z-index: 1000;
+  float: left;
+  bottom: 0;
+  padding: 20px;
 }
 .news-small{
   padding-top: 10px;

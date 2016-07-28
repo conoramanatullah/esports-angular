@@ -43,7 +43,7 @@
   })
 
   //  *******************Controllers!*********************
-  .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout) {
+  .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia) {
     $scope.loaded = false;
     $scope.$on('$viewContentLoaded', function(){
       $timeout(function(){

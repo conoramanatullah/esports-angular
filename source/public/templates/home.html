@@ -12,12 +12,18 @@
           <img ng-src="img/arena2.jpg" alt="arena" />
         </md-card>
 
-        <div layout="row" id="small-news-container">
+        <div layout="row" id="small-news-container" ng-hide="$mdMedia('md')">
           <md-card class="news-small" flex="50">
-            <img ng-src="img/arena3.jpg" alt="arena" />
+            <div id="wrap">
+              <i class="material-icons image-text">input</i>
+              <img ng-src="img/arena3.jpg" alt="arena" />
+            </div>
           </md-card>
           <md-card class="news-small" flex="50">
-            <img ng-src="img/arena.jpg" alt="arena" />
+            <div id="wrap">
+              <i class="material-icons image-text">input</i>
+              <img ng-src="img/arena.jpg" alt="arena" />
+            </div>
           </md-card>
         </div>
 
