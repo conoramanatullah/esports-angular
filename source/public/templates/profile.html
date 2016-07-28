@@ -1,16 +1,15 @@
-<div id="user-profile" flex>
+<div id="user-profile">
   <md-card id="user-profile-card" class="" layout="column">
 
-    <md-card-header>
+    <md-card-header >
       <md-card-header-text>
-        <md-toolbar><span class="md-toolbar-tools">Your Profile</span></md-toolbar>
+        <md-toolbar class="md-whiteframe-z1"><span class="md-toolbar-tools md-accent">Your Profile</span></md-toolbar>
       </md-card-header-text>
     </md-card-header>
 
     <md-card-content id="card-content">
       <!-- User Image, Name -->
       <div id="user-avatar" md-whiteframe="4" ng-click="updateAvatar($event)">
-        <i class="material-icons">more_horiz</i>
         <img src="{{ userAvatar }}" alt="" />
       </div>
 
@@ -76,7 +75,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+      <md-button class="md-raised md-accent" ng-click="save()">Save</md-button>
     </md-card-actions>
 
   </md-card>

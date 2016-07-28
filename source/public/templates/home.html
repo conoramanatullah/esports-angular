@@ -1,6 +1,10 @@
-<md-content id="home-page" class="" style="background-color: inherit">
+<md-content id="home-page" class="" style="background-color: inherit" >
+
+  <div layout="row" layout-sm="column" layout-align="space-around" ng-hide="loaded" class="progressCircle">
+    <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
+  </div>
   <!-- First Column -->
-  <div layout="column">
+  <div layout="column" ng-show="loaded">
     <div layout="row">
       <div flex="55" layout="column">
 
@@ -10,10 +14,10 @@
 
         <div layout="row" id="small-news-container">
           <md-card class="news-small" flex="50">
-            <img ng-src="img/arena2.jpg" alt="arena" />
+            <img ng-src="img/arena3.jpg" alt="arena" />
           </md-card>
           <md-card class="news-small" flex="50">
-            <img ng-src="img/arena2.jpg" alt="arena" />
+            <img ng-src="img/arena.jpg" alt="arena" />
           </md-card>
         </div>
 
@@ -26,10 +30,16 @@
           <h3>Team 1 VS Team 2</h3>
         </md-card>
         <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs')">
-          <!-- <div id="twitch-stream"></div> -->
+
 
           <md-card id="twitch-stream-box">
-            <h3>Twitch Stream</h3>
+            <!-- <div id="twitch-stream"></div> -->
+            <iframe
+              src="http://player.twitch.tv/?channel=dansgaming"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen="true">
+            </iframe>
           </md-card>
         </div>
       </div>

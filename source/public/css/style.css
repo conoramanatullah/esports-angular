@@ -114,33 +114,61 @@ ng-view {
 }
 
 #user-profile{
-  background-color: inherit;
+  color: white;
+  width: 60%;
+
 }
 #user-profile input{
   width: 300px;
+  color: white;
+}
+#user-profile label{
+  color:white;
+}
+#user-profile md-toolbar{
+  width: 100%;
+  border-radius: 10px;
+  background-color: #cfb87c;
+}
+
+#user-profile md-card{
+  padding: 0;
 }
 #user-profile #user-profile-card{
   /*width: 40vw;*/
-  color: black;
+  background-color: #32383D;
+  color: white;
+
 }
 
 #user-profile #user-profile-card #card-content{
   /*text-align: center;*/
   /*margin: 0 auto;*/
+  color: white;
+}
+#user-profile #user-profile-card #card-content input{
+  color: white;
 }
 #user-profile #user-profile-card #user-avatar{
   border-radius: 50%;
   max-width: 10vw;
   max-height: 10vw;
 }
+#user-profile #user-profile-card #user-avatar img:hover{
+  -webkit-transition : -webkit-filter 250ms ease;
+  -webkit-filter: brightness(50%);
+}
 
 #news-large {
   /*height: 30vw;*/
+  padding-top: 10px;
   margin: 20px;
   height: 55vh;
+  background-color: #cfb87c;
 }
 #news-large img {
-  max-height: 40vh;
+  -webkit-filter: grayscale(100%) brightness(40%) ;
+  height: 100%;
   max-width: 100%;
 }
 #small-news-container{
@@ -149,14 +177,21 @@ ng-view {
   margin-top: 10px;
 }
 .news-small{
+  padding-top: 10px;
   margin: 5px;
   margin-left: 5px;
   margin-top: 0;
-
   height: 29vh;
-  width: inherit;
+  width: 100%;
+  background-color: #cfb87c;
 }
+.news-small img {
+  -webkit-filter: brightness(40%) ;
+
+}
+
 #match-tracker {
+  background-color: #32383D;
   height: 50vh;
   margin: 20px;
   margin-left: 10px;
@@ -166,15 +201,19 @@ ng-view {
   margin-left: 10px;
   height: 35vh;
 }
+#twitch-stream-box iframe {
+  width: 100%;
+  height: 100%;
+}
 #right-panel {
 
 }
 
 #notification-button{
-  /*display: inline;*/
+  display: inline;
   /*position: fixed;*/
   /*bottom: 20;*/
-  width: 13vw;
+  margin: 0;
 }
 #notification-button i{
   font-size: 3em;
@@ -199,13 +238,16 @@ ng-view {
   max-width: 15vw;
   max-height: 15vh;
 }
-
+.progressCircle{
+  margin-top: 300px;
+}
 
 /*****************CLASS SELECTORS*********************/
 #player-content .game-logo{
   text-align: center;
 }
 .player-row{
+
   background-color: #32383D;
   margin: 20px;
 }

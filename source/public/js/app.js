@@ -44,6 +44,13 @@
 
   //  *******************Controllers!*********************
   .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout) {
+    $scope.loaded = false;
+    $scope.$on('$viewContentLoaded', function(){
+      $timeout(function(){
+        $scope.loaded = true;
+      },1000);
+
+    });
     $scope.toggleRight = function () {
       $mdSidenav('right').toggle();
     };
@@ -64,8 +71,9 @@
     }
   })
   .controller('TwitchCtrl', function($scope, $timeout){
+    //get width of twitch box
     var options = {
-        width: 480,
+        width: (window.innerWidth)/2.5,
         height: 360,
         channel: "dansgaming",
         //video: "{VIDEO_ID}"
