@@ -32,10 +32,11 @@
       })
       .when('/teams', {
         templateUrl : 'templates/teams.html',
-
+        controller  : teamController
       })
       .when('/create-team', {
-        templateUrl : 'templates/create-team.html'
+        templateUrl : 'templates/create-team.html',
+        controller  : createTeamController
       })
 
     // location provider makes our URLs pretty
@@ -316,5 +317,14 @@ function playersController($scope, $timeout){
     $scope.loaded = true;
   }, 1000);
 
+
+};
+
+
+function teamController($scope){
+
+};
+
+function createTeamController($scope){
 
 };
