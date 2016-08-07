@@ -86,9 +86,9 @@
             <br>
           </div>
           <div class="list" ng-controller="loginController">
-            <a ng-if="isUser" href="/profile"><md-button class="page-button">Profile</md-button></a>
             <a href="/"><md-button class="page-button">Home</md-button></a>
-            <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a>
+            <a ng-if="isUser" href="/profile"><md-button class="page-button">Profile</md-button></a>
+            <!-- <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a> -->
             <a href="/events"><md-button class="page-button">Events</md-button></a>
             <a ng-if="isUser" href="/players"><md-button class="page-button">Players</md-button></a>
             <md-menu ng-if="isUser" ng-controller="menuController">
