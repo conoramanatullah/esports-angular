@@ -1,9 +1,9 @@
 
 html{
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 body {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 a:link {
   color: inherit;
@@ -50,6 +50,7 @@ ng-view {
   text-align: center;
   background-color: #32383D;
   overflow: hidden;
+  border-radius: 50%;
 }
 #user-avatar i {
   color: white;

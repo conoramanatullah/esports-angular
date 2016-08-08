@@ -123,7 +123,6 @@
     }
   })
   .controller('userController', function($scope, Auth) {
-    // var currUser = {};
     $scope.current_user = {};
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -134,16 +133,58 @@
         }
         $scope.current_user.displayName = user.displayName;
         } else {
-        // No user is signed in.
         $scope.current_user.avatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
         $scope.current_user.displayName = null;
         }
       });
   })
+  .controller('gameRegisterController', function($scope, $mdDialog){
+
+    $scope.showModal = function(ev){
+      if(ev === "league"){
+        $mdDialog.show({
+          controller: LeagueController,
+          templateUrl: 'templates/modal-league.html',
+          targetEvent: ev,
+          clickOutsideToClose: true
+        });
+      }
+      else if(ev === "dota"){
+        $mdDialog.show({
+          controller: DotaController,
+          templateUrl: 'templates/modal-dota.html',
+          targetEvent: ev,
+          clickOutsideToClose: true
+        });
+      }
+      else if(ev === "csgo"){
+        $mdDialog.show({
+          controller: CSGOController,
+          templateUrl: 'templates/modal-csgo.html',
+          targetEvent: ev,
+          clickOutsideToClose: true
+        });
+      }
+      else if(ev === "overwatch"){
+        $mdDialog.show({
+          controller: OverwatchController,
+          templateUrl: 'templates/modal-overwatch.html',
+          targetEvent: ev,
+          clickOutsideToClose: true
+        });
+      }
+      else{
+        // ERROR, dont open shit
+      }
+    };
+
+
+
+
+
+  })
 //  *******************FACTORYS!*********************
   .factory('User', function($scope){
-
-    // Pull User data from firebase?
     var user = {
       avatar: "img/user.jpg"
     }
@@ -330,5 +371,21 @@ function teamController($scope){
 };
 
 function createTeamController($scope){
+
+};
+
+function LeagueController($scope){
+
+};
+
+function DotaController($scope){
+
+};
+
+function CSGOController($scope){
+
+};
+
+function OverwatchController($scope){
 
 };

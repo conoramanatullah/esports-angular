@@ -3,7 +3,7 @@
 
     <md-card-header >
       <md-card-header-text>
-        <md-toolbar class="md-whiteframe-z1"><span class="md-toolbar-tools md-accent">Your Profile</span></md-toolbar>
+        <!-- <md-toolbar class="md-whiteframe-z1"><span class="md-toolbar-tools md-accent">Your Profile</span></md-toolbar> -->
       </md-card-header-text>
     </md-card-header>
 
@@ -57,14 +57,18 @@
         </md-select>
       </md-input-container>
       <br>
-      <md-button  class="md-raised md-accent">League Register</md-button>
 
-      <md-button  class="md-raised md-accent"></md-button>
+      <hr>
 
-      <md-button  class="md-raised md-accent"></md-button>
-
-      <md-button  class="md-raised md-accent"></md-button>
-
+      <div class="" ng-controller="gameRegisterController">
+        <md-button  class="md-raised md-accent" ng-click="showModal('league')">LOL Registration</md-button>
+        <br>
+        <md-button  class="md-raised md-accent" ng-click="showModal('dota')">DOTA Registration</md-button>
+        <br>
+        <md-button  class="md-raised md-accent" ng-click="showModal('csgo')">CSGO Registration</md-button>
+        <br>
+        <md-button  class="md-raised md-accent" ng-click="showModal('overwatch')">Overwatch Registration</md-button>
+      </div>
 
 
       <!-- LEAGUE OF LEGENDS SECTION -->
