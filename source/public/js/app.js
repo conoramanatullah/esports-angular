@@ -79,10 +79,13 @@
         channel: "dansgaming",
         //video: "{VIDEO_ID}"
     };
+
     $timeout(function(){
       var player = new Twitch.Player("twitch-stream", options);
       player.setVolume(0.5);
     },1000);
+
+
   })
 
   .controller('menuController', function($scope, $location){
@@ -190,7 +193,7 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
 
 function registerController($scope, $location) {
   //Provides email validation whatup
-  $scope.colorado = "^[a-z]*\.[a-z]*\@(colorado\.edu)";
+  $scope.colorado = "^[A-Za-z]*\.[A-Za-z]*\@(colorado\.edu)";
   $scope.createUser = function(){
     console.log($scope.newuser);
     //Create a new user account on firebase
@@ -281,6 +284,7 @@ function profileController($scope, $mdDialog, $window){
         user.updateProfile({
           displayName: $scope.displayName
         }).then(function(){
+
           console.log("updating database...");
 
           firebase.database().ref('users/' + uid ).set({
