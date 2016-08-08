@@ -1,11 +1,58 @@
 <md-dialog id="league-modal" aria-label=""  ng-cloak>
-  <form name="loginForm">
 
-    <md-dialog-content>
-      League of Legends lmao
+  <div class="game-logo">
+    <img src="img/league_logo.png" alt="" />
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+    <md-dialog-content layout-padding>
+      <md-input-container>
+        <label>Primary Position</label>
+        <md-select ng-model="primaryPosition" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in positions">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <label>Secondary Position</label>
+        <md-select ng-model="secondaryPosition" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in positions">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <br>
+
+      <md-input-container>
+        <label>Rank</label>
+        <md-select ng-model="rank" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in ranks">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Rank Level</label>
+        <md-select ng-model="rankLevel" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in rankLevels">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <br>
+
+      <md-input-container>
+        <label>Previous Team Experience</label>
+        <textarea  ng-model="experience" md-maxlength="200"></textarea>
+      </md-input-container>
+
+
     </md-dialog-content>
+
+
     <md-dialog-actions layout="row">
-      <md-button ng-click="login()" class="">Login</md-button>
+      <md-button ng-click="save()" class="md-raised md-accent">Save</md-button>
     </md-dialog-actions>
-  </form>
+
+
 </md-dialog>

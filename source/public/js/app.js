@@ -175,6 +175,7 @@
       }
       else{
         // ERROR, dont open shit
+        console.log('WHYYYYYYY');
       }
     };
 
@@ -374,7 +375,61 @@ function createTeamController($scope){
 
 };
 
-function LeagueController($scope){
+function LeagueController($scope, $mdDialog){
+
+  $scope.positions = [
+    "Top",
+    "Mid",
+    "Bottom",
+    "Jungle",
+    "Support"
+  ];
+
+  $scope.ranks = [
+    "Bronze",
+    "Silver",
+    "Gold",
+    "Platinum",
+    "Diamond",
+    "Challenger"
+  ];
+
+  $scope.rankLevels = [
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V"
+  ];
+
+  $scope.save = function(){
+    // Get user info
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        var uid = user.uid
+        // add info to database
+        firebase.database().ref('users/' + uid + '/league').set({
+
+          isRegistered: 1,
+          primary: $scope.primaryPosition,
+          secondary: $scope.secondaryPosition,
+          rank: $scope.rank,
+          rankLevel: $scope.rankLevel,
+          experience: $scope.experience,
+          teamCapitain: true
+
+        }, function(){
+          $mdDialog.hide();
+          console.log("Update successful!");
+        });
+      }
+      else{
+
+      }
+    });
+
+    // Close Modal
+  };
 
 };
 
