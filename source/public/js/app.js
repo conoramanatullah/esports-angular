@@ -372,7 +372,6 @@ function createTeamController($scope){
 };
 
 function LeagueController($scope, $mdDialog){
-
   $scope.positions = [
     "Top",
     "Mid",
@@ -395,14 +394,13 @@ function LeagueController($scope, $mdDialog){
     "IV",
     "V"
   ];
-
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
         var uid = user.uid
         // add info to database
-        firebase.database().ref('users/' + uid + '/league').set({
+        firebase.database().ref('users/' + uid + '/games/league').set({
           isRegistered: 1,
           primary: $scope.primaryPosition,
           secondary: $scope.secondaryPosition,
@@ -420,7 +418,6 @@ function LeagueController($scope, $mdDialog){
       else{}
     });
   };
-
 };
 
 function DotaController($scope, $mdDialog){
@@ -452,14 +449,13 @@ function DotaController($scope, $mdDialog){
     "6800-7200",
     "7200+"
   ];
-
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
         var uid = user.uid
         // add info to database
-        firebase.database().ref('users/' + uid + '/dota').set({
+        firebase.database().ref('users/' + uid + '/games/dota').set({
           isRegistered: 1,
           primary: $scope.primaryPosition,
           secondary: $scope.secondaryPosition,
@@ -476,12 +472,9 @@ function DotaController($scope, $mdDialog){
       else{}
     });
   };
-
-
 };
 
 function CSGOController($scope, $mdDialog){
-
   $scope.positions = [
     "AWPer",
     "Rifler",
@@ -508,14 +501,13 @@ function CSGOController($scope, $mdDialog){
     "Supreme Master First Class",
     "The Global Elite"
   ];
-
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
         var uid = user.uid
         // add info to database
-        firebase.database().ref('users/' + uid + '/csgo').set({
+        firebase.database().ref('users/' + uid + '/games/csgo').set({
           isRegistered: 1,
           primary: $scope.primaryPosition,
           secondary: $scope.secondaryPosition,
@@ -532,9 +524,48 @@ function CSGOController($scope, $mdDialog){
       else{}
     });
   };
-  // End save
 };
 
-function OverwatchController($scope){
+function OverwatchController($scope, $mdDialog){
+  $scope.positions = [
+    "Attack",
+    "Defense",
+    "Tank",
+    "Support"
+  ];
+  $scope.ranks = [
+    "1-10",
+    "11-20",
+    "21-30",
+    "31-40",
+    "41-50",
+    "51-60",
+    "61-70",
+    "71-80",
+    "81-90",
+    "91-100"
+  ];
+  $scope.save = function(){
+    // Get user info
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        var uid = user.uid
+        // add info to database
+        firebase.database().ref('users/' + uid + '/games/overwatch').set({
+          isRegistered: 1,
+          primary: $scope.primaryPosition,
+          secondary: $scope.secondaryPosition,
+          rank: $scope.rank,
+          experience: $scope.experience,
+          teamCapitain: true
 
+        }, function(){
+              // Close Modal
+          $mdDialog.hide();
+          console.log("Update successful!");
+        });
+      }
+      else{}
+    });
+  };
 };
