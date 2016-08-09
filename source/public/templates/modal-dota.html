@@ -1,15 +1,52 @@
 <md-dialog id="dota-modal" aria-label=""  ng-cloak>
-  <form name="">
+
+    <div class="game-logo">
+      <img src="img/dota_logo.png" alt="" />
+    </div>
+    <br>
+    <br>
+    <br>
 
 
-    <md-dialog-content layout-padding>
-      DOTA lmao
-    </md-dialog-content>
+      <md-dialog-content layout-padding>
+        <md-input-container>
+          <label>Primary Position</label>
+          <md-select ng-model="primaryPosition" md-selected-text="">
+              <md-option ng-value="opt" ng-repeat="opt in positions">{{ opt }}</md-option>
+          </md-select>
+        </md-input-container>
+        <br>
+        <md-input-container>
+          <label>Secondary Position</label>
+          <md-select ng-model="secondaryPosition" md-selected-text="">
+              <md-option ng-value="opt" ng-repeat="opt in positions">{{ opt }}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <br>
+
+        <md-input-container>
+          <label>Rank</label>
+          <md-select ng-model="rank" md-selected-text="">
+              <md-option ng-value="opt" ng-repeat="opt in ranks">{{ opt }}</md-option>
+          </md-select>
+        </md-input-container>
 
 
-    <md-dialog-actions layout="row">
-      <md-button ng-click="" class="">Save</md-button>
-    </md-dialog-actions>
+        <br>
 
-  </form>
+        <md-input-container>
+          <label>Previous Team Experience</label>
+          <textarea  ng-model="experience" md-maxlength="200"></textarea>
+        </md-input-container>
+
+
+      </md-dialog-content>
+
+
+      <md-dialog-actions layout="row">
+        <md-button ng-click="save()" class="md-raised md-accent">Save</md-button>
+      </md-dialog-actions>
+
+
 </md-dialog>

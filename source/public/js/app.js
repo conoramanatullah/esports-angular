@@ -145,7 +145,6 @@
         $mdDialog.show({
           controller: LeagueController,
           templateUrl: 'templates/modal-league.html',
-          targetEvent: ev,
           clickOutsideToClose: true
         });
       }
@@ -153,7 +152,6 @@
         $mdDialog.show({
           controller: DotaController,
           templateUrl: 'templates/modal-dota.html',
-          targetEvent: ev,
           clickOutsideToClose: true
         });
       }
@@ -161,7 +159,6 @@
         $mdDialog.show({
           controller: CSGOController,
           templateUrl: 'templates/modal-csgo.html',
-          targetEvent: ev,
           clickOutsideToClose: true
         });
       }
@@ -169,7 +166,6 @@
         $mdDialog.show({
           controller: OverwatchController,
           templateUrl: 'templates/modal-overwatch.html',
-          targetEvent: ev,
           clickOutsideToClose: true
         });
       }
@@ -384,7 +380,6 @@ function LeagueController($scope, $mdDialog){
     "Jungle",
     "Support"
   ];
-
   $scope.ranks = [
     "Bronze",
     "Silver",
@@ -393,7 +388,6 @@ function LeagueController($scope, $mdDialog){
     "Diamond",
     "Challenger"
   ];
-
   $scope.rankLevels = [
     "I",
     "II",
@@ -409,7 +403,6 @@ function LeagueController($scope, $mdDialog){
         var uid = user.uid
         // add info to database
         firebase.database().ref('users/' + uid + '/league').set({
-
           isRegistered: 1,
           primary: $scope.primaryPosition,
           secondary: $scope.secondaryPosition,
@@ -419,26 +412,127 @@ function LeagueController($scope, $mdDialog){
           teamCapitain: true
 
         }, function(){
+              // Close Modal
           $mdDialog.hide();
           console.log("Update successful!");
         });
       }
-      else{
-
-      }
+      else{}
     });
-
-    // Close Modal
   };
 
 };
 
-function DotaController($scope){
+function DotaController($scope, $mdDialog){
+  $scope.positions = [
+    "Top",
+    "Mid",
+    "Bottom",
+    "Jungle",
+    "Support"
+  ];
+  $scope.ranks = [
+    "0-400",
+    "400-800",
+    "800-1200",
+    "1200-1600",
+    "1600-2000",
+    "2000-2400",
+    "2400-2800",
+    "2800-3200",
+    "3200-3600",
+    "3600-4000",
+    "4000-4400",
+    "4400-4800",
+    "4800-5200",
+    "5200-5600",
+    "5600-6000",
+    "6000-6400",
+    "6400-6800",
+    "6800-7200",
+    "7200+"
+  ];
+
+  $scope.save = function(){
+    // Get user info
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        var uid = user.uid
+        // add info to database
+        firebase.database().ref('users/' + uid + '/dota').set({
+          isRegistered: 1,
+          primary: $scope.primaryPosition,
+          secondary: $scope.secondaryPosition,
+          rank: $scope.rank,
+          experience: $scope.experience,
+          teamCapitain: true
+
+        }, function(){
+              // Close Modal
+          $mdDialog.hide();
+          console.log("Update successful!");
+        });
+      }
+      else{}
+    });
+  };
+
 
 };
 
-function CSGOController($scope){
+function CSGOController($scope, $mdDialog){
 
+  $scope.positions = [
+    "AWPer",
+    "Rifler",
+    "Entry",
+    "Lurker"
+  ];
+  $scope.ranks = [
+    "Silver I",
+    "Silver II",
+    "Silver III",
+    "Silver IV",
+    "Silver Elite",
+    "Silver Elite Master",
+    "Gold Nova I",
+    "Gold Nova II",
+    "Gold Nova III",
+    "Gold Nova Master",
+    "Master Guardian I",
+    "Master Guardian II",
+    "Master Guardian Elite",
+    "Distinguished Master Guardian",
+    "Legendary Eagle",
+    "Legendary Eagle Master",
+    "Supreme Master First Class",
+    "The Global Elite"
+  ];
+
+  $scope.save = function(){
+    // Get user info
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        var uid = user.uid
+        // add info to database
+        firebase.database().ref('users/' + uid + '/csgo').set({
+          isRegistered: 1,
+          primary: $scope.primaryPosition,
+          secondary: $scope.secondaryPosition,
+          rank: $scope.rank,
+          experience: $scope.experience,
+          teamCapitain: true
+
+        }, function(){
+              // Close Modal
+          $mdDialog.hide();
+          console.log("Update successful!");
+        });
+      }
+      else{}
+    });
+  };
+  // End save
 };
 
 function OverwatchController($scope){

@@ -273,7 +273,7 @@ ng-view {
 
 #league-modal{
   padding-top: 100px;
-  width: 25vw;
+  width: 40vw;
   height: 80vh;
   text-align: center;
 }
@@ -281,6 +281,50 @@ ng-view {
 
   width: 60%;
 }
+#league-modal md-dialog-content{
+  padding-top: 20px;
+}
+
+#csgo-modal{
+  padding-top: 100px;
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+}
+#csgo-modal md-input-container {
+
+  width: 60%;
+}
+#csgo-modal md-dialog-content{
+  padding-top: 20px;
+}
+
+#dota-modal{
+  padding-top: 100px;
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+}
+#dota-modal md-input-container {
+  width: 60%;
+}
+#dota-modal md-dialog-content{
+  padding-top: 20px;
+}
+
+#overwatch-modal{
+  padding-top: 100px;
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+}
+#overwatch-modal md-input-container {
+  width: 60%;
+}
+#overwatch-modal md-dialog-content{
+  padding-top: 20px;
+}
+
 .sponsor-logo{
   max-width: 15vw;
   max-height: 15vh;
