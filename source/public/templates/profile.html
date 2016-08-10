@@ -26,23 +26,30 @@
         <label>First Name</label>
         <input type="text" ng-model="first">
       </md-input-container>
+
       <md-input-container>
         <label>Last Name</label>
         <input type="text" ng-model="last">
       </md-input-container>
-      <!-- TODO Sex -->
 
       <br>
-      <!-- TODO Are you a student at CU? -->
 
-      <!-- If not, what university? -->
+      <md-input-container>
+        <label>Gender</label>
+        <md-select ng-model="gender" md-selected-text="">
+            <md-option ng-value="opt" ng-repeat="opt in genders">{{ opt }}</md-option>
+        </md-select>
+      </md-input-container>
 
-      <!-- TODO Year -->
+      <br>
+
       <md-input-container>
         <label>University</label>
         <input type="text" ng-model="university">
       </md-input-container>
+
       <br>
+
       <md-input-container>
         <label>Major</label>
         <input type="text" ng-model="major">
@@ -56,7 +63,18 @@
             <md-option ng-value="opt" ng-repeat="opt in options">{{ opt }}</md-option>
         </md-select>
       </md-input-container>
+
       <br>
+
+      <md-input-container>
+        <label>Steam Profile (URL)</label>
+        <input type="url" ng-model="steamProfile">
+      </md-input-container>
+      
+      <md-input-container>
+        <label>Summoner Name</label>
+        <input type="text" ng-model="summoner">
+      </md-input-container>
 
       <hr>
 

@@ -1,9 +1,9 @@
 
 html{
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 body {
-  overflow: hidden;
+
 }
 a:link {
   color: inherit;
@@ -17,13 +17,17 @@ a .page-button:hover{
 
 ng-view {
   height: 1000%;
+  overflow: scroll;
 }
 
 /****************ID SELECTORS************************/
 #toolbar-top{
+
   background-color: #32383D;
+
 }
 #side-nav{
+
   background-color: #32383D;
   overflow: hidden;
   height: 100%;

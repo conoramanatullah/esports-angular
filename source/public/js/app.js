@@ -290,6 +290,12 @@ function profileController($scope, $mdDialog, $window){
         "Senior"
       ];
 
+      $scope.genders = [
+        "Male",
+        "Female",
+        "Other"
+      ];
+
 
       $scope.userAvatar = user.photoURL;
       $scope.displayName = user.displayName;
@@ -307,6 +313,9 @@ function profileController($scope, $mdDialog, $window){
         $scope.major = userData.major;
         $scope.year  = userData.year;
         $scope.university = userData.university;
+        $scope.gender = userData.gender;
+        $scope.steamProfile = userData.steamProfile;
+        $scope.summoner = userData.summoner;
       });
 
       $scope.updateAvatar = function(ev){
@@ -325,7 +334,7 @@ function profileController($scope, $mdDialog, $window){
 
           console.log("updating database...");
 
-          firebase.database().ref('users/' + uid ).set({
+          firebase.database().ref('users/' + uid ).update({
             photoURL      :   user.photoURL,
             username      :   $scope.displayName,
             firstName     :   $scope.first,
@@ -333,6 +342,9 @@ function profileController($scope, $mdDialog, $window){
             major         :   $scope.major,
             year          :   $scope.year,
             university    :   $scope.university,
+            gender        :   $scope.gender,
+            steamProfile  :   $scope.steamProfile,
+            summoner      :   $scope.summoner
 
           }, function(){
             console.log("Update successful!");
