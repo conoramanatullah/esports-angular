@@ -316,6 +316,7 @@ function profileController($scope, $mdDialog, $window){
         $scope.gender = userData.gender;
         $scope.steamProfile = userData.steamProfile;
         $scope.summoner = userData.summoner;
+        $scope.battleNet = userData.battleNet;
       });
 
       $scope.updateAvatar = function(ev){
@@ -344,7 +345,8 @@ function profileController($scope, $mdDialog, $window){
             university    :   $scope.university,
             gender        :   $scope.gender,
             steamProfile  :   $scope.steamProfile,
-            summoner      :   $scope.summoner
+            summoner      :   $scope.summoner,
+            battleNet     :   $scope.battleNet
 
           }, function(){
             console.log("Update successful!");
