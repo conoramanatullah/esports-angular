@@ -1,4 +1,4 @@
-<md-content id="home-page" class="" style="background-color: inherit" >
+<md-content id="home-page" class="" style="background-color: inherit">
 
   <div layout="row" layout-sm="column" layout-align="space-around" ng-hide="loaded" class="progressCircle">
     <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
@@ -8,11 +8,11 @@
     <div layout="row">
       <div flex="55" layout="column">
 
-        <md-card id="news-large">
+        <md-card id="news-large" ng-hide="$mdMedia('xs') || $mdMedia('sm')">
           <img ng-src="img/arena2.jpg" alt="arena" />
         </md-card>
 
-        <div layout="row" id="small-news-container" ng-hide="$mdMedia('md')">
+        <div layout="row" id="small-news-container" ng-hide="$mdMedia('xs')">
           <md-card class="news-small" flex="50">
             <div id="wrap">
               <i class="material-icons image-text">input</i>
@@ -31,10 +31,10 @@
 
       </div>
 
-      <div flex="45" id="right-panel">
+      <div flex="45" id="right-panel" >
 
 
-        <md-card id="match-tracker">
+        <md-card id="match-tracker" ng-hide="$mdMedia('xs') || $mdMedia('sm') || $mdMedia('md')">
           <div id="gold-bar"></div>
           <div flex layout-padding>
             <div layout="row">
@@ -58,12 +58,12 @@
 
 
 
-        <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs')">
+        <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs') || $mdMedia('sm') || $mdMedia('md')">
 
 
           <md-card id="twitch-stream-box">
             <!-- <div id="twitch-stream"></div> -->
-            <iframe
+            <iframe ng-if="$mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')"
               src="https://player.twitch.tv/?channel=dansgaming"
               frameborder="0"
               scrolling="no"

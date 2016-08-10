@@ -45,6 +45,7 @@
 
   //  *******************Controllers!*********************
   .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia) {
+    $scope.$mdMedia = $mdMedia;
     $scope.loaded = false;
     $scope.$on('$viewContentLoaded', function(){
       $timeout(function(){
@@ -71,19 +72,24 @@
       $mdSidenav('left').toggle();
     }
   })
-  .controller('TwitchCtrl', function($scope, $timeout){
+  .controller('TwitchCtrl', function($scope, $timeout,$mdMedia){
     //get width of twitch box
-    var options = {
-        width: (window.innerWidth)/2.5,
-        height: 360,
-        channel: "dansgaming",
-        //video: "{VIDEO_ID}"
-    };
+    if($mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')){
+      var options = {
+          width: (window.innerWidth)/2.5,
+          height: 360,
+          channel: "dansgaming",
+          //video: "{VIDEO_ID}"
+      };
+      $timeout(function(){
+        var player = new Twitch.Player("twitch-stream", options);
+        player.setVolume(0.5);
+      },1000);
+    }else{
+      // Dont build twitch if we done need it
+    }
 
-    $timeout(function(){
-      var player = new Twitch.Player("twitch-stream", options);
-      player.setVolume(0.5);
-    },1000);
+
 
 
   })
@@ -115,7 +121,6 @@
     $scope.logout = function(){
       firebase.auth().signOut().then(function() {
         $location.path('/');
-        console.log("Signed out.");
 
       }, function(error) {
         console.log(error);
@@ -170,8 +175,7 @@
         });
       }
       else{
-        // ERROR, dont open shit
-        console.log('WHYYYYYYY');
+
       }
     };
 
@@ -192,7 +196,6 @@
     var current_user = firebase.auth().currentUser;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        console.log("Current User: " + current_user.email + "\nUID: " + current_user.uid);
         return user;
       } else {
 
@@ -208,7 +211,6 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
   $scope.isError = false;
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      console.log("Current User: " + user.email + "\nUID: " + user.uid);
       $scope.isError = false;
     } else {
 
@@ -233,7 +235,7 @@ function registerController($scope, $location) {
   //Provides email validation whatup
   $scope.colorado = "^[A-Za-z]*\.[A-Za-z]*\@(colorado\.edu)";
   $scope.createUser = function(){
-    console.log($scope.newuser);
+
     //Create a new user account on firebase
     firebase.auth().createUserWithEmailAndPassword($scope.newuser.email, $scope.newuser.password).catch(function(error){
       var errorCode = error.code;
@@ -305,7 +307,6 @@ function profileController($scope, $mdDialog, $window){
       var userData;
 
       firebase.database().ref('users/' + uid).on('value', function(data) {
-        console.log(data.val().firstName);
         userData = data.val();
         $scope.first = userData.firstName;
         $scope.last = userData.lastName;
@@ -328,13 +329,9 @@ function profileController($scope, $mdDialog, $window){
       };
 
       $scope.save = function(){
-        console.log($scope.cuTrue);
         user.updateProfile({
           displayName: $scope.displayName
         }).then(function(){
-
-          console.log("updating database...");
-
           firebase.database().ref('users/' + uid ).update({
             photoURL      :   user.photoURL,
             username      :   $scope.displayName,
@@ -349,7 +346,7 @@ function profileController($scope, $mdDialog, $window){
             battleNet     :   $scope.battleNet
 
           }, function(){
-            console.log("Update successful!");
+            // Success
           });
 
           $window.location.reload();
@@ -385,7 +382,8 @@ function createTeamController($scope){
 
 };
 
-function LeagueController($scope, $mdDialog){
+function LeagueController($scope, $mdDialog, $mdMedia){
+  $scope.$mdMedia = $mdMedia;
   $scope.positions = [
     "Top",
     "Mid",
@@ -426,7 +424,7 @@ function LeagueController($scope, $mdDialog){
         }, function(){
               // Close Modal
           $mdDialog.hide();
-          console.log("Update successful!");
+          // Success
         });
       }
       else{}
@@ -434,7 +432,8 @@ function LeagueController($scope, $mdDialog){
   };
 };
 
-function DotaController($scope, $mdDialog){
+function DotaController($scope, $mdDialog, $mdMedia){
+  $scope.$mdMedia = $mdMedia;
   $scope.positions = [
     "Top",
     "Mid",
@@ -480,7 +479,7 @@ function DotaController($scope, $mdDialog){
         }, function(){
               // Close Modal
           $mdDialog.hide();
-          console.log("Update successful!");
+          // Success
         });
       }
       else{}
@@ -488,7 +487,8 @@ function DotaController($scope, $mdDialog){
   };
 };
 
-function CSGOController($scope, $mdDialog){
+function CSGOController($scope, $mdDialog, $mdMedia){
+  $scope.$mdMedia = $mdMedia;
   $scope.positions = [
     "AWPer",
     "Rifler",
@@ -532,7 +532,7 @@ function CSGOController($scope, $mdDialog){
         }, function(){
               // Close Modal
           $mdDialog.hide();
-          console.log("Update successful!");
+          // Success
         });
       }
       else{}
@@ -540,7 +540,8 @@ function CSGOController($scope, $mdDialog){
   };
 };
 
-function OverwatchController($scope, $mdDialog){
+function OverwatchController($scope, $mdDialog, $mdMedia){
+  $scope.$mdMedia = $mdMedia;
   $scope.positions = [
     "Attack",
     "Defense",
@@ -576,7 +577,7 @@ function OverwatchController($scope, $mdDialog){
         }, function(){
               // Close Modal
           $mdDialog.hide();
-          console.log("Update successful!");
+          // Success
         });
       }
       else{}

@@ -1,6 +1,8 @@
 
 html{
   /*overflow: hidden;*/
+  background-color: #202529;
+
 }
 body {
 
@@ -29,7 +31,7 @@ ng-view {
 #side-nav{
 
   background-color: #32383D;
-  overflow: hidden;
+  /*overflow: hidden;*/
   height: 100%;
 }
 #side-nav-content {
@@ -41,10 +43,10 @@ ng-view {
 }
 #side-nav-content .spacer{
   background-color: #32383D;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 #body-content{
-  overflow: hidden;
+  /*overflow: hidden;*/
   height: 100%;
   background-color: #202529;
   color: white;
@@ -68,8 +70,8 @@ ng-view {
 #user-avatar img{
   border-radius: 50%;
   /*max-width: 50%;*/
-  width: 10vw;
-  height: 10vw;
+  width: 15vh;
+  height: 15vh;
 }
 #user-avatar h3 {
   color: white;
@@ -77,11 +79,11 @@ ng-view {
 }
 
 #login-modal{
-  /*text-align: center;*/
+
   background-color: #ECF0F1;
   /*color: white;*/
   margin: 0 auto;
-  width: 25vw;
+  width: 40vh;
 }
 #login-modal md-input-container {
   /*color: white;*/
@@ -99,14 +101,14 @@ ng-view {
 }
 #login-modal input {
   /*color: white;*/
-  width: 20vw;
+  width: 230px;
 }
 #register{
   background-color: inherit;
 }
 #register-card{
   background-color: #ECF0F1;
-  width: 45vw;
+  width: 80%;
 }
 
 #register-card .md-title-large{
@@ -115,12 +117,12 @@ ng-view {
 }
 
 #register-card #email,#password{
-  width: 20vw;
+  width: 100%;
 }
 
 #user-profile{
   color: white;
-  width: 60%;
+  width: 100%;
 
 }
 #user-profile input{
@@ -156,8 +158,8 @@ ng-view {
 }
 #user-profile #user-profile-card #user-avatar{
   border-radius: 50%;
-  max-width: 10vw;
-  max-height: 10vw;
+  max-width: 15vh;
+  max-height: 15vh;
 }
 #user-profile #user-profile-card #user-avatar img:hover{
   -webkit-transition : -webkit-filter 250ms ease;
@@ -260,7 +262,7 @@ ng-view {
 }
 
 #avatar-modal input{
-  width: 20vw;
+  width: 100%;
 }
 
 
@@ -277,13 +279,13 @@ ng-view {
 
 #league-modal{
   padding-top: 100px;
-  width: 40vw;
+  width: 60vw;
   height: 80vh;
   text-align: center;
 }
 #league-modal md-input-container {
 
-  width: 60%;
+  width: 100%;
 }
 #league-modal md-dialog-content{
   padding-top: 20px;
@@ -291,13 +293,13 @@ ng-view {
 
 #csgo-modal{
   padding-top: 100px;
-  width: 40vw;
+  width: 60vw;
   height: 80vh;
   text-align: center;
 }
 #csgo-modal md-input-container {
 
-  width: 60%;
+  width: 100%;
 }
 #csgo-modal md-dialog-content{
   padding-top: 20px;
@@ -305,12 +307,12 @@ ng-view {
 
 #dota-modal{
   padding-top: 100px;
-  width: 40vw;
+  width: 60vw;
   height: 80vh;
   text-align: center;
 }
 #dota-modal md-input-container {
-  width: 60%;
+  width: 100%;
 }
 #dota-modal md-dialog-content{
   padding-top: 20px;
@@ -318,12 +320,12 @@ ng-view {
 
 #overwatch-modal{
   padding-top: 100px;
-  width: 40vw;
+  width: 60vw;
   height: 80vh;
   text-align: center;
 }
 #overwatch-modal md-input-container {
-  width: 60%;
+  width: 100%;
 }
 #overwatch-modal md-dialog-content{
   padding-top: 20px;
