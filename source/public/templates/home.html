@@ -8,11 +8,11 @@
     <div layout="row">
       <div flex="55" layout="column">
 
-        <md-card id="news-large" ng-hide="$mdMedia('xs') || $mdMedia('sm')">
+        <md-card id="news-large" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
           <img ng-src="img/arena2.jpg" alt="arena" />
         </md-card>
 
-        <div layout="row" id="small-news-container" ng-hide="$mdMedia('xs')">
+        <div layout="row" id="small-news-container" ng-if="!($mdMedia('xs'))">
           <md-card class="news-small" flex="50">
             <div id="wrap">
               <img ng-src="img/arena3.jpg" alt="arena" />
@@ -32,7 +32,7 @@
       <div flex="45" id="right-panel" >
 
 
-        <md-card id="match-tracker" ng-hide="$mdMedia('xs') || $mdMedia('sm') || $mdMedia('md')">
+        <md-card id="match-tracker" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
           <div id="gold-bar"></div>
           <div flex layout-padding>
             <div layout="row">
@@ -56,7 +56,7 @@
 
 
 
-        <div id="" ng-controller="TwitchCtrl" ng-hide="$mdMedia('xs') || $mdMedia('sm') || $mdMedia('md')">
+        <div id="" ng-controller="TwitchCtrl" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
 
 
           <md-card id="twitch-stream-box">
