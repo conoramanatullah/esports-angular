@@ -97,15 +97,20 @@
               </md-button>
               <md-menu-content style="width: 15vw;">
                 <md-menu-item>
+                    <md-button ng-click="redirect('/my-teams')">
+                      <md-icon md-menu-align-target style="">person</md-icon>My Teams
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
                     <md-button ng-click="redirect('/teams')">
                       <md-icon md-menu-align-target style="">subject</md-icon>View Teams
                     </md-button>
                 </md-menu-item>
-                  <md-menu-item ng-if="isUser">
-                      <md-button ng-click="redirect('/create-team')" class="page-button">
-                        <md-icon md-menu-align-target style="">add</md-icon>Create Team
-                      </md-button>
-                  </md-menu-item>
+                <md-menu-item ng-if="isUser">
+                    <md-button ng-click="redirect('/create-team')" class="page-button">
+                      <md-icon md-menu-align-target style="">add</md-icon>Create Team
+                    </md-button>
+                </md-menu-item>
               </md-menu-content>
             </md-menu>
             <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>

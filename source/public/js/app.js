@@ -30,6 +30,10 @@
         templateUrl : 'templates/profile.html',
         controller  : profileController
       })
+      .when('/my-teams', {
+        templateUrl : 'templates/my-teams.html',
+        controller  : myTeamController
+      })
       .when('/teams', {
         templateUrl : 'templates/teams.html',
         controller  : teamController
@@ -186,10 +190,12 @@
   })
 //  *******************FACTORYS!*********************
   .factory('User', function($scope){
-    var user = {
-      avatar: "img/user.jpg"
-    }
-    return user;
+    var userData;
+    firebase.database().ref('users/' + uid).on('value', function(data) {
+      // Reading Data
+      userData = data.val();
+    });
+    return userData;
   })
 
   .factory('Auth', function($firebaseAuth, FirebaseUrl){
@@ -246,7 +252,7 @@ function registerController($scope, $location) {
 
     });
 
-    console.log("Success in creating user.")
+
 
   };
 };
@@ -260,7 +266,6 @@ function AvatarController($scope, $mdDialog, $window) {
         user.updateProfile({
           photoURL: $scope.imageUrl
         }).then(function() {
-          console.log('update success');
           $mdDialog.hide();
           $window.location.reload();
         }, function(error){
@@ -374,13 +379,7 @@ function playersController($scope, $timeout){
 };
 
 
-function teamController($scope){
 
-};
-
-function createTeamController($scope){
-
-};
 
 function LeagueController($scope, $mdDialog, $mdMedia){
   $scope.$mdMedia = $mdMedia;
@@ -583,4 +582,81 @@ function OverwatchController($scope, $mdDialog, $mdMedia){
       else{}
     });
   };
+};
+
+
+
+function teamController($scope){
+  // Pull from DB
+  // $scope.csgoTeams = [];
+  firebase.database().ref('teams' + '/CounterStrikeGlobalOffensive').on('value',function(snapshot){
+    $scope.csgoTeams = snapshot.val();
+  });
+};
+
+function teamLogoController($scope,$mdDialog){
+  // Check for user then update database on both global and user levels
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      var uid = user.uid;
+      $scope.update = function(){
+        firebase.database().ref('users/' + uid + '/teams/temp').set({
+          teamLogo  :  $scope.imageUrl
+        }, function(){
+          $mdDialog.hide();
+        });
+      };
+    } else {
+      $mdDialog.hide();
+    }
+  });
+};
+
+function createTeamController($scope, $mdDialog){
+  $scope.team = {};
+  $scope.gameList = [
+    "League of Legends",
+    "Dota 2",
+    "Counter Strike Global Offensive",
+    "Overwatch"
+  ];
+  $scope.tiers = [
+    "Tier 1",
+    "Tier 2",
+    "Tier 3"
+  ];
+  $scope.team.logoUrl = "http://placehold.it/150x150";
+
+  $scope.createTeam = function(){
+    firebase.auth().onAuthStateChanged(function(user){
+      if(user){
+        $scope.team.captain = user.uid;
+        var uid = user.uid;
+        var game = $scope.team.game;
+        game = game.replace(/\s/g, '');
+        firebase.database().ref('users/' + uid + '/teams/' + game).set($scope.team);
+        firebase.database().ref('teams/' + game + '/' + uid ).set($scope.team);
+        console.log('Team Created!');
+        // Now we redirect to teams homepage
+      }else{
+        // There was an error
+      }
+    });
+  };
+};
+
+function myTeamController($scope, Auth){
+  $scope.teams = [];
+  var uid = firebase.auth().currentUser.uid;
+
+  firebase.database().ref('users/' + uid + '/teams').on('value', function(data){
+    teamData = data.val();
+    $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
+    $scope.teams.push(teamData.Overwatch);
+    // $scope.teams.push(teamData.Dota2);
+    // $scope.teams.push(teamData.LeagueofLegends);
+
+  });
+
+
 };

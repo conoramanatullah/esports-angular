@@ -1,5 +1,5 @@
 <md-content style="background-color: inherit" layout-padding layout-wrap>
-  <md-card ng-repeat="(key,data) in csgoTeams track by $index">
+  <md-card ng-repeat="(team,data) in teams">
     <md-card-title>
       <md-card-title-media>
         <div class="md-media-lg card-media">
@@ -15,7 +15,8 @@
       Card footer
     </md-card-footer>
     <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
-       <md-button>Join Team</md-button>
+       <md-button>Save</md-button>
+       <md-button class="md-raised md-accent">Delete Team</md-button>
     </div>
   </md-card>
 </md-content>

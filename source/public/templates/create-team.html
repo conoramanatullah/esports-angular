@@ -1,15 +1,79 @@
-<md-content style="background-color: inherit" layout-padding layout-wrap>
+<md-content style="background-color: inherit" layout-padding layout-wrap >
 
-    <md-card>
+    <md-card id="create-team-card">
+      <!-- <img ng-src="img/arena.jpg" class="md-card-image" alt="Washed Out"> -->
+      <md-card-title>
+         <md-card-title-text>
+           <span class="md-headline">Create Team</span>
+           <span class="md-subhead">This is where you can create a team to compete with!</span>
+           <span class="md-subhead">You can only have one team per game.</span>
+           <span class="md-subhead">
+             Players can join your team via the
+             team page or by inviting players on
+             your team's homepage.
+           </span>
+
+         </md-card-title-text>
+         <md-card-title-media>
+           <div class="md-media-lg card-media">
+             <img ng-src="{{ team.logoUrl }}" class="" alt="Team logo">
+             <md-input-container>
+               <label>Logo URL</label>
+               <input type="url" ng-model="team.logoUrl">
+             </md-input-container>
+           </div>
+         </md-card-title-media>
+       </md-card-title>
       <md-card-content>
-        <h1>Create Team</h1>
-        <p>Here you can create a team to compete with.</p>
+        <!-- Actions -->
+
+        <md-input-container>
+          <label>Team Name</label>
+          <input type="text" ng-model="team.name">
+        </md-input-container>
+
+        <br>
+
+        <md-input-container>
+          <label>Game</label>
+          <md-select ng-model="team.game" md-selected-text="">
+              <md-option ng-value="opt" ng-repeat="opt in gameList">{{ opt }}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Tier</label>
+          <md-select ng-model="team.tier" md-selected-text="">
+              <md-option ng-value="opt" ng-repeat="opt in tiers">{{ opt }}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <br>
+        <hr>
+
+        <div class="">
+          rulesrulesrules
+          rulesrulesrules
+          rulesrulesrules
+          rulesrulesrules
+          rulesrulesrules
+          rulesrulesrules
+          rulesrulesrules
+        </div>
+
+        <br>
+        <md-checkbox ng-model="team.agreement" aria-label="agree to rules">
+            I Agree to the rules stated above.
+        </md-checkbox>
+
+
+
       </md-card-content>
       <md-card-footer>
-      Card footer
+      CU Boulder eSports 2016
       </md-card-footer>
       <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
-         <md-button class="md-raised">Save</md-button>
+         <md-button class="md-raised md-accent" ng-click="createTeam()" ng-show="team.agreement && team.name && team.game && team.tier">Create Team</md-button>
        </div>
     </md-card>
 </md-content>
