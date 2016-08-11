@@ -104,7 +104,7 @@
     };
   })
 
-  .controller('loginController', function($scope, $mdDialog, FirebaseUrl, $location, $window) {
+  .controller('loginController', function($scope, $mdDialog, FirebaseUrl, $location, $window, $mdSidenav) {
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -129,9 +129,17 @@
       }, function(error) {
         console.log(error);
       });
-    }
+    };
+
+    $scope.closeSideNav = function(){
+      $mdSidenav('left').toggle();
+    };
+
   })
-  .controller('userController', function($scope, Auth) {
+  .controller('userController', function($scope, Auth, $mdSidenav) {
+    $scope.closeSideNav = function(){
+      $mdSidenav('left').toggle();
+    };
     $scope.current_user = {};
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -365,8 +373,8 @@ function profileController($scope, $mdDialog, $window){
 
 };
 
-function playersController($scope, $timeout){
-
+function playersController($scope, $timeout, $mdMedia){
+  $scope.$mdMedia = $mdMedia;
   firebase.database().ref('users/').on('value', function(data){
     $scope.players = data.val();
   });

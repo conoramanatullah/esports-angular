@@ -63,7 +63,7 @@
   </md-toolbar>
   <div flex layout="row" ng-controller="LeftCtrl">
     <md-sidenav md-component-id="left" id="side-nav" flex="15" class="md-whiteframe-z1" md-whiteframe="3" md-is-locked-open="$mdMedia('min-width: 1280px')">
-      <md-content ng-controller="userController">
+      <md-content ng-controller="userController" ng-swipe-left="closeSideNav()">
         <div id="side-nav-content">
           <!-- User Image -->
           <div class="spacer">
@@ -86,28 +86,28 @@
             <br>
           </div>
           <div class="list" ng-controller="loginController">
-            <a href="/"><md-button class="page-button">Home</md-button></a>
-            <a ng-if="isUser" href="/profile"><md-button class="page-button">Profile</md-button></a>
+            <a href="/"><md-button class="page-button" ng-click="closeSideNav()">Home</md-button></a>
+            <a ng-if="isUser" href="/profile"><md-button class="page-button" ng-click="closeSideNav()">Profile</md-button></a>
             <!-- <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a> -->
-            <a href="/events"><md-button class="page-button">Events</md-button></a>
-            <a ng-if="isUser" href="/players"><md-button class="page-button">Players</md-button></a>
+            <a href="/events"><md-button class="page-button" ng-click="closeSideNav()">Events</md-button></a>
+            <a ng-if="isUser" href="/players"><md-button class="page-button" ng-click="closeSideNav()">Players</md-button></a>
             <md-menu ng-if="isUser" ng-controller="menuController">
               <md-button  ng-click="$mdOpenMenu($event)" class="page-button" aria-label="Open sample menu" md-menu-origin>
                 Teams
               </md-button>
               <md-menu-content style="">
                 <md-menu-item>
-                    <md-button ng-click="redirect('/my-teams')">
+                    <md-button ng-click="redirect('/my-teams');closeSideNav()">
                       <md-icon md-menu-align-target style="">person</md-icon>My Teams
                     </md-button>
                 </md-menu-item>
                 <md-menu-item>
-                    <md-button ng-click="redirect('/teams')">
+                    <md-button ng-click="redirect('/teams');closeSideNav()">
                       <md-icon md-menu-align-target style="">subject</md-icon>View Teams
                     </md-button>
                 </md-menu-item>
                 <md-menu-item ng-if="isUser">
-                    <md-button ng-click="redirect('/create-team')" class="page-button">
+                    <md-button ng-click="redirect('/create-team');closeSideNav()" class="page-button">
                       <md-icon md-menu-align-target style="">add</md-icon>Create Team
                     </md-button>
                 </md-menu-item>

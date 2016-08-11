@@ -1,6 +1,6 @@
 
 html{
-  /*overflow: hidden;*/
+  overflow: hidden;
   background-color: #202529;
 
 }
@@ -19,22 +19,25 @@ a .page-button:hover{
 
 ng-view {
   height: 1000%;
-  overflow: scroll;
+  /*overflow: scroll;*/
 }
-
+md-sidenav{
+  max-width: 30vw;
+}
 /****************ID SELECTORS************************/
 #toolbar-top{
   position: fixed;
   background-color: #32383D;
 }
 #side-nav{
-
+  /*position: fixed;*/
   background-color: #32383D;
-  /*overflow: hidden;*/
+  overflow: hidden;
   height: 100%;
+  /*margin-right: 100px;*/
 }
 #side-nav-content {
-
+  /*position: absolute;*/
   background-color: #32383D;
 
   height: 90%;
@@ -45,11 +48,13 @@ ng-view {
   /*overflow: hidden;*/
 }
 #body-content{
-  /*overflow: hidden;*/
+  overflow: auto;
   margin-top: 50px;
   height: 100%;
   background-color: #202529;
   color: white;
+  padding-top: 20px;
+  padding-bottom: 100px;
 }
 
 #user-avatar{
