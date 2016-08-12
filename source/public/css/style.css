@@ -24,6 +24,13 @@ ng-view {
 md-sidenav{
   max-width: 30vw;
 }
+md-card .md-headline {
+  color: black;
+  margin: 10px;
+}
+md-card .md-subhead {
+  margin: 10px;
+}
 /****************ID SELECTORS************************/
 #toolbar-top{
   position: fixed;
@@ -118,7 +125,7 @@ md-sidenav{
 }
 #register-card{
   background-color: #ECF0F1;
-  width: 80%;
+  width: 95%;
 }
 
 #register-card .md-title-large{

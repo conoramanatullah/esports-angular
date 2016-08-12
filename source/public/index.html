@@ -114,11 +114,11 @@
                 </md-menu-item>
               </md-menu-content>
             </md-menu>
-            <a ng-if="!isUser" href="/register"><md-button class="page-button">Register</md-button></a>
-            <a href="/about"><md-button class="page-button">About</md-button></a>
+            <a ng-if="!isUser" href="/register"><md-button class="page-button" ng-click="closeSideNav()">Register</md-button></a>
+            <a href="/about"><md-button class="page-button" ng-click="closeSideNav()">About</md-button></a>
             <a href="https://www.reddit.com/r/CU_Boulder_eSports/"><md-button class="page-button">Reddit</md-button></a>
 
-            <md-button ng-click="toggleRight()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
+            <md-button ng-click="toggleRight();toggleLeft()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
           </div>
         </div>
       </md-content>
