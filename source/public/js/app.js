@@ -223,6 +223,7 @@
 })();
 
 function DialogController($scope,$rootScope, $mdDialog ,$location) {
+  $scope.showWelcome = true;
   var dialogCtrl = this;
   $scope.isError = false;
   firebase.auth().onAuthStateChanged(function(user) {
@@ -233,6 +234,7 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
     }
   });
   $scope.login = function(){
+
     var email = $scope.email;
     var password = $scope.password;
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
@@ -241,6 +243,8 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
       var errorMessage = error.message;
       console.log(error.code);
     }).then(function(){
+      // Show green thing
+      $scope.showWelcome = true;
       $mdDialog.hide();
       $location.path("/");
     });
