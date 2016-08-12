@@ -3,8 +3,84 @@
   <div layout="row" layout-sm="column" layout-align="space-around" ng-hide="loaded" class="progressCircle">
     <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
   </div>
+
+  <!-- DIFFERENT Mobile layout -->
+  <!-- Full width cards with title images and text -->
+  <!-- Create container with flex 100 and maybe padding -->
+  <div class="container" ng-if="loaded && ($mdMedia('xs') || $mdMedia('sm'))">
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Headline</span>
+            <span class="md-subhead">Content!</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="img/arena.jpg" alt="" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent">Share</md-button>
+        </md-card-actions>
+    </md-card><md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Headline</span>
+            <span class="md-subhead">Content!</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="img/arena.jpg" alt="" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent">Share</md-button>
+        </md-card-actions>
+    </md-card>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Headline</span>
+            <span class="md-subhead">Content!</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="img/arena.jpg" alt="" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent">Share</md-button>
+        </md-card-actions>
+    </md-card>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Headline</span>
+            <span class="md-subhead">Content!</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="img/arena.jpg" alt="" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent">Share</md-button>
+        </md-card-actions>
+    </md-card>
+
+  </div>
+
+
+
   <!-- First Column -->
-  <div layout="column" ng-show="loaded">
+
+
+
+  <div layout="column" ng-show="loaded" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
     <div layout="row">
       <div flex="55" layout="column">
 

@@ -47,6 +47,11 @@ md-sidenav{
   background-color: #32383D;
   /*overflow: hidden;*/
 }
+#side-nav-wrapper {
+  background-color: #32383D;
+
+  height: 100%;
+}
 #body-content{
   overflow: auto;
   margin-top: 50px;
@@ -175,7 +180,7 @@ md-sidenav{
   -webkit-filter: brightness(50%);
 }
 #user-profile md-select {
-  color: black;
+  color: inherit;
 }
 
 #news-large {
@@ -267,6 +272,7 @@ md-sidenav{
   bottom: 0;
   margin: 0;
   width: 100%;
+  z-index: 1000;
 }
 #notification-button i{
   font-size: 3em;

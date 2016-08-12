@@ -46,7 +46,9 @@
     // location provider makes our URLs pretty
     $locationProvider.html5Mode(true);
   })
-
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+  })
   //  *******************Controllers!*********************
   .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia) {
     $scope.$mdMedia = $mdMedia;

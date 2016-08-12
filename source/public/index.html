@@ -64,7 +64,7 @@
   </md-toolbar>
   <div flex layout="row" ng-controller="LeftCtrl">
     <md-sidenav md-component-id="left" id="side-nav" flex="15" class="md-whiteframe-z1" md-whiteframe="3" md-is-locked-open="$mdMedia('min-width: 1280px')">
-      <md-content ng-controller="userController" ng-swipe-left="closeSideNav()">
+      <md-content id="side-nav-wrapper"ng-controller="userController" ng-swipe-left="closeSideNav()">
         <div id="side-nav-content">
           <!-- User Image -->
           <div class="spacer">
