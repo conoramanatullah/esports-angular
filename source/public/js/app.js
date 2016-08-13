@@ -50,7 +50,7 @@
     $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
   })
   //  *******************Controllers!*********************
-  .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia) {
+  .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia, $window) {
     $scope.$mdMedia = $mdMedia;
     $scope.loaded = false;
     $scope.$on('$viewContentLoaded', function(){
@@ -62,6 +62,10 @@
     $scope.toggleRight = function () {
       $mdSidenav('right').toggle();
     };
+
+    $scope.redirect = function(location){
+      $window.location.href = location;
+    }
 
   })
   .controller('RightCtrl' , function ($scope, $timeout, $mdSidenav, $log) {
