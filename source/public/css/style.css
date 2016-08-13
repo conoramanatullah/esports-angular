@@ -192,13 +192,19 @@ md-card .md-subhead {
 
 #news-large {
   /*height: 30vw;*/
+  position: relative;
   padding-top: 10px;
   margin: 20px;
   height: 55vh;
   background-color: #cfb87c;
 }
+#news-large .image-text {
+  position: absolute;
+  color: white;
+  bottom: 0;
+}
 #news-large img {
-  -webkit-filter: grayscale(100%) brightness(40%) ;
+  -webkit-filter: grayscale(0%) brightness(40%) ;
   height: 100%;
   max-width: 100%
 ;
@@ -221,6 +227,7 @@ md-card .md-subhead {
   padding: 20px;
 }
 .news-small{
+  position: relative;
   padding-top: 10px;
   margin: 5px;
   margin-left: 5px;
@@ -228,6 +235,11 @@ md-card .md-subhead {
   height: 29vh;
   width: 100%;
   background-color: #cfb87c;
+}
+.news-small .image-text {
+  position: absolute;
+  color: white;
+  bottom: 0;
 }
 .news-small img {
   -webkit-filter: brightness(40%) ;

@@ -11,64 +11,47 @@
     <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Headline</span>
-            <span class="md-subhead">Content!</span>
+            <span class="md-headline">Registration for Season 1 is now open!</span>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-lg card-media">
-              <img ng-src="img/arena.jpg" alt="" />
+              <img ng-src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="" />
             </div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent">Share</md-button>
+          <md-button class="md-raised md-accent">Read More</md-button>
         </md-card-actions>
     </md-card><md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Headline</span>
-            <span class="md-subhead">Content!</span>
+            <span class="md-headline">PAC-12 announces that they will be hosting eSports tournaments.</span>
+            <span class="md-subhead"></span>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-lg card-media">
-              <img ng-src="img/arena.jpg" alt="" />
+              <img ng-src="img/CUE_Pac12_Announcment.jpg" alt="" />
             </div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent">Share</md-button>
+          <md-button class="md-raised md-accent">Read More</md-button>
         </md-card-actions>
     </md-card>
     <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Headline</span>
-            <span class="md-subhead">Content!</span>
+            <span class="md-headline">Check out CU eSports on FOX-31 news!</span>
+            <span class="md-subhead"></span>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-lg card-media">
-              <img ng-src="img/arena.jpg" alt="" />
+              <img ng-src="img/CUE_eSports_In_The_News.jpg" alt="" />
             </div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent">Share</md-button>
-        </md-card-actions>
-    </md-card>
-    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Headline</span>
-            <span class="md-subhead">Content!</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-              <img ng-src="img/arena.jpg" alt="" />
-            </div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent">Share</md-button>
+          <md-button class="md-raised md-accent">Read More</md-button>
         </md-card-actions>
     </md-card>
 
@@ -85,19 +68,28 @@
       <div flex="55" layout="column">
 
         <md-card id="news-large" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
-          <img ng-src="img/arena2.jpg" alt="arena" />
+          <a href="https://google.com">
+            <img ng-src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="arena" />
+            <h1 class="image-text" layout-padding>Registration is now open for Season 1!</h1>
+          </a>
         </md-card>
 
         <div layout="row" id="small-news-container" ng-if="!($mdMedia('xs'))">
           <md-card class="news-small" flex="50">
-            <div id="wrap">
-              <img ng-src="img/arena3.jpg" alt="arena" />
-            </div>
+            <a href="http://www.espn.com/esports/story/_/id/15724001/pac-12-enter-esports-upcoming-year">
+              <div id="wrap">
+                <img ng-src="img/CUE_Pac12_Announcment.jpg" alt="arena" />
+                <h1 class="image-text">PAC-12 announces that they will be hosting eSports tournaments</h1>
+              </div>
+            </a>
           </md-card>
-          <md-card class="news-small" flex="50">
-            <div id="wrap">
-              <img ng-src="img/arena.jpg" alt="arena" />
-            </div>
+          <md-card class="news-small" flex="50" >
+            <a href="http://kdvr.com/2016/06/30/college-scholarship-money-up-for-grabs-in-competitive-video-gaming/">
+              <div id="wrap">
+                <img ng-src="img/CUE_eSports_In_The_News.jpg" alt="arena" />
+                <h1 class="image-text">Check out CU eSports on FOX-31 news!</h1>
+              </div>
+            </a>
           </md-card>
         </div>
 
@@ -111,21 +103,26 @@
         <md-card id="match-tracker" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
           <div id="gold-bar"></div>
           <div flex layout-padding>
-            <div layout="row">
-              <div flex="40">
-                <img src="img/tl_logo.png" alt="" />
-                <h3>Team Liquid</h3>
+            <span><h1>Matches Coming Soon!</h1></span>
+            <div layout="row" style="display: none;">
+              <div flex="10" style="background-color:yellow">
+                hey
               </div>
-              <div flex="20">
-                <h1>VS</h1>
+              <div flex="20" style="background-color:red">
+                hey
               </div>
-              <div flex="40">
-                <img src="img/nip_logo.png" alt=""/>
-                <h3>Ninjas in Pyjamas</h3>
+              <div flex="10" style="background-color:yellow">
+                hey
               </div>
-            </div>
-            <div layout="row">
-              <span flex="100"><h5>8:00pm MST</h5></span>
+              <div flex="20" style="background-color:red">
+                hey
+              </div>
+              <div flex="10" style="background-color:yellow">
+                hey
+              </div>
+              <div flex="20" style="background-color:red">
+                hey
+              </div>
             </div>
           </div>
         </md-card>
