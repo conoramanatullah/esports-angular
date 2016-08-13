@@ -685,8 +685,8 @@ function myTeamController($scope, Auth){
     teamData = data.val();
     $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
     $scope.teams.push(teamData.Overwatch);
-    // $scope.teams.push(teamData.Dota2);
-    // $scope.teams.push(teamData.LeagueofLegends);
+    $scope.teams.push(teamData.Dota2);
+    $scope.teams.push(teamData.LeagueofLegends);
 
   });
 

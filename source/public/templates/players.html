@@ -12,7 +12,7 @@
         <img src="img/league_logo.png" alt="" />
       </div>
 
-      <div class="player-row" flex layout="row" layout-padding>
+      <div class="player-row" flex layout-lg="row" layout-xs="column" layout-padding layout-wrap>
         <span flex="10">Username</span>
         <span flex="10">University</span>
         <span flex="10">Major</span>
@@ -24,7 +24,7 @@
 
       </div>
 
-      <div class="player-row" ng-repeat="(uid, user) in players" flex layout="row" layout-padding>
+      <div class="player-row" ng-repeat="(uid, user) in players" flex layout-lg="row" layout-xs="column"layout-padding layout-wrap>
         <span flex="10">{{ user.username }}</span>
         <span flex="10">{{ user.university }}</span>
         <span flex="10">{{ user.major }}</span>
