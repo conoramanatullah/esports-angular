@@ -610,6 +610,15 @@ function teamController($scope){
   firebase.database().ref('teams' + '/CounterStrikeGlobalOffensive').on('value',function(snapshot){
     $scope.csgoTeams = snapshot.val();
   });
+  firebase.database().ref('teams' + '/Dota2').on('value',function(snapshot){
+    $scope.dotaTeams = snapshot.val();
+  });
+  firebase.database().ref('teams' + '/LeagueofLegends').on('value',function(snapshot){
+    $scope.leagueTeams = snapshot.val();
+  });
+  firebase.database().ref('teams' + '/Overwatch').on('value',function(snapshot){
+    $scope.overwatchTeams = snapshot.val();
+  });
 };
 
 function teamLogoController($scope,$mdDialog){
@@ -630,7 +639,7 @@ function teamLogoController($scope,$mdDialog){
   });
 };
 
-function createTeamController($scope, $mdDialog){
+function createTeamController($scope, $mdDialog, $location){
   $scope.team = {};
   $scope.gameList = [
     "League of Legends",
@@ -656,10 +665,15 @@ function createTeamController($scope, $mdDialog){
         firebase.database().ref('teams/' + game + '/' + uid ).set($scope.team);
         console.log('Team Created!');
         // Now we redirect to teams homepage
+        $location.path('/my-teams');
       }else{
         // There was an error
       }
     });
+  };
+
+  var redirect = function(location){
+    $location.path(location);
   };
 };
 

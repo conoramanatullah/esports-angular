@@ -12,10 +12,70 @@
       <p>{{ data.game }}</p>
     </md-card-content>
     <md-card-footer>
-      Card footer
+
     </md-card-footer>
     <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
-       <md-button>Join Team</md-button>
+       <!-- <md-button class="md-raised md-accent">Join Team</md-button> -->
+    </div>
+  </md-card>
+
+  <md-card ng-repeat="(key,data) in dotaTeams track by $index">
+    <md-card-title>
+      <md-card-title-media>
+        <div class="md-media-lg card-media">
+          <img ng-src="{{ data.logoUrl }}" class="" alt="Team logo">
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-content>
+      <h2>{{ data.name }}</h2>
+      <p>{{ data.game }}</p>
+    </md-card-content>
+    <md-card-footer>
+
+    </md-card-footer>
+    <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+       <!-- <md-button class="md-raised md-accent">Join Team</md-button> -->
+    </div>
+  </md-card>
+
+  <md-card ng-repeat="(key,data) in leagueTeams track by $index">
+    <md-card-title>
+      <md-card-title-media>
+        <div class="md-media-lg card-media">
+          <img ng-src="{{ data.logoUrl }}" class="" alt="Team logo">
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-content>
+      <h2>{{ data.name }}</h2>
+      <p>{{ data.game }}</p>
+    </md-card-content>
+    <md-card-footer>
+
+    </md-card-footer>
+    <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+       <!-- <md-button class="md-raised md-accent">Join Team</md-button> -->
+    </div>
+  </md-card>
+
+  <md-card ng-repeat="(key,data) in overwatchTeams track by $index">
+    <md-card-title>
+      <md-card-title-media>
+        <div class="md-media-lg card-media">
+          <img ng-src="{{ data.logoUrl }}" class="" alt="Team logo">
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-content>
+      <h2>{{ data.name }}</h2>
+      <p>{{ data.game }}</p>
+    </md-card-content>
+    <md-card-footer>
+
+    </md-card-footer>
+    <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+       <!-- <md-button class="md-raised md-accent">Join Team</md-button> -->
     </div>
   </md-card>
 </md-content>

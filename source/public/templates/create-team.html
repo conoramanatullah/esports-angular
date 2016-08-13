@@ -8,9 +8,8 @@
            <span class="md-subhead">This is where you can create a team to compete with!</span>
            <span class="md-subhead">You can only have one team per game.</span>
            <span class="md-subhead">
-             Players can join your team via the
-             team page or by inviting players on
-             your team's homepage.
+             Please Add Each Members Name in the Members field <br>
+             Players can also join your team by inviting them on the players page.
            </span>
 
          </md-card-title-text>
@@ -30,6 +29,13 @@
         <md-input-container>
           <label>Team Name</label>
           <input type="text" ng-model="team.name">
+        </md-input-container>
+
+        <br>
+
+        <md-input-container>
+          <label>Members</label>
+          <textarea type="text" ng-model="team.members"></textarea>
         </md-input-container>
 
         <br>

@@ -13,17 +13,31 @@
       </div>
 
       <div class="player-row" flex layout="row" layout-padding>
-        <span flex="20">Username</span><span flex="30">University</span><span flex="20">Major</span>
+        <span flex="10">Username</span>
+        <span flex="10">University</span>
+        <span flex="10">Major</span>
+        <span flex="10">Summoner</span>
+        <span flex="10">Battle.net</span>
+        <span flex="10">Steam</span>
+
+
+
       </div>
 
       <div class="player-row" ng-repeat="(uid, user) in players" flex layout="row" layout-padding>
-        <span flex="20">{{ user.username }}</span>
-        <span flex="30">{{ user.university }}</span>
-        <span flex="30">{{ user.major }}</span>
+        <span flex="10">{{ user.username }}</span>
+        <span flex="10">{{ user.university }}</span>
+        <span flex="10">{{ user.major }}</span>
+        <span flex="10">{{ user.summoner }}</span>
+        <span flex="10">{{ user.battleNet }}</span>
+        <span flex="10">{{ user.steamProfile }}</span>
 
-        <span flex="10" ng-show="$mdMedia('lg') || $mdMedia('xl')">
+
+
+
+        <!-- <span flex="10" ng-show="$mdMedia('lg') || $mdMedia('xl')">
           <md-button  class="md-raised md-accent"><i class="material-icons" style="vertical-align: middle">add</i>Invite to Team</md-button>
-        </span>
+        </span> -->
 
       </div>
     </div>
