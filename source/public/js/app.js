@@ -448,11 +448,12 @@ function playersController($scope, $timeout, $mdMedia, $mdDialog){
     $scope.loaded = true;
   }, 1000);
 
-  $scope.showPlayerInfo = function(user){
+  $scope.showPlayerInfo = function(user,ev){
     $mdDialog.show({
       controller: playerInfoController,
       templateUrl: 'templates/modal-player.html',
       clickOutsideToClose: true,
+      targetEvent: ev,
       locals : {
                     user : user,
                 }

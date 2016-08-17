@@ -1,0 +1,51 @@
+<md-dialog id="player-modal" aria-label="player modal"  ng-cloak style="width: 80%;height: 80%;">
+
+  <md-content layout-wrap layout-row flex style="background-color: #32383D; color:white;">
+    <div layout="row">
+      <span layout="column" layout-padding layout-wrap flex="25" flex-xs="50">
+        <div id="user-avatar">
+          <img md-whiteframe="4" src="{{ user.photoURL }}" alt="" />
+        </div>
+        <!-- Username -->
+        <h1>{{user.username}}</h1>
+        <p>
+          {{user.university}}<br>
+          Summoner: {{user.summoner}}<br>
+          <a ng-if="user.steamProfile" href="{{user.steamProfile}}">Steam Profile</a><br ng-if="user.steamProfile">
+          Battle.net: {{user.battleNet}}<br>
+        </p>
+      </span>
+      <span layout="column" layout-wrap flex="75" flex-xs="50">
+        <div layout-wrap layout="row" layout-sm="column" layout-xs="column">
+          <md-card style="color: black">
+            <md-card-content ng-if="user.games.league.isRegistered">
+              <h2>League of Legends</h2>
+              <hr>
+              <h4>{{user.games.league.rank}} {{user.games.league.rankLevel}}</h4>
+
+              <p>Primary: {{user.games.league.primary}}</p>
+              <p>Secondary: {{user.games.league.secondary}}</p>
+              <p>
+                Previous experience:
+                {{user.games.league.experience}}
+              </p>
+            </md-card-content>
+            <md-card-content ng-if="!user.games.league.isRegistered">
+              <h2>League of Legends</h2>
+              <p>This player has not registered for League of Legends</p>
+            </md-card-content>
+            <md-card-footer ng-if="user.games.league.isRegistered">
+              <hr>
+            Invite this player to your team! Be courteous and do not spam.
+            </md-card-footer>
+            <div  ng-if="user.games.league.isRegistered" class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+               <md-button>Team Invite</md-button>
+             </div>
+          </md-card>
+        </div>
+      </span>
+    </div>
+
+  </md-content>
+
+</md-dialog>

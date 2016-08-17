@@ -383,6 +383,20 @@ md-card .md-subhead {
 }
 
 
+#player-modal md-content{
+  background-color: #32383D;
+  color: white;
+}
+
+#player-modal #user-avatar{
+  border-radius: 50%;
+  max-width: 15vh;
+  max-height: 15vh;
+  float: left;
+}
+
+
+
 .header-image img{
   max-width: 60%;
 }
