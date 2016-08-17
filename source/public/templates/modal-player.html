@@ -1,8 +1,8 @@
-<md-dialog id="player-modal" aria-label="player modal"  ng-cloak style="width: 80%;height: 80%;">
+<md-dialog id="player-modal" aria-label="player modal"  ng-cloak style="width: 90%;height: 100vh;">
 
   <md-content layout-wrap layout-row flex style="background-color: #32383D; color:white;">
     <div layout="row">
-      <span layout="column" layout-padding layout-wrap flex="25" flex-xs="50">
+      <span layout="column" layout-padding layout-wrap flex="25" flex-xs="100">
         <div id="user-avatar">
           <img md-whiteframe="4" src="{{ user.photoURL }}" alt="" />
         </div>
@@ -15,10 +15,10 @@
           Battle.net: {{user.battleNet}}<br>
         </p>
       </span>
-      <span layout="column" layout-wrap flex="75" flex-xs="50">
+      <span layout="column" layout-wrap flex="100" flex-xs="100">
         <div layout-wrap layout="row" layout-sm="column" layout-xs="column">
           <md-card style="color: black">
-            <md-card-content ng-if="user.games.league.isRegistered">
+            <md-card-content flex ng-if="user.games.league.isRegistered">
               <h2>League of Legends</h2>
               <hr>
               <h4>{{user.games.league.rank}} {{user.games.league.rankLevel}}</h4>
@@ -36,9 +36,80 @@
             </md-card-content>
             <md-card-footer ng-if="user.games.league.isRegistered">
               <hr>
-            Invite this player to your team! Be courteous and do not spam.
             </md-card-footer>
             <div  ng-if="user.games.league.isRegistered" class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+               <md-button>Team Invite</md-button>
+             </div>
+          </md-card>
+          <md-card style="color: black">
+            <md-card-content flex ng-if="user.games.csgo.isRegistered">
+              <h2>Counter Strike Global Offensive</h2>
+              <hr>
+              <h4>{{user.games.csgo.rank}}</h4>
+
+              <p>Primary: {{user.games.csgo.primary}}</p>
+              <p>Secondary: {{user.games.csgo.secondary}}</p>
+              <p>
+                Previous experience:
+                {{user.games.csgo.experience}}
+              </p>
+            </md-card-content>
+            <md-card-content ng-if="!user.games.csgo.isRegistered">
+              <h2>Counter Strike</h2>
+              <p>This player has not registered for Counter Strike</p>
+            </md-card-content>
+            <md-card-footer ng-if="user.games.csgo.isRegistered">
+              <hr>
+            </md-card-footer>
+            <div  ng-if="user.games.csgo.isRegistered" class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+               <md-button>Team Invite</md-button>
+             </div>
+          </md-card>
+          <md-card style="color: black">
+            <md-card-content flex ng-if="user.games.overwatch.isRegistered">
+              <h2>Overwatch</h2>
+              <hr>
+              <h4>{{user.games.overwatch.rank}}</h4>
+
+              <p>Primary: {{user.games.overwatch.primary}}</p>
+              <p>Secondary: {{user.games.overwatch.secondary}}</p>
+              <p>
+                Previous experience:
+                {{user.games.overwatch.experience}}
+              </p>
+            </md-card-content>
+            <md-card-content ng-if="!user.games.overwatch.isRegistered">
+              <h2>Overwatch</h2>
+              <p>This player has not registered for Overwatch</p>
+            </md-card-content>
+            <md-card-footer ng-if="user.games.overwatch.isRegistered">
+              <hr>
+            </md-card-footer>
+            <div  ng-if="user.games.overwatch.isRegistered" class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+               <md-button>Team Invite</md-button>
+             </div>
+          </md-card>
+          <md-card style="color: black">
+            <md-card-content flex ng-if="user.games.dota.isRegistered">
+              <h2>Dota 2</h2>
+              <hr>
+              <h4>{{user.games.dota.rank}}</h4>
+
+              <p>Primary: {{user.games.dota.primary}}</p>
+              <p>Secondary: {{user.games.dota.secondary}}</p>
+              <p>
+                Previous experience:
+                {{user.games.dota.experience}}
+              </p>
+            </md-card-content>
+            <md-card-content ng-if="!user.games.dota.isRegistered">
+              <h2>Dota</h2>
+              <p>This player has not registered for Dota</p>
+            </md-card-content>
+            <md-card-footer ng-if="user.games.dota.isRegistered">
+              <hr>
+            </md-card-footer>
+            <div  ng-if="user.games.dota.isRegistered" class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
                <md-button>Team Invite</md-button>
              </div>
           </md-card>

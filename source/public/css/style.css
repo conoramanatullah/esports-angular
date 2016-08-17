@@ -394,6 +394,9 @@ md-card .md-subhead {
   max-height: 15vh;
   float: left;
 }
+#player-modal md-card md-content{
+  height: 120vh;
+}
 
 
 
