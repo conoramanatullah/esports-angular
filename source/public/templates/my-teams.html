@@ -1,22 +1,45 @@
 <md-content style="background-color: inherit" layout-padding layout-wrap>
-  <md-card ng-repeat="(team,data) in teams">
+  <md-card ng-repeat="(team,data) in teams" ng-controller="myTeamCardController">
     <md-card-title>
       <md-card-title-media>
+
         <div class="md-media-lg card-media">
           <img ng-src="{{ data.logoUrl }}" class="" alt="Team logo">
         </div>
+
+        <md-input-container>
+          <label>Logo URL</label>
+          <input type="url" ng-model="data.logoUrl">
+        </md-input-container>
+
+
+
       </md-card-title-media>
     </md-card-title>
     <md-card-content>
+
       <h2>{{ data.name }}</h2>
-      <p>{{ data.game }}</p>
+      <hr>
+      <p>{{ data.game }} <br> {{ data.tier }}</p>
+
+
+      <md-input-container>
+        <label>Team Name</label>
+        <input type="text" ng-model="data.name">
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <label>Primary Email</label>
+        <input type="text" ng-model="data.email">
+      </md-input-container>
+
     </md-card-content>
     <md-card-footer>
 
     </md-card-footer>
     <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
-       <!-- <md-button>Save</md-button>
-       <md-button class="md-raised md-accent">Delete Team</md-button> -->
+       <md-button class="md-raised " ng-click="saveTeam( data )">Save</md-button>
+       <md-button class="md-raised md-accent" ng-click="deleteTeam( data )">Delete Team</md-button>
     </div>
   </md-card>
 </md-content>

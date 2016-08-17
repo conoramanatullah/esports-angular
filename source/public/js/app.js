@@ -202,6 +202,58 @@
 
 
   })
+  .controller('myTeamCardController', function($scope,$mdDialog,$route){
+    var uid = firebase.auth().currentUser.uid;
+
+    // SAVING TEAM
+    $scope.saveTeam = function(data){
+      alert = $mdDialog.alert({
+        title: 'Save Team',
+        textContent: 'Saving Team ' + data.name,
+        ok: 'SAVE'
+      });
+      $mdDialog
+        .show(alert)
+        .finally(function() {
+          alert = undefined;
+          game = data.game.replace(/\s/g, '');
+          firebase.database().ref('users/' + uid + '/teams/' + game).update({
+            name : data.name,
+            logoUrl : data.logoUrl,
+          });
+          firebase.database().ref('teams/' + game + '/' + uid).update({
+            name : data.name,
+            logoUrl : data.logoUrl,
+          });
+          $route.reload();
+        });
+    };
+
+    // DELETING TEAM
+    $scope.deleteTeam = function(data){
+      alert = $mdDialog.alert({
+        title: 'Delete Team',
+        textContent: 'This team will be deleted.',
+        ok: 'OK'
+      });
+      $mdDialog
+        .show(alert)
+        .finally(function() {
+          // Destroy alert and do stuff
+          alert = undefined;
+          game = data.game.replace(/\s/g, '');
+          firebase.database().ref('users/' + uid + '/teams/' + game).remove();
+          firebase.database().ref('teams/' + game + '/' + uid).remove();
+          console.log('deleted team');
+          // $route.reload();
+          $route.reload();
+        });
+    };
+
+
+
+
+  })
 //  *******************FACTORYS!*********************
   .factory('User', function($scope){
     var userData;
@@ -677,16 +729,35 @@ function createTeamController($scope, $mdDialog, $location){
   };
 };
 
-function myTeamController($scope, Auth){
+function myTeamController($scope, Auth, $window){
   $scope.teams = [];
   var uid = firebase.auth().currentUser.uid;
 
   firebase.database().ref('users/' + uid + '/teams').on('value', function(data){
     teamData = data.val();
-    $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
-    $scope.teams.push(teamData.Overwatch);
-    $scope.teams.push(teamData.Dota2);
-    $scope.teams.push(teamData.LeagueofLegends);
+    if(teamData.CounterStrikeGlobalOffensive){
+      $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
+    }else{
+
+    }
+    if(teamData.Overwatch){
+      $scope.teams.push(teamData.Overwatch);
+    }else{
+
+    }
+
+    if(teamData.Dota2){
+      $scope.teams.push(teamData.Dota2);
+    }else{
+
+    }
+
+    if(teamData.LeagueofLegends){
+      $scope.teams.push(teamData.LeagueofLegends);
+    }else{
+
+    }
+
 
   });
 
