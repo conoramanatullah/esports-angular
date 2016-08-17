@@ -26,14 +26,14 @@
 
 
 
-      <div class="player-row" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap>
+      <div class="player-row" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user )">
         <span flex="10">{{ user.username }}</span>
         <hr ng-if="$mdMedia('xs')" style="width: 90%">
         <span flex="10">{{ user.university }}</span>
         <span flex="10">{{ user.major }}</span>
         <span flex="10">{{ user.summoner }}</span>
         <span flex="10">{{ user.battleNet }}</span>
-        <span flex="10">{{ user.steamProfile }}</span>
+        <span flex="10" ng-if="user.steamProfile"><a href="{{user.steamProfile}}">Steam Profile</a></span>
       </div>
 
 

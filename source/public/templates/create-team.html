@@ -1,6 +1,10 @@
 <md-content style="background-color: inherit" layout-padding layout-wrap >
 
-    <md-card id="create-team-card">
+  <div layout="row" layout-sm="column" layout-align="space-around" ng-if="!loaded" class="progressCircle">
+    <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
+  </div>
+
+    <md-card id="create-team-card" ng-if="loaded">
       <!-- <img ng-src="img/arena.jpg" class="md-card-image" alt="Washed Out"> -->
       <md-card-title>
          <md-card-title-text>
@@ -60,7 +64,21 @@
           <label>Primary Email</label>
           <input type="email" ng-model="team.email">
         </md-input-container>
+
+
+        <br>
+
+        <md-input-container>
+          <label>Players</label>
+          <md-select ng-model="team.players[0]" md-selected-text="">
+              <md-option ng-value="user.username" ng-repeat="user in users">{{ user.username }}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-button class="" href="" aria-label="description" md-ripple-size="auto"><i class="material-icons">add</i></md-button>
+
         <hr>
+
 
         <div class="">
           rulesrulesrules

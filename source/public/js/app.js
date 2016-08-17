@@ -435,7 +435,10 @@ function profileController($scope, $mdDialog, $window){
 
 };
 
-function playersController($scope, $timeout, $mdMedia){
+
+
+
+function playersController($scope, $timeout, $mdMedia, $mdDialog){
   $scope.$mdMedia = $mdMedia;
   firebase.database().ref('users/').on('value', function(data){
     $scope.players = data.val();
@@ -445,9 +448,22 @@ function playersController($scope, $timeout, $mdMedia){
     $scope.loaded = true;
   }, 1000);
 
+  $scope.showPlayerInfo = function(user){
+    $mdDialog.show({
+      controller: playerInfoController,
+      templateUrl: 'templates/modal-player.html',
+      clickOutsideToClose: true,
+      locals : {
+                    user : user,
+                }
+    })
+  };
 
 };
 
+function playerInfoController($scope, user){
+  $scope.user = user;
+};
 
 
 
@@ -692,6 +708,11 @@ function teamLogoController($scope,$mdDialog){
 };
 
 function createTeamController($scope, $mdDialog, $location){
+  firebase.database().ref('users').on('value',function(data){
+    $scope.users = data.val();
+  });
+  $scope.loaded = true;
+
   $scope.team = {};
   $scope.gameList = [
     "League of Legends",
@@ -705,6 +726,13 @@ function createTeamController($scope, $mdDialog, $location){
     "Tier 3"
   ];
   $scope.team.logoUrl = "http://placehold.it/150x150";
+  // $scope.users = [];
+// SEARCH STUFF
+  // Pull list of all users and put into an array
+
+
+
+
 
   $scope.createTeam = function(){
     firebase.auth().onAuthStateChanged(function(user){
