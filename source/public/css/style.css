@@ -383,7 +383,9 @@ md-card .md-subhead {
 }
 
 
-
+.header-image img{
+  max-width: 60%;
+}
 .welcome-bar{
   width:100%;
   height:20px;
