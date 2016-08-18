@@ -90,7 +90,7 @@
             <a href="/"><md-button class="page-button" ng-click="closeSideNav()">Home</md-button></a>
             <a ng-if="isUser" href="/profile"><md-button class="page-button" ng-click="closeSideNav()">Profile</md-button></a>
             <!-- <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a> -->
-            <a href="/events"><md-button class="page-button" ng-click="closeSideNav()">Events</md-button></a>
+            <!-- <a href="/events"><md-button class="page-button" ng-click="closeSideNav()">Events</md-button></a> -->
             <a ng-if="isUser" href="/players"><md-button class="page-button" ng-click="closeSideNav()">Players</md-button></a>
             <md-menu ng-if="isUser" ng-controller="menuController">
               <md-button  ng-click="$mdOpenMenu($event)" class="page-button" aria-label="Open sample menu" md-menu-origin>
@@ -140,7 +140,18 @@
           <md-button ng-click="close()">Close</md-button>
         </md-toolbar>
         <md-content flex layout-padding>
-          Register to get notifications!
+          <!-- <div ng-if="notifications" ng-repeat="(notification, data) in notifications.requests">
+            <div ng-repeat="request in data">
+              <p>
+                {{request.username}}
+              </p> has requested to join your {{ request.game }} team.<br>
+              <md-button ng-if="showRequest" ng-click="approve(request)">Approve</md-button>
+              <md-button ng-click="deny(request)">Deny</md-button>
+              <hr>
+            </div>
+
+          </div> -->
+          Nothing Here!
         </md-content>
       </md-sidenav>
     </div>

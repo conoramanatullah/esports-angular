@@ -47,7 +47,7 @@
     $locationProvider.html5Mode(true);
   })
   .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+    $mdThemingProvider.theme('default').accentPalette('blue');
   })
   //  *******************Controllers!*********************
   .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia, $window) {
@@ -67,6 +67,61 @@
       $window.location.href = location;
     }
 
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        $scope.showRequest = 1;
+        var uid = user.uid;
+        $scope.notifications = {};
+        firebase.database().ref('users/' + uid + '/notifications').on('value', function(data){
+          $scope.notifications = data.val();
+        });
+        $scope.deny = function(requestData){
+
+        };
+        $scope.approve = function(requestData){
+          var game = requestData.game.replace(/\s/g, '');
+          var players = [];
+          firebase.database().ref('users/' + uid + '/teams/' + game + '/players').once('value').then(function(data){
+            if(data.val())
+              {
+                players = data.val();
+                players.push(requestData.username);
+                console.log(players);
+                firebase.database().ref('users/' + uid + '/teams/' + game).update({
+                  players : players
+                });
+                firebase.database().ref('teams/' + game + '/' + uid).update({
+                  players : players
+                });
+
+              }
+            else{
+              // players.push(requestData.username);
+              players.push(requestData.username);
+              console.log(players);
+              firebase.database().ref('users/' + uid + '/teams/' + game).update({
+                players : players
+              });
+              firebase.database().ref('teams/' + game + '/' + uid).update({
+                players : players
+              });
+
+            }
+          });
+
+          console.log(requestData.game);
+          // Remove Notification
+          firebase.database().ref('users/' + uid + '/notifications/requests/' + "{{requestData.game}}" + requestData.uid).remove();
+        };
+      } else {
+
+      }
+    });
+    // var uid = firebase.auth().currentUser.uid;
+
+
+    // Pull user notifications
+
   })
   .controller('RightCtrl' , function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
@@ -74,10 +129,6 @@
     }
   })
   .controller('LeftCtrl' , function($scope, $timeout, $mdSidenav, $log, $mdMedia){
-    $scope.screenIsLarge = $mdMedia('lg');
-    $scope.screenIsMedium = $mdMedia('md');
-    $scope.screenIsSmall = $mdMedia('sm');
-
     $scope.close = function () {
       $mdSidenav('left').toggle();
     }
@@ -220,10 +271,15 @@
           firebase.database().ref('users/' + uid + '/teams/' + game).update({
             name : data.name,
             logoUrl : data.logoUrl,
+            members : data.members,
+            email : data.email
           });
           firebase.database().ref('teams/' + game + '/' + uid).update({
             name : data.name,
             logoUrl : data.logoUrl,
+            members : data.members,
+            email : data.email
+
           });
           $route.reload();
         });
@@ -307,7 +363,7 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
   };
 };//END DIALOG controller
 
-function registerController($scope, $location) {
+function registerController($scope, $location, $mdDialog) {
   //Provides email validation whatup
   $scope.colorado = "^[A-Za-z]*\.[A-Za-z]*\@(colorado\.edu)";
   $scope.createUser = function(){
@@ -318,6 +374,12 @@ function registerController($scope, $location) {
       var errorMessage = error.message;
     }).then(function(){
       // Login user and refresh page
+      alert = $mdDialog.alert({
+        title: 'Welcome!',
+        textContent: 'You are officially registered! Please fill out the user profile and register your game profiles!',
+        ok: 'OK'
+      });
+      $mdDialog.show(alert);
       $location.path('/profile');
 
     });
@@ -356,7 +418,11 @@ function profileController($scope, $mdDialog, $window){
   // User watcher
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      if(user.photoURL === ""){
+        $scope.userAvatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
+      }else{
 
+      }
 
       var uid = user.uid;
 
@@ -372,9 +438,11 @@ function profileController($scope, $mdDialog, $window){
         "Female",
         "Other"
       ];
-
-
-      $scope.userAvatar = user.photoURL;
+      if(user.photoURL == null){
+        $scope.userAvatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
+      }else{
+        $scope.userAvatar = user.photoURL;
+      }
       $scope.displayName = user.displayName;
       $scope.cu = false;
       $scope.notCu = false;
@@ -464,6 +532,11 @@ function playersController($scope, $timeout, $mdMedia, $mdDialog){
 
 function playerInfoController($scope, user){
   $scope.user = user;
+  if(user.photoURL == null){
+    $scope.user.photoURL = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
+  }else{
+    //Do nothing
+  }
 };
 
 
@@ -688,6 +761,36 @@ function teamController($scope){
   firebase.database().ref('teams' + '/Overwatch').on('value',function(snapshot){
     $scope.overwatchTeams = snapshot.val();
   });
+  $scope.buttonText = "Request to Join Team";
+  $scope.request = function(team){
+    // Send notification to team capitain to approve or deny
+    // Get current UID and display name
+    var displayName = firebase.auth().currentUser.displayName;
+    var uid = firebase.auth().currentUser.uid;
+    var game = team.game.replace(/\s/g, '');
+    var request = {};
+    firebase.database().ref('users/' + team.captain + '/notifications/requests/' + game + '/' + uid).on('value',function(data){
+      request = data.val();
+      if(0){
+        // LMAO this isnt supposed to work yet...
+        console.log("request already pending");
+        $scope.buttonText = "Request Pending";
+      }else{
+        firebase.database().ref('users/' + team.captain + '/notifications/requests/' + team.game + '/' + uid).set({
+          username  :  displayName,
+          uid       :  uid,
+          requested :  true,
+          pending   :  true,
+          game      :  team.game
+        });
+      }
+
+    });
+
+
+  };
+
+
 };
 
 function teamLogoController($scope,$mdDialog){

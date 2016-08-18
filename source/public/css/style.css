@@ -187,7 +187,7 @@ md-card .md-subhead {
   -webkit-filter: brightness(50%);
 }
 #user-profile md-select {
-  color: inherit;
+  color: black;
 }
 
 #news-large {
