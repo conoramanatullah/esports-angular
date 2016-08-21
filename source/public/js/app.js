@@ -472,21 +472,43 @@ function profileController($scope, $mdDialog, $window){
       };
 
       $scope.save = function(){
+        // Check for empty values wwith a giant if statement
+        var userData = [
+                      user.photoURL,
+                      $scope.displayName,
+                      $scope.first,
+                      $scope.last,
+                      $scope.major,
+                      $scope.year,
+                      $scope.university,
+                      $scope.gender,
+                      $scope.steamProfile,
+                      $scope.summoner,
+                      $scope.battleNet
+                    ]
+
+        for(i = 0; i < userData.length; i++){
+          if(userData[i] == undefined){
+            userData[i] == " ";
+          }else{
+            // Leave it be if its not blank
+          }
+        }
         user.updateProfile({
-          displayName: $scope.displayName
+          displayName: userData[1]
         }).then(function(){
           firebase.database().ref('users/' + uid ).update({
-            photoURL      :   user.photoURL,
-            username      :   $scope.displayName,
-            firstName     :   $scope.first,
-            lastName      :   $scope.last,
-            major         :   $scope.major,
-            year          :   $scope.year,
-            university    :   $scope.university,
-            gender        :   $scope.gender,
-            steamProfile  :   $scope.steamProfile,
-            summoner      :   $scope.summoner,
-            battleNet     :   $scope.battleNet
+            photoURL      :   userData[0],
+            username      :   userData[1],
+            firstName     :   userData[2],
+            lastName      :   userData[3],
+            major         :   userData[4],
+            year          :   userData[5],
+            university    :   userData[6],
+            gender        :   userData[7],
+            steamProfile  :   userData[8],
+            summoner      :   userData[9],
+            battleNet     :   userData[10]
 
           }, function(){
             // Success
