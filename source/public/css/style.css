@@ -428,10 +428,15 @@ md-card .md-subhead {
   margin-top: 300px;
 }
 
+
+
+
 /*****************CLASS SELECTORS*********************/
 #player-content .game-logo{
   text-align: center;
 }
+
+
 .player-row{
 
   background-color: #32383D;
@@ -439,6 +444,9 @@ md-card .md-subhead {
 }
 .player-row span{
   width: 1000px;
+}
+.player-row h2 {
+  font-family: 'Fjalla One', sans-serif;
 }
 .game-logo img{
   max-width: 30vh;

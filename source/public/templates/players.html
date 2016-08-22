@@ -27,7 +27,7 @@
 
 
       <div class="player-row" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user, $event)">
-        <span flex="10">{{ user.username }}</span>
+        <span flex="10"><h2 class="">{{ user.username }}</h2></span>
         <hr ng-if="$mdMedia('xs')" style="width: 90%">
         <span flex="10">{{ user.university }}</span>
         <span flex="10">{{ user.major }}</span>
