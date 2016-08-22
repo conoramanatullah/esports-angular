@@ -470,7 +470,7 @@ function profileController($scope, $mdDialog, $window){
           clickOutsideToClose: true
         })
       };
-
+      // Test
       $scope.save = function(){
         // Check for empty values wwith a giant if statement
         var userData = [
