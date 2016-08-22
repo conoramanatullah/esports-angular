@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Animate CSS -->
   <link rel="stylesheet" href="/css/animate.css" media="screen">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v0.8.3">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <script>
-    var BUILD_NUMBER = "0.8";
+    var BUILD_NUMBER = "0.8.3";
   </script>
   <!-- Firebase -->
   <script src="bower_components/firebase/firebase.js"></script>
@@ -121,6 +121,8 @@
             <a ng-if="!isUser" href="/register"><md-button class="page-button" ng-click="closeSideNav()">Register</md-button></a>
             <a href="/about"><md-button class="page-button" ng-click="closeSideNav()">About</md-button></a>
             <a href="https://www.reddit.com/r/CU_Boulder_eSports/"><md-button class="page-button">Reddit</md-button></a>
+            <a href="/report-bug"><md-button class="page-button" ng-click="closeSideNav()">Report a Bug</md-button></a>
+
 
             <md-button ng-click="toggleRight();toggleLeft()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
           </div>
@@ -174,15 +176,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-  <!-- APP JS -->
-  <script data-main="js/app.js" src="js/require.js"></script>
-  <script>
-    require.config({
-      urlArgs: 'b=' + BUILD_NUMBER,
-      waitSeconds: 30
-  });
-  </script>
-  <script src="js/app.js"></script>
+
+  <script src="js/app.js?v0.8.3"></script>
 
 </body>
 </html>

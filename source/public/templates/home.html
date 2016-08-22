@@ -4,10 +4,14 @@
     <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
   </div>
 
-  <!-- DIFFERENT Mobile layout -->
-  <!-- Full width cards with title images and text -->
-  <!-- Create container with flex 100 and maybe padding -->
+
   <div class="container" ng-if="loaded && ($mdMedia('xs') || $mdMedia('sm'))">
+
+
+
+
+
+
     <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
@@ -59,9 +63,6 @@
 
 
 
-  <!-- First Column -->
-
-
 
   <div layout="column" ng-show="loaded" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
     <div layout="row">
@@ -106,22 +107,22 @@
             <span><h1>Matches Coming Soon!</h1></span>
             <div layout="row" style="display: none;">
               <div flex="10" style="background-color:yellow">
-                hey
+
               </div>
               <div flex="20" style="background-color:red">
-                hey
+
               </div>
               <div flex="10" style="background-color:yellow">
-                hey
+
               </div>
               <div flex="20" style="background-color:red">
-                hey
+
               </div>
               <div flex="10" style="background-color:yellow">
-                hey
+
               </div>
               <div flex="20" style="background-color:red">
-                hey
+
               </div>
             </div>
           </div>
@@ -135,7 +136,7 @@
           <md-card id="twitch-stream-box">
             <!-- <div id="twitch-stream"></div> -->
             <iframe ng-if="$mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')"
-              src="https://player.twitch.tv/?channel=dansgaming"
+              src="https://player.twitch.tv/?channel=esl_dota2"
               frameborder="0"
               scrolling="no"
               allowfullscreen="true">
@@ -146,46 +147,7 @@
 
     </div>
 
-    <!-- <div class="" layout="row">
-      <div flex="70" layout="row">
-
-        <md-card id="news-large">
-
-          <img ng-src="img/arena3.jpg" alt="arena" />
-          <md-card-content>
-            <h1>NiP win it all!</h1>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-          </p>
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-icon-button" aria-label="Settings">
-              <md-icon>menu</md-icon>
-            </md-button>
-          </md-card-actions>
-        </md-card>
-
-        <md-card id="news-large">
-
-          <img ng-src="img/arena3.jpg" alt="arena" />
-          <md-card-content>
-            <h1>NiP win it all!</h1>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-          </p>
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-icon-button" aria-label="Settings">
-            <md-icon>menu</md-icon>
-          </md-button>
-          </md-card-actions>
-        </md-card>
-
-      </div>
-    </div> -->
   </div>
-  <!-- End First Column-->
+
 
 </md-content>

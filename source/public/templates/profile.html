@@ -9,10 +9,15 @@
 
     <md-card-content id="card-content">
       <!-- User Image, Name -->
+      <div class="">
+        <!-- <h1>Edit your avatar!</h1> -->
+      </div>
       <div id="user-avatar" md-whiteframe="4" ng-click="updateAvatar($event)">
         <img src="{{ userAvatar }}" alt="" />
       </div>
-
+      <p>
+        Click here to change your avatar
+      </p>
       <h1> {{ displayName }}</h1>
 
       <hr>

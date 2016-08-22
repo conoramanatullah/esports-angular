@@ -1,0 +1,28 @@
+<md-content layout-padding layout-wrap id="report-bug">
+    <md-card>
+      <form class="">
+        <md-card-content>
+          <div class="success-bar" ng-if="success">
+            <h1>Success! Thanks for your help.</h1>
+          </div>
+          <h2>Report a bug</h2>
+          <p>To report a bug please be as detailed as you can about the incident and what we can do to recreate it.</p>
+          <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="bug.email" >
+          </md-input-container>
+          <br>
+          <md-input-container>
+            <label>Description</label>
+            <textarea type="text" ng-model="bug.data" ></textarea>
+          </md-input-container>
+        </md-card-content>
+        <md-card-footer>
+          CU eSports 2016
+        </md-card-footer>
+        <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+           <md-button ng-click="submit(bug)">Submit</md-button>
+        </div>
+      </form>
+    </md-card>
+</md-content>

@@ -42,6 +42,10 @@
         templateUrl : 'templates/create-team.html',
         controller  : createTeamController
       })
+      .when('/report-bug', {
+        templateUrl : 'templates/report.html',
+        controller  : reportBugController
+      })
 
     // location provider makes our URLs pretty
     $locationProvider.html5Mode(true);
@@ -134,24 +138,6 @@
     }
   })
   .controller('TwitchCtrl', function($scope, $timeout,$mdMedia){
-    //get width of twitch box
-    if($mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')){
-      var options = {
-          width: (window.innerWidth)/2.5,
-          height: 360,
-          channel: "dansgaming",
-          //video: "{VIDEO_ID}"
-      };
-      $timeout(function(){
-        var player = new Twitch.Player("twitch-stream", options);
-        player.setVolume(0.5);
-      },1000);
-    }else{
-      // Dont build twitch if we done need it
-    }
-
-
-
 
   })
 
@@ -461,6 +447,8 @@ function profileController($scope, $mdDialog, $window){
         $scope.steamProfile = userData.steamProfile;
         $scope.summoner = userData.summoner;
         $scope.battleNet = userData.battleNet;
+      },function(error){
+        console.log(error);
       });
 
       $scope.updateAvatar = function(ev){
@@ -587,11 +575,25 @@ function LeagueController($scope, $mdDialog, $mdMedia){
     "IV",
     "V"
   ];
+
+
+  var uid = firebase.auth().currentUser.uid;
+  firebase.database().ref('users/' + uid + '/games/league').on('value', function(data){
+    var userData = data.val();
+    $scope.primaryPosition = userData.primary;
+    $scope.secondaryPosition = userData.secondary;
+    $scope.rank = userData.rank;
+    $scope.rankLevel = userData.rankLevel;
+    $scope.experience = userData.experience;
+  });
+
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
-        var uid = user.uid
+        var uid = user.uid;
+        // Pull data
+
         // add info to database
         firebase.database().ref('users/' + uid + '/games/league').set({
           isRegistered: 1,
@@ -643,6 +645,14 @@ function DotaController($scope, $mdDialog, $mdMedia){
     "6800-7200",
     "7200+"
   ];
+  var uid = firebase.auth().currentUser.uid;
+  firebase.database().ref('users/' + uid + '/games/dota').on('value', function(data){
+    var userData = data.val();
+    $scope.primaryPosition = userData.primary;
+    $scope.secondaryPosition = userData.secondary;
+    $scope.rank = userData.rank;
+    $scope.experience = userData.experience;
+  });
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
@@ -696,6 +706,14 @@ function CSGOController($scope, $mdDialog, $mdMedia){
     "Supreme Master First Class",
     "The Global Elite"
   ];
+  var uid = firebase.auth().currentUser.uid;
+  firebase.database().ref('users/' + uid + '/games/csgo').on('value', function(data){
+    var userData = data.val();
+    $scope.primaryPosition = userData.primary;
+    $scope.secondaryPosition = userData.secondary;
+    $scope.rank = userData.rank;
+    $scope.experience = userData.experience;
+  });
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
@@ -741,6 +759,14 @@ function OverwatchController($scope, $mdDialog, $mdMedia){
     "81-90",
     "91-100"
   ];
+  var uid = firebase.auth().currentUser.uid;
+  firebase.database().ref('users/' + uid + '/games/overwatch').on('value', function(data){
+    var userData = data.val();
+    $scope.primaryPosition = userData.primary;
+    $scope.secondaryPosition = userData.secondary;
+    $scope.rank = userData.rank;
+    $scope.experience = userData.experience;
+  });
   $scope.save = function(){
     // Get user info
     firebase.auth().onAuthStateChanged(function(user) {
@@ -773,6 +799,8 @@ function teamController($scope){
   // $scope.csgoTeams = [];
   firebase.database().ref('teams' + '/CounterStrikeGlobalOffensive').on('value',function(snapshot){
     $scope.csgoTeams = snapshot.val();
+  },function(error){
+    console.log(error);
   });
   firebase.database().ref('teams' + '/Dota2').on('value',function(snapshot){
     $scope.dotaTeams = snapshot.val();
@@ -889,31 +917,64 @@ function myTeamController($scope, Auth, $window){
 
   firebase.database().ref('users/' + uid + '/teams').on('value', function(data){
     teamData = data.val();
-    if(teamData.CounterStrikeGlobalOffensive){
-      $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
-    }else{
+    if(teamData){
+      if(teamData.CounterStrikeGlobalOffensive){
+        $scope.teams.push(teamData.CounterStrikeGlobalOffensive);
+      }else{
 
+      }
+      if(teamData.Overwatch){
+        $scope.teams.push(teamData.Overwatch);
+      }else{
+
+      }
+
+      if(teamData.Dota2){
+        $scope.teams.push(teamData.Dota2);
+      }else{
+
+      }
+
+      if(teamData.LeagueofLegends){
+        $scope.teams.push(teamData.LeagueofLegends);
+      }else{
+
+      }
+    }else {
+      console.log('nothing to see here');
     }
-    if(teamData.Overwatch){
-      $scope.teams.push(teamData.Overwatch);
-    }else{
-
-    }
-
-    if(teamData.Dota2){
-      $scope.teams.push(teamData.Dota2);
-    }else{
-
-    }
-
-    if(teamData.LeagueofLegends){
-      $scope.teams.push(teamData.LeagueofLegends);
-    }else{
-
-    }
 
 
+
+  },function(error){
+    console.log(error);
   });
 
+
+};
+
+
+function reportBugController($scope){
+  $scope.success = 0;
+  $scope.submit = function(bug){
+    //check for blanks
+    if(bug){
+      if(bug.email && bug.data){
+        var d = new Date();
+        bug.time = d.getTime();
+        firebase.database().ref('dev/bug_reports').push(bug);
+        console.log('Success');
+        $scope.success = 1;
+      }
+      else{
+        // Here we would check which input is empty
+        console.log('empty inputs');
+      }
+
+    }
+    else{
+      console.log('empty fields');
+    }
+  }
 
 };

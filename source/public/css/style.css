@@ -145,6 +145,9 @@ md-card .md-subhead {
 #user-profile h1 {
   color: black;
 }
+#user-profile p {
+  color: black;
+}
 #user-profile input{
   width: 300px;
   /*color: white;*/
@@ -398,7 +401,15 @@ md-card .md-subhead {
   height: 120vh;
 }
 
-
+#report-bug {
+  background-color: #32383D;
+}
+.success-bar{
+  width: 100%;
+  height: 100px;
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
 
 .header-image img{
   max-width: 60%;
