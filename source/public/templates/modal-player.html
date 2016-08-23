@@ -10,9 +10,17 @@
         <h1>{{user.username}}</h1>
         <p>
           {{user.university}}<br>
-          Summoner: {{user.summoner}}<br>
-          <a ng-if="user.steamProfile" href="{{user.steamProfile}}">Steam Profile</a><br ng-if="user.steamProfile">
-          Battle.net: {{user.battleNet}}<br>
+
+          <div class="league-box md-accent">
+            <div><img ng-src="img/league_logo.png" alt="" /></div>
+            {{user.summoner}}
+          </div>
+          <!-- <md-button class="md-raised md-disabled md-accent steam-button-small" href="{{user.battleNet}}" aria-label="description"md-ripple-size="full"><img ng-src="img/battlenet-logo.png" alt="" /></md-button> -->
+          <div class="battle-net-box md-accent">
+            <span><img ng-src="img/battle-net-logo.png" alt="" /></span>
+            {{user.battleNet}}
+          </div>
+          <md-button class="md-raised md-accent steam-button-small" href="{{user.steamProfile}}" aria-label="description"md-ripple-size="full"><img ng-src="img/steam-logo.png" alt="" /></md-button>
         </p>
       </span>
       <span layout="column" layout-wrap flex="100" flex-xs="100">

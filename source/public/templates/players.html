@@ -33,7 +33,8 @@
         <span flex="10">{{ user.major }}</span>
         <span flex="10">{{ user.summoner }}</span>
         <span flex="10">{{ user.battleNet }}</span>
-        <span flex="10" ng-if="user.steamProfile"><a href="{{user.steamProfile}}">Steam Profile</a></span>
+        <!-- <span flex="10" ng-if="user.steamProfile"><a href="{{user.steamProfile}}">Steam Profile</a></span> -->
+        <span flex="10"><md-button class="md-raised md-accent steam-button" href="{{user.steamProfile}}" aria-label="description"md-ripple-size="full"><img ng-src="img/steam-logo.png" alt="" /></md-button></span>
       </div>
 
 

@@ -451,8 +451,54 @@ md-card .md-subhead {
 .game-logo img{
   max-width: 30vh;
 }
+.steam-button{
 
+  max-width: 40%;
+}
+.steam-button img{
 
+  max-width: 100%;
+  /*max-height: 100px;*/
+}
+
+.steam-button-small img{
+  max-width: 60%;
+  /*max-height: 60px;*/
+}
+.battle-net-box{
+  background-color: #0697FA;
+  color: white;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+.battle-net-box img{
+  max-width: 25%;
+}
+.league-box{
+  background-color: #cfb87c;
+  color: black;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+.league-box img{
+  max-width: 40%;
+}
 
 .gamebox {
   width: 10vw;
