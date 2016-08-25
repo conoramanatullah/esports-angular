@@ -143,7 +143,8 @@ md-card .md-subhead {
 
 }
 #user-profile h1 {
-  color: black;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 #user-profile p {
   color: black;
@@ -156,9 +157,8 @@ md-card .md-subhead {
   color:inherit;
 }
 #user-profile md-toolbar{
-  width: 100%;
-  border-radius: 10px;
-  background-color: #cfb87c;
+  width:100vw;
+  margin-left: -16px;
 }
 
 #user-profile md-card{
@@ -300,8 +300,10 @@ md-card .md-subhead {
   font-size: 3em;
   vertical-align: middle;
 }
-
-#avatar-modal input{
+#avatar-modal{
+  max-width: 300px;
+}
+#avatar-modal md-input-container{
   width: 100%;
 }
 
@@ -429,14 +431,41 @@ md-card .md-subhead {
 }
 
 
+#player-welcome{
+  width: 140%;
+  height: 100px;
+  background-color: #2196F3;
+  color: White;
+  padding: 20px;
+}
+#player-welcome .greeting{
+  font-size: 3em;
+}
+#player-welcome .greeting-content{
+
+}
 
 
 /*****************CLASS SELECTORS*********************/
 #player-content .game-logo{
   text-align: center;
 }
+#avatar-small{
+  /*text-align: center;*/
+  background-color: #32383D;
+  overflow: hidden;
+  max-width: 5vw;
+  max-height: 5vw;
+}
+#avatar-small img{
+  border-radius: 50%;
+  width: 100%;
 
-
+}
+.img-circle{
+  max-width: 6vw;
+  height: auto;
+}
 .player-row{
 
   background-color: #32383D;
@@ -453,7 +482,7 @@ md-card .md-subhead {
 }
 .steam-button{
 
-  max-width: 40%;
+  max-width: 20%;
 }
 .steam-button img{
 
@@ -465,6 +494,7 @@ md-card .md-subhead {
   max-width: 60%;
   /*max-height: 60px;*/
 }
+
 .battle-net-box{
   background-color: #0697FA;
   color: white;

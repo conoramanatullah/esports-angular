@@ -1,5 +1,5 @@
 <div id="player-content">
-  <section flex layout-padding>
+  <section flex>
 
 
     <div layout="row" layout-sm="column" layout-align="space-around" ng-hide="loaded" class="progressCircle">
@@ -11,9 +11,13 @@
       <!-- <div class="header-image">
         <img src="img/bg1.png" alt="" />
       </div> -->
+      <div id="player-welcome" class="md-accent animated bounceInDown">
+        <div class="greeting ">
+          Our Members
+        </div>
+      </div>
 
-
-      <div ng-if="!$mdMedia('xs')" class="player-row" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap>
+      <div ng-if="!$mdMedia('xs')" class="player-row animated bounceInDown" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap>
         <span flex="10">Username</span>
         <span flex="10">University</span>
         <span flex="10">Major</span>
@@ -26,9 +30,10 @@
 
 
 
-      <div class="player-row" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user, $event)">
+      <div class="player-row animated slideInLeft" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user, $event)" ng-if="user.username">
+        <span ng-if="!($mdMedia('sm') || $mdMedia('xs') || $mdMedia('md'))" flex="10" ><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></span>
         <span flex="10"><h2 class="">{{ user.username }}</h2></span>
-        <hr ng-if="$mdMedia('xs')" style="width: 90%">
+        <hr ng-if="$mdMedia('xs') || $mdMedia('sm')" style="width: 90%">
         <span flex="10">{{ user.university }}</span>
         <span flex="10">{{ user.major }}</span>
         <span flex="10">{{ user.summoner }}</span>

@@ -404,7 +404,7 @@ function profileController($scope, $mdDialog, $window){
   // User watcher
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      if(user.photoURL === ""){
+      if(!user.photoURL){
         $scope.userAvatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
       }else{
 
@@ -418,12 +418,13 @@ function profileController($scope, $mdDialog, $window){
         "Junior",
         "Senior"
       ];
-
       $scope.genders = [
         "Male",
         "Female",
         "Other"
       ];
+
+
       if(user.photoURL == null){
         $scope.userAvatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
       }else{
@@ -518,7 +519,7 @@ function profileController($scope, $mdDialog, $window){
 
 function playersController($scope, $timeout, $mdMedia, $mdDialog){
   $scope.$mdMedia = $mdMedia;
-  firebase.database().ref('users/').on('value', function(data){
+  firebase.database().ref('users/').orderByChild('username').on('value', function(data){
     $scope.players = data.val();
   });
 

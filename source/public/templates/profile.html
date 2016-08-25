@@ -3,7 +3,7 @@
 
     <md-card-header >
       <md-card-header-text>
-        <!-- <md-toolbar class="md-whiteframe-z1"><span class="md-toolbar-tools md-accent">Your Profile</span></md-toolbar> -->
+        <md-toolbar class="md-whiteframe-z1 md-accent"><h1 style="color:white" layout-padding>Your Profile</h1></md-toolbar>
       </md-card-header-text>
     </md-card-header>
 
@@ -22,24 +22,24 @@
 
       <hr>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Username</label>
         <input type="text" ng-model="displayName">
       </md-input-container>
       <br>
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>First Name</label>
         <input type="text" ng-model="first">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Last Name</label>
         <input type="text" ng-model="last">
       </md-input-container>
 
       <br>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Gender</label>
         <md-select ng-model="gender" md-selected-text="">
             <md-option ng-value="opt" ng-repeat="opt in genders">{{ opt }}</md-option>
@@ -48,20 +48,20 @@
 
       <br>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>University</label>
         <input type="text" ng-model="university">
       </md-input-container>
 
       <br>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Major</label>
         <input type="text" ng-model="major">
       </md-input-container>
 
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Year</label>
         <md-select ng-model="year" md-selected-text="">
             <md-option ng-value="opt" ng-repeat="opt in options">{{ opt }}</md-option>
@@ -70,28 +70,30 @@
 
       <br>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Steam Profile (URL)</label>
         <input type="url" ng-model="steamProfile">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Summoner Name</label>
         <input type="text" ng-model="summoner">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container class="md-accent">
         <label>Battle.net Friend ID</label>
         <input type="text" ng-model="battleNet">
       </md-input-container>
 
       <hr>
-
+      <div style="color:black;" ng-if="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet">
+        <h3>You Must Complete this form before registering for games.</h3>
+      </div>
       <div class="" ng-controller="gameRegisterController">
-        <md-button  class="md-raised md-accent" ng-click="showModal('league')">LOL Registration</md-button>
-        <md-button  class="md-raised md-accent" ng-click="showModal('dota')">DOTA Registration</md-button>
-        <md-button  class="md-raised md-accent" ng-click="showModal('csgo')">CSGO Registration</md-button>
-        <md-button  class="md-raised md-accent" ng-click="showModal('overwatch')">Overwatch Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('league')">LOL Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('dota')">DOTA Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('csgo')">CSGO Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('overwatch')">Overwatch Registration</md-button>
       </div>
 
       <hr>
