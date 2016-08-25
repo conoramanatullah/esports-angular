@@ -86,14 +86,14 @@
       </md-input-container>
 
       <hr>
-      <div style="color:black;" ng-if="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet">
+      <div style="color:black;" ng-if="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet">
         <h3>You Must Complete this form before registering for games.</h3>
       </div>
       <div class="" ng-controller="gameRegisterController">
-        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('league')">LOL Registration</md-button>
-        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('dota')">DOTA Registration</md-button>
-        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('csgo')">CSGO Registration</md-button>
-        <md-button ng-disabled="!displayName || !last || !cuTrue || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('overwatch')">Overwatch Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('league')">LOL Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('dota')">DOTA Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('csgo')">CSGO Registration</md-button>
+        <md-button ng-disabled="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="showModal('overwatch')">Overwatch Registration</md-button>
       </div>
 
       <hr>
@@ -102,7 +102,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-raised md-accent" ng-click="save()">Save</md-button>
+      <md-button ng-disabled="!displayName || !last || !major || !year || !university || !gender || !steamProfile || !summoner || !battleNet" class="md-raised md-accent" ng-click="save()">Save</md-button>
     </md-card-actions>
 
   </md-card>

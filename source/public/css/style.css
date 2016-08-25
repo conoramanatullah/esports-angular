@@ -144,7 +144,7 @@ md-card .md-subhead {
 }
 #user-profile h1 {
   font-family: 'Fjalla One', sans-serif;
-
+  color: black;
 }
 #user-profile p {
   color: black;
@@ -157,7 +157,7 @@ md-card .md-subhead {
   color:inherit;
 }
 #user-profile md-toolbar{
-  width:100vw;
+  width:110%;
   margin-left: -16px;
 }
 

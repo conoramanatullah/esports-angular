@@ -427,6 +427,7 @@ function profileController($scope, $mdDialog, $window){
 
       if(user.photoURL == null){
         $scope.userAvatar = "https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png";
+
       }else{
         $scope.userAvatar = user.photoURL;
       }
@@ -463,7 +464,7 @@ function profileController($scope, $mdDialog, $window){
       $scope.save = function(){
         // Check for empty values wwith a giant if statement
         var userData = [
-                      user.photoURL,
+                      $scope.userAvatar,
                       $scope.displayName,
                       $scope.first,
                       $scope.last,
@@ -526,6 +527,7 @@ function playersController($scope, $timeout, $mdMedia, $mdDialog){
   $timeout(function(){
     $scope.loaded = true;
   }, 1000);
+
 
   $scope.showPlayerInfo = function(user,ev){
     $mdDialog.show({
@@ -820,6 +822,7 @@ function teamController($scope){
     var uid = firebase.auth().currentUser.uid;
     var game = team.game.replace(/\s/g, '');
     var request = {};
+
     firebase.database().ref('users/' + team.captain + '/notifications/requests/' + game + '/' + uid).on('value',function(data){
       request = data.val();
       if(0){
