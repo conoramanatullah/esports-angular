@@ -450,15 +450,17 @@ md-card .md-subhead {
 #player-content .game-logo{
   text-align: center;
 }
-#avatar-small{
+.user-avatar-container{
   /*text-align: center;*/
   background-color: #32383D;
   overflow: hidden;
   max-width: 5vw;
   max-height: 5vw;
-}
-#avatar-small img{
   border-radius: 50%;
+  
+}
+.user-avatar-small img{
+
   width: 100%;
 
 }

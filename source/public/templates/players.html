@@ -17,11 +17,12 @@
         </div>
       </div>
 
-      <div ng-if="!$mdMedia('xs')" class="player-row animated bounceInDown" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap>
+      <div ng-if="!$mdMedia('xs')" class="player-row animated bounceInDown" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding >
+        <span flex="10"></span>
         <span flex="10">Username</span>
-        <span flex="10">University</span>
-        <span flex="10">Major</span>
-        <span flex="10">Summoner</span>
+        <span flex="20">University</span>
+        <span flex="20">Major</span>
+        <span flex="20">Summoner</span>
         <span flex="10">Battle.net</span>
         <span flex="10">Steam</span>
       </div>
@@ -31,12 +32,12 @@
 
 
       <div class="player-row animated slideInLeft" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user, $event)" ng-if="user.username">
-        <span ng-if="!($mdMedia('sm') || $mdMedia('xs') || $mdMedia('md'))" flex="10" ><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></span>
+        <div flex="10" class=""><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></div>
         <span flex="10"><h2 class="">{{ user.username }}</h2></span>
         <hr ng-if="$mdMedia('xs') || $mdMedia('sm')" style="width: 90%">
-        <span flex="10">{{ user.university }}</span>
-        <span flex="10">{{ user.major }}</span>
-        <span flex="10">{{ user.summoner }}</span>
+        <span flex="20">{{ user.university }}</span>
+        <span flex="20">{{ user.major }}</span>
+        <span flex="20">{{ user.summoner }}</span>
         <span flex="10">{{ user.battleNet }}</span>
         <!-- <span flex="10" ng-if="user.steamProfile"><a href="{{user.steamProfile}}">Steam Profile</a></span> -->
         <span flex="10"><md-button class="md-raised md-accent steam-button" href="{{user.steamProfile}}" aria-label="description"md-ripple-size="full"><img ng-src="img/steam-logo.png" alt="" /></md-button></span>
