@@ -32,13 +32,21 @@
 
 
       <div class="player-row animated slideInLeft" ng-repeat="(uid, user) in players" flex layout-xl="row" layout-lg="row" layout-xs="column" layout-padding layout-wrap ng-click="showPlayerInfo( user, $event)" ng-if="user.username">
-        <div flex="10" class=""><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></div>
-        <span flex="10"><h2 class="">{{ user.username }}</h2></span>
+
+        <div  class="user-container" flex="20" ng-if="$mdMedia('xs') || $mdMedia('sm')">
+          <div class="img-container"><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></div>
+          <div ><h2 class="">{{ user.username }}</h2></div>
+        </div>
+
+        <div ng-if="!($mdMedia('xs') || $mdMedia('sm'))" flex="10" class="img-container"><img class="img-circle" ng-src="{{user.photoURL}}" alt="" /></div>
+        <span ng-if="!($mdMedia('xs') || $mdMedia('sm'))" flex="10"><h2 class="">{{ user.username }}</h2></span>
+
+
         <hr ng-if="$mdMedia('xs') || $mdMedia('sm')" style="width: 90%">
-        <span flex="20">{{ user.university }}</span>
-        <span flex="20">{{ user.major }}</span>
-        <span flex="20">{{ user.summoner }}</span>
-        <span flex="10">{{ user.battleNet }}</span>
+        <span ng-if="$mdMedia('lg') || $mdMedia('xl')" flex="20">{{ user.university }}</span>
+        <span ng-if="$mdMedia('lg') || $mdMedia('xl')" flex="20">{{ user.major }}</span>
+        <span flex="20" flex-sm="10" flex-xs="10">{{ user.summoner }}</span>
+        <span flex="10" flex-sm="10" flex-xs="10">{{ user.battleNet }}</span>
         <!-- <span flex="10" ng-if="user.steamProfile"><a href="{{user.steamProfile}}">Steam Profile</a></span> -->
         <span flex="10"><md-button class="md-raised md-accent steam-button" href="{{user.steamProfile}}" aria-label="description"md-ripple-size="full"><img ng-src="img/steam-logo.png" alt="" /></md-button></span>
       </div>

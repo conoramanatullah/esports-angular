@@ -205,12 +205,13 @@ md-card .md-subhead {
   position: absolute;
   color: white;
   bottom: 0;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 #news-large img {
   -webkit-filter: grayscale(0%) brightness(40%) ;
-  height: 100%;
-  max-width: 100%
-;
+  width: 100%;
+  object-fit: cover;
 }
 #small-news-container{
   margin: 20px;
@@ -224,10 +225,11 @@ md-card .md-subhead {
 }
 #small-news-container .image-text{
   position: absolute;
-  z-index: 1000;
   float: left;
   bottom: 0;
   padding: 20px;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 .news-small{
   position: relative;
@@ -246,7 +248,7 @@ md-card .md-subhead {
 }
 .news-small img {
   -webkit-filter: brightness(40%) ;
-
+  object-fit: cover;
 }
 
 #match-tracker {
@@ -457,16 +459,23 @@ md-card .md-subhead {
   max-width: 5vw;
   max-height: 5vw;
   border-radius: 50%;
-  
+
 }
 .user-avatar-small img{
 
   width: 100%;
 
 }
+
+.img-container{
+  max-width: 10vh;
+}
 .img-circle{
-  max-width: 6vw;
-  height: auto;
+  /*max-width: 10vh;*/
+  /*height: auto;*/
+  width: 100%;
+  object-fit: cover;
+
 }
 .player-row{
 
