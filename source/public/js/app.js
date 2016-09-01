@@ -351,7 +351,7 @@ function DialogController($scope,$rootScope, $mdDialog ,$location) {
 
 function registerController($scope, $location, $mdDialog) {
   //Provides email validation whatup
-  $scope.colorado = "^[A-Za-z]*\.[A-Za-z]*\@(colorado\.edu)";
+  $scope.colorado = ".*\@(colorado\.edu)";
   $scope.createUser = function(){
 
     //Create a new user account on firebase
