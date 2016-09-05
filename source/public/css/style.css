@@ -90,9 +90,11 @@ md-card .md-subhead {
   width: 15vh;
   height: 15vh;
 }
-#user-avatar h3 {
+#user-avatar h1 {
   color: white;
   margin: 0;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 #login-modal{
@@ -288,15 +290,15 @@ md-card .md-subhead {
 }
 
 #notification-button{
-
-  display: block;
+  margin-top: 20px;
+  /*display: block;*/
 
   /*position: absolute;*/
   left: 0;
   bottom: 0;
   margin: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 5;
 }
 #notification-button i{
   font-size: 3em;
@@ -447,8 +449,23 @@ md-card .md-subhead {
 
 }
 
+.green-circle{
+  width: 10px;
+  height: 10px;
+  background-color: #32CD32;
+  border-radius: 50%;
+  margin-left: 50px;
+}
 
 /*****************CLASS SELECTORS*********************/
+.cu-logo{
+  bottom: 0;
+}
+.cu-logo img{
+  padding-top: 100px;
+  padding-bottom: 20px;
+  max-width: 15vh;
+}
 #player-content .game-logo{
   text-align: center;
 }
@@ -478,7 +495,9 @@ md-card .md-subhead {
 
 }
 .player-row{
-
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.3em;
+  border-radius: 5px;
   background-color: #32383D;
   margin: 20px;
 }

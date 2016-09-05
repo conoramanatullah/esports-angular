@@ -30,6 +30,10 @@
         templateUrl : 'templates/profile.html',
         controller  : profileController
       })
+      .when('/official-teams', {
+        templateUrl : 'templates/official-teams.html',
+        controller  : officialTeamsController
+      })
       .when('/my-teams', {
         templateUrl : 'templates/my-teams.html',
         controller  : myTeamController
@@ -445,10 +449,12 @@ function profileController($scope, $mdDialog, $window){
         $scope.major = userData.major;
         $scope.year  = userData.year;
         $scope.university = userData.university;
+        $scope.about = userData.about;
         $scope.gender = userData.gender;
         $scope.steamProfile = userData.steamProfile;
         $scope.summoner = userData.summoner;
         $scope.battleNet = userData.battleNet;
+
       },function(error){
         console.log(error);
       });
@@ -471,10 +477,12 @@ function profileController($scope, $mdDialog, $window){
                       $scope.major,
                       $scope.year,
                       $scope.university,
+
                       $scope.gender,
                       $scope.steamProfile,
                       $scope.summoner,
-                      $scope.battleNet
+                      $scope.battleNet,
+                      $scope.about,
                     ]
 
         for(i = 0; i < userData.length; i++){
@@ -498,7 +506,8 @@ function profileController($scope, $mdDialog, $window){
             gender        :   userData[7],
             steamProfile  :   userData[8],
             summoner      :   userData[9],
-            battleNet     :   userData[10]
+            battleNet     :   userData[10],
+            about         :   userData[11]
 
           }, function(){
             // Success
@@ -751,16 +760,17 @@ function OverwatchController($scope, $mdDialog, $mdMedia){
     "Support"
   ];
   $scope.ranks = [
-    "1-10",
-    "11-20",
-    "21-30",
-    "31-40",
-    "41-50",
-    "51-60",
-    "61-70",
-    "71-80",
-    "81-90",
-    "91-100"
+    "0-9",
+    "10-19",
+    "20-29",
+    "30-39",
+    "40-49",
+    "50-59",
+    "60-69",
+    "70-79",
+    "80-89",
+    "90-99",
+    "100+"
   ];
   var uid = firebase.auth().currentUser.uid;
   firebase.database().ref('users/' + uid + '/games/overwatch').on('value', function(data){
@@ -980,5 +990,8 @@ function reportBugController($scope){
       console.log('empty fields');
     }
   }
+
+};
+function officialTeamsController($scope){
 
 };

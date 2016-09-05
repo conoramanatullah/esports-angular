@@ -1,4 +1,4 @@
-<md-dialog id="player-modal" aria-label="player modal"  ng-cloak style="width: 90%;height: 100vh;">
+<md-dialog id="player-modal" aria-label="player modal"  ng-cloak style="width: 90%;height: 100vh;" class="animated slideInLeft">
 
   <md-content layout-wrap layout-row flex style="background-color: #32383D; color:white;">
     <div layout="row">
@@ -10,7 +10,9 @@
         <h1>{{user.username}}</h1>
         <p>
           {{user.university}}<br>
-
+          <p>
+            {{user.major}}
+          </p>
           <div class="league-box md-accent">
             <div><img ng-src="img/league_logo.png" alt="" /></div>
             {{user.summoner}}

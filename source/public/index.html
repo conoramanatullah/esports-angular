@@ -12,7 +12,7 @@
 
   <!-- Animate CSS -->
   <link rel="stylesheet" href="/css/animate.css" media="screen">
-  <link rel="stylesheet" href="/css/style.css?v0.8.4.1">
+  <link rel="stylesheet" href="/css/style.css?v0.8.5">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <script>
-    var BUILD_NUMBER = "0.8.4.1";
+    var BUILD_NUMBER = "0.8.5";
   </script>
   <!-- Firebase -->
   <script src="bower_components/firebase/firebase.js"></script>
@@ -54,8 +54,8 @@
 </head>
 <body ng-app="esports" ng-cloak layout="column">
   <!-- **********************  HTML CONTENT *********************** -->
-  <md-toolbar id="toolbar-top" md-whiteframe="4" ng-controller="loginController as loginCtrl">
-    <div class="md-toolbar-tools">
+  <md-toolbar id="toolbar-top" class="md-accent" md-whiteframe="4" ng-controller="loginController as loginCtrl">
+    <div class="md-toolbar-tools md-accent">
       <div ng-controller="LeftCtrl" ng-hide="">
         <md-button class="md-icon-button" aria-label="Close Left Menu" ng-click="close()">
           <md-icon>menu</md-icon>
@@ -82,9 +82,9 @@
             <br>
             <br>
             <br>
-            <h3>
+            <h1>
               {{ current_user.displayName }}
-            </h3>
+            </h1>
 
 
           </div>
@@ -121,12 +121,16 @@
               </md-menu-content>
             </md-menu>
             <a ng-if="!isUser" href="/register"><md-button class="page-button" ng-click="closeSideNav()">Register</md-button></a>
+            <a href="/official-teams"><md-button class="page-button" ng-click="closeSideNav()">Official Teams</md-button></a>
             <a href="/about"><md-button class="page-button" ng-click="closeSideNav()">About</md-button></a>
             <a href="https://www.reddit.com/r/CU_Boulder_eSports/"><md-button class="page-button">Reddit</md-button></a>
+            <a href="https://discord.gg/7kUFsRs"><md-button class="page-button" ng-click="closeSideNav()">Discord</md-button></a>
             <a href="/report-bug"><md-button class="page-button" ng-click="closeSideNav()">Report a Bug</md-button></a>
 
-
             <md-button ng-click="toggleRight();toggleLeft()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
+            <div class="cu-logo">
+              <img src="img/cu.png" alt="" />
+            </div>
           </div>
         </div>
       </md-content>
@@ -179,7 +183,7 @@
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
-  <script src="js/app.js?v0.8.4.1"></script>
+  <script src="js/app.js?v0.8.5"></script>
 
 </body>
 </html>
