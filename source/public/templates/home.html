@@ -85,10 +85,12 @@
             </a>
           </md-card>
           <md-card class="news-small" flex="50" >
-            <a href="http://kdvr.com/2016/06/30/college-scholarship-money-up-for-grabs-in-competitive-video-gaming/">
+            <a href="https://www.youtube.com/watch?v=al4svFEtA80">
               <div id="wrap">
-                <img ng-src="img/CUE_eSports_In_The_News.jpg" alt="arena" />
-                <h2 class="image-text">Check out CU eSports on FOX-31 news!</h2>
+                <img ng-src="img/register-help.jpg" alt="arena" />
+                <div class="image-footer">
+                  <h2 class="image-text">Need help getting registered?</h2>
+                </div>
               </div>
             </a>
           </md-card>
@@ -103,8 +105,13 @@
 
         <md-card id="match-tracker" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
           <div id="gold-bar"></div>
-          <div flex layout-padding>
-            <span><h1>Matches Coming Soon!</h1></span>
+          <div  style="font-family: 'Fjalla One', sans-serif;" flex layout-padding>
+            <span><h2>Matches begin</h2></span>
+            <hr style="width: 150px;">
+
+            <h1 style="font-size: 5em;">September 17th</h1>
+            <hr style="width: 100px;">
+            <md-button class="md-raised md-accent" style="font-size: 3em;"href="/register" ng-disabled="">Go Register</md-button>
             <div layout="row" style="display: none;">
               <div flex="10" style="background-color:yellow">
 
@@ -136,7 +143,8 @@
           <md-card id="twitch-stream-box">
             <!-- <div id="twitch-stream"></div> -->
             <iframe ng-if="$mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')"
-              src="https://player.twitch.tv/?channel=endgametv1"
+              src="https://player.twitch.tv/?channel=Cu_boulder_esports"
+
               frameborder="0"
               scrolling="no"
               allowfullscreen="true">

@@ -87,8 +87,8 @@ md-card .md-subhead {
 #user-avatar img{
   border-radius: 50%;
   /*max-width: 50%;*/
-  width: 15vh;
-  height: 15vh;
+  max-width: 10vw;
+  /*height: 15vh;*/
 }
 #user-avatar h1 {
   color: white;
@@ -96,7 +96,12 @@ md-card .md-subhead {
   font-family: 'Fjalla One', sans-serif;
 
 }
-
+#profile-button{
+  text-align: center;
+}
+#profile-button .text {
+  font-size: .5em;
+}
 #login-modal{
 
   background-color: #ECF0F1;
@@ -127,8 +132,9 @@ md-card .md-subhead {
 }
 #register-card{
   background-color: #ECF0F1;
-  width: 95%;
+  width: 50vw;
 }
+
 
 #register-card .md-title-large{
   color: #2980B9;
@@ -136,7 +142,7 @@ md-card .md-subhead {
 }
 
 #register-card #email,#password{
-  width: 100%;
+  width: 300px;
 }
 
 #user-profile{
@@ -208,8 +214,8 @@ md-card .md-subhead {
   color: white;
   bottom: 0;
   font-family: 'Fjalla One', sans-serif;
-
 }
+
 #news-large img {
   -webkit-filter: grayscale(0%) brightness(40%) ;
   width: 100%;
@@ -464,7 +470,7 @@ md-card .md-subhead {
 .cu-logo img{
   padding-top: 100px;
   padding-bottom: 20px;
-  max-width: 15vh;
+  max-width: 10vh;
 }
 #player-content .game-logo{
   text-align: center;

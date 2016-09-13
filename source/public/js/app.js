@@ -182,6 +182,10 @@
       $mdSidenav('left').toggle();
     };
 
+    $scope.redirect = function(){
+      $location.path('/profile');
+    };
+
   })
   .controller('userController', function($scope, Auth, $mdSidenav) {
     $scope.closeSideNav = function(){

@@ -1,0 +1,14 @@
+{
+  "default":{
+    "game":"default",
+    "teamLogo":"url",
+    "players":{
+      "player1":"role",
+      "player2":"role"
+    },
+    "matchData":{
+      "wins":0,
+      "losses":0
+    }
+  }
+}
