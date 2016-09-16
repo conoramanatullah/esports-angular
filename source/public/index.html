@@ -128,6 +128,7 @@
                 </md-menu-item>
               </md-menu-content>
             </md-menu>
+
             <a ng-if="!isUser" href="/register"><md-button class="page-button" ng-click="closeSideNav()">Register</md-button></a>
             <a href="/official-teams"><md-button class="page-button" ng-click="closeSideNav()">Official Teams</md-button></a>
             <a href="/about"><md-button class="page-button" ng-click="closeSideNav()">About</md-button></a>
@@ -135,7 +136,8 @@
             <a href="https://discord.gg/7kUFsRs"><md-button class="page-button" ng-click="closeSideNav()">Discord</md-button></a>
             <a href="/report-bug"><md-button class="page-button" ng-click="closeSideNav()">Report a Bug</md-button></a>
 
-            <md-button ng-click="toggleRight();toggleLeft()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i>  Notifications</md-button>
+            <md-button ng-click="toggleRight();toggleLeft()" ng-controller="mainController" id="notification-button" class="md-raised md-accent"><i class="material-icons">error_outline</i><span ng-show="$mdMedia('lg') || $mdMedia('xl')">Notifications</span></md-button>
+
             <div class="cu-logo">
               <img src="img/cu.png" alt="" />
             </div>
