@@ -12,7 +12,7 @@
 
   <!-- Animate CSS -->
   <link rel="stylesheet" href="/css/animate.css" media="screen">
-  <link rel="stylesheet" href="/css/style.css?v0.8.5.4">
+  <link rel="stylesheet" href="/css/style.css?v0.8.6">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <script>
-    var BUILD_NUMBER = "0.8.5.4";
+    var BUILD_NUMBER = "0.8.6";
   </script>
   <!-- Firebase -->
   <script src="bower_components/firebase/firebase.js"></script>
@@ -54,15 +54,16 @@
 </head>
 <body ng-app="esports" ng-cloak layout="column">
   <!-- **********************  HTML CONTENT *********************** -->
-  <md-toolbar id="toolbar-top" class="md-accent" md-whiteframe="4" ng-controller="loginController as loginCtrl">
+
+  <md-toolbar id="toolbar-top" class="md-accent" md-scroll-shrink  height="500px" md-whiteframe="4" ng-controller="loginController as loginCtrl">
     <div class="md-toolbar-tools md-accent">
       <div ng-controller="LeftCtrl" ng-hide="">
         <md-button class="md-icon-button" aria-label="Close Left Menu" ng-click="close()">
-          <md-icon>menu</md-icon>
+          <md-icon>apps</md-icon>
         </md-button>
       </div>
 
-      <span>eSports</span>
+      <span>CU eSports</span>
       <span flex></span>
 
       <span id="profile-button" ng-if="isUser">
@@ -73,6 +74,8 @@
       <span ng-click="logout()" ng-if="isUser"><md-button>Logout</md-button></span>
     </div>
   </md-toolbar>
+
+
   <div flex layout="row" ng-controller="LeftCtrl">
     <md-sidenav md-component-id="left" id="side-nav" flex="15" class="md-whiteframe-z1" md-whiteframe="3" md-is-locked-open="$mdMedia('min-width: 1280px')">
       <md-content id="side-nav-wrapper"ng-controller="userController" ng-swipe-left="closeSideNav()">
@@ -188,7 +191,7 @@
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
-  <script src="js/app.js?v0.8.5.4"></script>
+  <script src="js/app.js?v0.8.6"></script>
 
 </body>
 </html>

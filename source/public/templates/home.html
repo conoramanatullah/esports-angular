@@ -6,59 +6,59 @@
 
 
   <div class="container" ng-if="loaded && ($mdMedia('xs') || $mdMedia('sm'))">
+    <md-toolbar class="md-accent md-whiteframe-z2 animated slideInLeft">
+      <div class="md-toolbar-tools">
+        <span class="animated fadeIn">Welcome! </span>
+      </div>
+    </md-toolbar>
+    <br>
+    <md-grid-list md-cols-xs="1" md-cols-sm="2"  md-gutter="10px" md-row-height="1:1" class="animated fadeIn">
+
+
+
+      <md-grid-tile class="small-grid-tile md-whiteframe-z1">
+        <img src="img/schedule-week1.png" alt="" />
+        <md-grid-tile-footer ng-click="redirect('https://www.reddit.com/r/CU_Boulder_eSports/comments/52xr2h/friendlies_saturday_september_17th_league_of/')">
+          <h3>Schedule for Week 1 is live!</h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+
+
+      <md-grid-tile class="small-grid-tile">
+        <img src="img/CUE_Pac12_Announcment.jpg" alt="" />
+        <md-grid-tile-footer ng-click="redirect('http://www.espn.com/esports/story/_/id/15724001/pac-12-enter-esports-upcoming-year')">
+          <h3>PAC-12 announces that they will be hosting eSports tournaments</h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+
+      <md-grid-tile class="small-grid-tile" ng-click="redirect('/register')">
+        <img src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="" />
+        <md-grid-tile-footer>
+          <h3>Register to compete!</h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+
+      <md-grid-tile class="small-grid-tile" ng-click="redirect('https://www.youtube.com/watch?v=al4svFEtA80')">
+        <img src="img/register-help.JPG" alt="" />
+        <md-grid-tile-footer>
+          <h3>Need Help Registering?</h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
 
 
 
 
 
-
-    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Registration for Season 1 is now open!</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-              <img ng-src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="" />
-            </div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent" ng-click="redirect('https://www.reddit.com/r/CU_Boulder_eSports/comments/4y0j67/season_1_general_information/')">Read More</md-button>
-        </md-card-actions>
-    </md-card><md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">PAC-12 announces that they will be hosting eSports tournaments.</span>
-            <span class="md-subhead"></span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-              <img ng-src="img/CUE_Pac12_Announcment.jpg" alt="" />
-            </div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent" ng-click="redirect('http://www.espn.com/esports/story/_/id/15724001/pac-12-enter-esports-upcoming-year')">Read More</md-button>
-        </md-card-actions>
+    </md-grid-list>
+    <md-card id="twitch-stream-box">
+      <!-- <div id="twitch-stream"></div> -->
+      <iframe
+        src="https://player.twitch.tv/?channel=Cu_boulder_esports"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen="true">
+      </iframe>
     </md-card>
-    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Check out CU eSports on FOX-31 news!</span>
-            <span class="md-subhead"></span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-              <img ng-src="img/CUE_eSports_In_The_News.jpg" alt="" />
-            </div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent" ng-click="redirect('http://kdvr.com/2016/06/30/college-scholarship-money-up-for-grabs-in-competitive-video-gaming/')">Read More</md-button>
-        </md-card-actions>
-    </md-card>
-
   </div>
 
 
@@ -69,9 +69,9 @@
       <div flex="55" layout="column">
 
         <md-card id="news-large" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
-          <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/4y0j67/season_1_general_information/">
-            <img ng-src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="arena" />
-            <h2 class="image-text" layout-padding>Registration is now open for Season 1!</h2>
+          <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/52xr2h/friendlies_saturday_september_17th_league_of/">
+            <img ng-src="img/schedule-week1.png" alt="arena" />
+            <h2 class="image-text" layout-padding>Schedule for Saturday, September 17th</h2>
           </a>
         </md-card>
 

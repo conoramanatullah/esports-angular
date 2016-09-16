@@ -132,7 +132,7 @@ md-card .md-subhead {
 }
 #register-card{
   background-color: #ECF0F1;
-  width: 50vw;
+  width: 90vw;
 }
 
 
@@ -190,8 +190,8 @@ md-card .md-subhead {
 }
 #user-profile #user-profile-card #user-avatar{
   border-radius: 50%;
-  max-width: 15vh;
-  max-height: 15vh;
+  max-width: 150px;
+
 }
 #user-profile #user-profile-card #user-avatar img:hover{
   -webkit-transition : -webkit-filter 250ms ease;
@@ -217,7 +217,7 @@ md-card .md-subhead {
 }
 
 #news-large img {
-  -webkit-filter: grayscale(0%) brightness(40%) ;
+  -webkit-filter: grayscale(0%) brightness(80%) ;
   width: 100%;
   object-fit: cover;
 }
@@ -321,6 +321,7 @@ md-card .md-subhead {
 
 #home-page{
   overflow: auto;
+  padding: 0px;
 }
 
 #sponsor-bar {
@@ -463,7 +464,25 @@ md-card .md-subhead {
   margin-left: 50px;
 }
 
-/*****************CLASS SELECTORS*********************/
+/*****************CLASS SELECTORS*********************/\
+.twitch-mobile-container iframe{
+
+}
+.small-grid-tile {
+  background-color: white;
+  overflow: hidden;
+}
+.small-grid-tile img{
+  -webkit-filter: grayscale(0%) brightness(50%) ;
+  zoom: 2;  //increase if you have very small images
+
+  display: block;
+  margin: auto;
+  max-width: 250%;
+
+}
+
+
 .cu-logo{
   bottom: 0;
 }
