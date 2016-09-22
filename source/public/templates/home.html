@@ -17,24 +17,24 @@
 
 
       <md-grid-tile class="small-grid-tile md-whiteframe-z1">
-        <img src="img/schedule-week1.png" alt="" />
-        <md-grid-tile-footer ng-click="redirect('https://www.reddit.com/r/CU_Boulder_eSports/comments/52xr2h/friendlies_saturday_september_17th_league_of/')">
-          <h3>Schedule for Week 1 is live!</h3>
+        <img src="img/cuvsasu.png" alt="" />
+        <md-grid-tile-footer ng-click="redirect('https://www.reddit.com/r/CU_Boulder_eSports/comments/5412lh/cu_vs_uofa_sunday_september_25/')">
+          <h3>CU vs. U of A</h3>
         </md-grid-tile-footer>
       </md-grid-tile>
 
 
       <md-grid-tile class="small-grid-tile">
-        <img src="img/CUE_Pac12_Announcment.jpg" alt="" />
-        <md-grid-tile-footer ng-click="redirect('http://www.espn.com/esports/story/_/id/15724001/pac-12-enter-esports-upcoming-year')">
-          <h3>PAC-12 announces that they will be hosting eSports tournaments</h3>
+        <img src="img/schedule-week2.png" alt="" />
+        <md-grid-tile-footer ng-click="redirect('https://www.reddit.com/r/CU_Boulder_eSports/comments/540zny/saturday_september_24/')">
+          <h3>Schedule - September 24</h3>
         </md-grid-tile-footer>
       </md-grid-tile>
 
-      <md-grid-tile class="small-grid-tile" ng-click="redirect('/register')">
-        <img src="img/MainPage_CUE_Season_1_Kickoff.jpg" alt="" />
+      <md-grid-tile class="small-grid-tile" ng-click="redirect('https://docs.google.com/forms/d/e/1FAIpQLSeg07Xn_0Jf8_cJE_QDo2TAKwYRcJRwtOIC2jzUSaepvAZqww/viewform?c=0&w=1')">
+        <img src="img/overwatch-event-oct14.jpg" alt="" />
         <md-grid-tile-footer>
-          <h3>Register to compete!</h3>
+          <h3>Overwatch LAN Event</h3>
         </md-grid-tile-footer>
       </md-grid-tile>
 
@@ -69,31 +69,32 @@
       <div flex="55" layout="column">
 
         <md-card id="news-large" ng-if="!($mdMedia('xs') || $mdMedia('sm'))">
-          <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/52xr2h/friendlies_saturday_september_17th_league_of/">
-            <img ng-src="img/schedule-week1.png" alt="arena" />
-            <h2 class="image-text" layout-padding>Schedule for Saturday, September 17th</h2>
+          <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/5412lh/cu_vs_uofa_sunday_september_25/">
+            <img ng-src="img/cuvsasu.png" alt="arena" />
+            <h2 class="image-text" layout-padding>CU vs U of A - CSGO</h2>
           </a>
         </md-card>
 
         <div layout="row" id="small-news-container" ng-if="!($mdMedia('xs'))">
-          <md-card class="news-small" flex="50">
-            <a href="http://www.espn.com/esports/story/_/id/15724001/pac-12-enter-esports-upcoming-year">
-              <div id="wrap">
-                <img ng-src="img/CUE_Pac12_Announcment.jpg" alt="arena" />
-                <h2 class="image-text">PAC-12 announces that they will be hosting eSports tournaments</h2>
-              </div>
-            </a>
-          </md-card>
           <md-card class="news-small" flex="50" >
-            <a href="https://www.youtube.com/watch?v=al4svFEtA80">
+            <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/540zny/saturday_september_24/">
               <div id="wrap">
-                <img src="img/register-help.JPG" alt="arena" />
+                <img src="img/schedule-week2.png" alt="arena" />
                 <div class="image-footer">
-                  <h2 class="image-text">Need help getting registered?</h2>
+                  <h2 class="image-text">Schedule - September 24th</h2>
                 </div>
               </div>
             </a>
           </md-card>
+          <md-card class="news-small" flex="50">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeg07Xn_0Jf8_cJE_QDo2TAKwYRcJRwtOIC2jzUSaepvAZqww/viewform?c=0&w=1">
+              <div id="wrap">
+                <img ng-src="img/overwatch-event-oct14.jpg" alt="arena" />
+                <h2 class="image-text">LAN Event - Oct. 14</h2>
+              </div>
+            </a>
+          </md-card>
+
         </div>
 
 

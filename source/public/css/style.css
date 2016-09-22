@@ -218,8 +218,10 @@ md-card .md-subhead {
 }
 
 #news-large img {
+  
   -webkit-filter: grayscale(0%) brightness(80%) ;
-  width: 100%;
+  max-width: 100%;
+
   object-fit: cover;
 }
 #small-news-container{
@@ -256,8 +258,9 @@ md-card .md-subhead {
   bottom: 0;
 }
 .news-small img {
-  -webkit-filter: brightness(40%) ;
-  object-fit: cover;
+  max-width: 100%;
+  -webkit-filter: brightness(60%) ;
+  /*object-fit: cover;*/
 }
 
 #match-tracker {
@@ -479,7 +482,7 @@ md-card .md-subhead {
 
   display: block;
   margin: auto;
-  max-width: 250%;
+  max-width: 120%;
 
 }
 
