@@ -71,8 +71,8 @@ md-card .md-subhead {
 
 #user-avatar{
   text-align: center;
-  background-color: #32383D;
-  overflow: hidden;
+  /*background-color: #32383D;*/
+  /*overflow: hidden;*/
 
 }
 #user-avatar i {
@@ -88,6 +88,7 @@ md-card .md-subhead {
   border-radius: 50%;
   /*max-width: 50%;*/
   max-width: 10vw;
+  max-height: 10vw;
   /*height: 15vh;*/
 }
 #user-avatar h1 {
