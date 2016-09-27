@@ -203,11 +203,11 @@ md-card .md-subhead {
 }
 
 #news-large {
-  /*height: 30vw;*/
+  height: 50vh;
   position: relative;
   padding-top: 10px;
   margin: 20px;
-  height: 55vh;
+  /*height: 55vh;*/
   background-color: #cfb87c;
 }
 #news-large .image-text {
@@ -218,7 +218,7 @@ md-card .md-subhead {
 }
 
 #news-large img {
-  
+
   -webkit-filter: grayscale(0%) brightness(80%) ;
   max-width: 100%;
 
