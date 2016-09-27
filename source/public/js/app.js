@@ -59,6 +59,7 @@
   })
   //  *******************Controllers!*********************
   .controller('mainController', function($scope, $rootScope, $mdSidenav, $log, $timeout, $mdMedia, $window) {
+    $scope.BUILD_NUMBER = "0.8.8";
     $scope.$mdMedia = $mdMedia;
     $scope.loaded = false;
     $scope.$on('$viewContentLoaded', function(){
@@ -77,6 +78,7 @@
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
+        $scope.isUser = true;
         $scope.showRequest = 1;
         var uid = user.uid;
         $scope.notifications = {};
@@ -242,7 +244,7 @@
       }
     };
 
- 
+
 
 
 

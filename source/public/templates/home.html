@@ -4,17 +4,17 @@
     <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-accent md-hue-2"></md-progress-circular>
   </div>
 
-
   <div class="container" ng-if="loaded && ($mdMedia('xs') || $mdMedia('sm'))">
+
     <md-toolbar class="md-accent md-whiteframe-z2 animated slideInLeft">
       <div class="md-toolbar-tools">
         <span class="animated fadeIn">Welcome! </span>
       </div>
     </md-toolbar>
+
     <br>
+
     <md-grid-list md-cols-xs="1" md-cols-sm="2"  md-gutter="10px" md-row-height="1:1" class="animated fadeIn">
-
-
 
       <md-grid-tile class="small-grid-tile md-whiteframe-z1">
         <img src="img/cuvsasu.png" alt="" />
@@ -22,7 +22,6 @@
           <h3>CU vs. U of A</h3>
         </md-grid-tile-footer>
       </md-grid-tile>
-
 
       <md-grid-tile class="small-grid-tile">
         <img src="img/schedule-week2.png" alt="" />
@@ -45,13 +44,9 @@
         </md-grid-tile-footer>
       </md-grid-tile>
 
-
-
-
-
     </md-grid-list>
+
     <md-card id="twitch-stream-box">
-      <!-- <div id="twitch-stream"></div> -->
       <iframe
         src="https://player.twitch.tv/?channel=Cu_boulder_esports"
         frameborder="0"
@@ -59,6 +54,7 @@
         allowfullscreen="true">
       </iframe>
     </md-card>
+
   </div>
 
 
@@ -76,6 +72,7 @@
         </md-card>
 
         <div layout="row" id="small-news-container" ng-if="!($mdMedia('xs'))">
+
           <md-card class="news-small" flex="50" >
             <a href="https://www.reddit.com/r/CU_Boulder_eSports/comments/540zny/saturday_september_24/">
               <div id="wrap">
@@ -86,6 +83,7 @@
               </div>
             </a>
           </md-card>
+
           <md-card class="news-small" flex="50">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeg07Xn_0Jf8_cJE_QDo2TAKwYRcJRwtOIC2jzUSaepvAZqww/viewform?c=0&w=1">
               <div id="wrap">
@@ -97,64 +95,39 @@
 
         </div>
 
-
-
       </div>
 
       <div flex="45" id="right-panel" >
 
-
         <md-card id="match-tracker" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
           <div id="gold-bar"></div>
-          <div  style="font-family: 'Fjalla One', sans-serif;" flex layout-padding>
+          <div ng-if="!isUser" style="font-family: 'Fjalla One', sans-serif;" flex layout-padding>
             <span><h2>Games are starting!</h2></span>
             <hr style="width: 150px;">
-
             <h1 style="font-size: 5em;">Get Registered!</h1>
             <hr style="width: 100px;">
             <md-button class="md-raised md-accent" style="font-size: 3em;"href="/register" ng-disabled="">Register Here</md-button>
-            <div layout="row" style="display: none;">
-              <div flex="10" style="background-color:yellow">
-
-              </div>
-              <div flex="20" style="background-color:red">
-
-              </div>
-              <div flex="10" style="background-color:yellow">
-
-              </div>
-              <div flex="20" style="background-color:red">
-
-              </div>
-              <div flex="10" style="background-color:yellow">
-
-              </div>
-              <div flex="20" style="background-color:red">
-
-              </div>
-            </div>
             <span><h3>Only for new users</h3></span>
+          </div>
+          <div ng-if="isUser">
+            <span><h2>Schedule Coming Soon.</h2></span>
           </div>
         </md-card>
 
-
-
-        <div id="" ng-controller="TwitchCtrl" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
-
-
+        <div ng-controller="TwitchCtrl" ng-if="!($mdMedia('xs') || $mdMedia('sm') || $mdMedia('md'))">
           <md-card id="twitch-stream-box">
-            <!-- <div id="twitch-stream"></div> -->
             <iframe ng-if="$mdMedia('lg') || $mdMedia('gt-lg') || $mdMedia('xl')"
               src="https://player.twitch.tv/?channel=Cu_boulder_esports"
-
               frameborder="0"
               scrolling="no"
               allowfullscreen="true">
             </iframe>
           </md-card>
         </div>
-      </div>
+        <!-- END TwitchController -->
 
+      </div>
+      <!-- END Right Panel -->
     </div>
 
   </div>

@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Ubuntu" rel="stylesheet">
 
-  <!-- Animate CSS -->
+
   <link rel="stylesheet" href="/css/animate.css" media="screen">
-  <link rel="stylesheet" href="/css/style.css?v0.8.8">
+  <link rel="stylesheet" href="/css/style.css?v0.8.9">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -32,8 +32,10 @@
   <meta name="theme-color" content="#ffffff">
 
   <script>
-    var BUILD_NUMBER = "0.8.8";
+    var BUILD_NUMBER = "0.8.9";
   </script>
+
+
   <!-- Firebase -->
   <script src="bower_components/firebase/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
@@ -87,25 +89,28 @@
           </div>
           <div id="user-avatar">
             <img src="{{ current_user.avatar }}" alt="User Image" md-whiteframe="4" />
+
             <br>
             <br>
             <br>
+
             <h1>
               {{ current_user.displayName }}
             </h1>
 
-
           </div>
+
           <div class="spacer">
             <br>
             <br>
           </div>
+
           <div class="list" ng-controller="loginController">
+
             <a href="/"><md-button class="page-button" ng-click="closeSideNav()">Home</md-button></a>
             <a ng-if="isUser" href="/profile"><md-button class="page-button" ng-click="closeSideNav()">Profile</md-button></a>
-            <!-- <a href="/marketplace"><md-button class="page-button">Marketplace</md-button></a> -->
-            <!-- <a href="/events"><md-button class="page-button" ng-click="closeSideNav()">Events</md-button></a> -->
             <a ng-if="isUser" href="/players"><md-button class="page-button" ng-click="closeSideNav()">Players</md-button></a>
+
             <md-menu ng-if="isUser" ng-controller="menuController">
               <md-button  ng-click="$mdOpenMenu($event)" class="page-button" aria-label="Open sample menu" md-menu-origin>
                 Teams
@@ -141,40 +146,32 @@
             <div class="cu-logo">
               <img src="img/cu.png" alt="" />
             </div>
+
           </div>
         </div>
       </md-content>
     </md-sidenav>
 
-
-
     <div id="body-content" layout="column" flex>
       <div>
+
         <ng-view></ng-view>
+
       </div>
     </div>
-    <!-- Right Sidenav -->
 
     <div ng-controller = "mainController">
       <md-sidenav md-component-id="right" class="md-sidenav-right md-whiteframe-4dp">
+
         <md-toolbar class="md-accent" ng-controller="RightCtrl">
           <h1 class="md-toolbar-tools">Notifications</h1>
           <md-button ng-click="close()">Close</md-button>
         </md-toolbar>
-        <md-content flex layout-padding>
-          <!-- <div ng-if="notifications" ng-repeat="(notification, data) in notifications.requests">
-            <div ng-repeat="request in data">
-              <p>
-                {{request.username}}
-              </p> has requested to join your {{ request.game }} team.<br>
-              <md-button ng-if="showRequest" ng-click="approve(request)">Approve</md-button>
-              <md-button ng-click="deny(request)">Deny</md-button>
-              <hr>
-            </div>
 
-          </div> -->
+        <md-content flex layout-padding>
           Nothing Here!
         </md-content>
+
       </md-sidenav>
     </div>
 
@@ -193,7 +190,7 @@
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
-  <script src="js/app.js?v0.8.8"></script>
+  <script src="js/app.js?v0.8.9"></script>
 
   <script>
 
